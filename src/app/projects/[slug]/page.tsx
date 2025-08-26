@@ -1,4 +1,4 @@
-import { projects } from '@/app/page';
+import { projects } from '@/lib/projects';
 import { notFound } from 'next/navigation';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -28,7 +28,7 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
             <span className="font-bold text-lg">MrTG1B</span>
           </Link>
           <Button asChild variant="outline" size="sm">
-            <Link href="/#projects">
+            <Link href="/projects">
               <ArrowLeft className="mr-2 h-4 w-4" />
               Back to Projects
             </Link>
