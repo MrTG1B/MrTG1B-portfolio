@@ -67,9 +67,9 @@ export const projects = [
     links: {}
   },
   {
-    slug: "smart-street-light-fault-detection",
-    title: "Smart Street Light Fault Detection System",
-    description: "An IoT network with a dashboard for proactive maintenance.",
+    slug: "auralis",
+    title: "Auralis",
+    description: "An IoT network with a dashboard for proactive maintenance of street lights.",
     longDescription: "This IoT-based system monitors a network of street lights in real-time. It automatically detects faults such as bulb failures or power issues and reports them to a central dashboard. This enables maintenance teams to be proactive, reducing downtime and improving city-wide safety and efficiency.",
     image: "https://picsum.photos/600/400?random=5",
     tags: ["IoT", "ESP32", "Firebase", "Dashboard"],
