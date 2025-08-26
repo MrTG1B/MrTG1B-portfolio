@@ -89,17 +89,17 @@ export default function Home() {
           <div className="container mx-auto max-w-screen-2xl px-4 md:px-6">
              <div className="grid md:grid-cols-2 gap-12">
                 <div>
-                    <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl font-headline text-primary mb-6 flex items-center"><User className="mr-3"/> About Me</h2>
+                    <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl font-headline text-primary mb-6">About Me</h2>
                     <div className="space-y-4 text-muted-foreground">
-                      <p>🎓 Currently pursuing Electronics and Communication Engineering at Techno International New Town.</p>
-                      <p>💡 Passionate about IoT, Embedded Systems, Robotics, and Full Stack Development.</p>
-                      <p>🚀 Constantly learning and building innovative projects that bridge hardware and software.</p>
-                      <p>🌐 Actively exploring open-source contributions and collaborative projects.</p>
-                      <p>📱 I also develop Android apps using XML and Android Studio.</p>
+                      <p>Currently pursuing Electronics and Communication Engineering at Techno International New Town.</p>
+                      <p>Passionate about IoT, Embedded Systems, Robotics, and Full Stack Development.</p>
+                      <p>Constantly learning and building innovative projects that bridge hardware and software.</p>
+                      <p>Actively exploring open-source contributions and collaborative projects.</p>
+                      <p>I also develop Android apps using XML and Android Studio.</p>
                     </div>
                 </div>
                 <div>
-                    <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl font-headline text-primary mb-6 flex items-center"><GraduationCap className="mr-3"/> Education</h2>
+                    <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl font-headline text-primary mb-6">Education</h2>
                     <div className="space-y-4">
                         <div>
                             <h3 className="font-semibold">Techno International New Town, Kolkata</h3>
@@ -123,7 +123,7 @@ export default function Home() {
           <div className="container mx-auto max-w-screen-2xl px-4 md:px-6">
             <div className="flex flex-col items-center justify-center space-y-4 text-center">
               <div className="space-y-2">
-                 <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl font-headline text-primary flex items-center justify-center"><Briefcase className="mr-3"/> Featured Projects</h2>
+                 <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl font-headline text-primary">Featured Projects</h2>
                 <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
                   Here are some of the projects I'm proud of. Each one represents a challenge I was excited to tackle.
                 </p>
@@ -167,7 +167,7 @@ export default function Home() {
             <section id="skills" className="w-full py-16 md:py-24 lg:py-32">
               <div className="container mx-auto max-w-screen-2xl px-4 md:px-6 h-full">
                 <div className="flex flex-col items-center justify-center space-y-4 text-center mb-12">
-                  <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl font-headline text-primary flex items-center"><Star className="mr-3"/> My Skillset</h2>
+                  <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl font-headline text-primary">My Skillset</h2>
                   <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
                     I continuously strive to learn and master new technologies.
                   </p>
@@ -189,7 +189,7 @@ export default function Home() {
             <section id="achievements" className="w-full py-16 md:py-24 lg:py-32 bg-card">
               <div className="container mx-auto max-w-screen-2xl px-4 md:px-6 h-full">
                 <div className="flex flex-col items-center justify-center space-y-4 text-center mb-12">
-                  <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl font-headline text-primary flex items-center"><Trophy className="mr-3"/> Achievements</h2>
+                  <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl font-headline text-primary">Achievements</h2>
                    <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
                     Awards and recognition I've received for my work.
                   </p>
@@ -237,3 +237,5 @@ export default function Home() {
     </div>
   );
 }
+
+    
