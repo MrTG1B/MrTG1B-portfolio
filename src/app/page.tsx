@@ -60,8 +60,8 @@ export default function Home() {
               </p>
                <div className="flex space-x-2">
                 <Link href="mailto:tirthankardasgupta913913@gmail.com" className="text-muted-foreground hover:text-primary"><Mail /></Link>
-                <Link href="https://www.linkedin.com/in/tirthankar-dasgupta-1b1a1b1b1/" target="_blank" className="text-muted-foreground hover:text-primary"><Linkedin /></Link>
-                <Link href="https://github.com/MrT-G-1-B" target="_blank" className="text-muted-foreground hover:text-primary"><Github /></Link>
+                <Link href="https://www.linkedin.com/in/tirthankar-dasgupta" target="_blank" className="text-muted-foreground hover:text-primary"><Linkedin /></Link>
+                <Link href="https://github.com/MrTG1B" target="_blank" className="text-muted-foreground hover:text-primary"><Github /></Link>
                 <Link href="https://twitter.com/TIRTHAN20755732" target="_blank" className="text-muted-foreground hover:text-primary"><Twitter /></Link>
               </div>
               <div className="flex space-x-4">
@@ -230,13 +230,15 @@ export default function Home() {
           </div>
           <div className="flex space-x-4">
             <Link href="https://twitter.com/TIRTHAN20755732" target="_blank" className="hover:text-primary"><Twitter className="h-6 w-6" /></Link>
-            <Link href="https://github.com/MrT-G-1-B" target="_blank" className="hover:text-primary"><Github className="h-6 w-6" /></Link>
-            <Link href="https://www.linkedin.com/in/tirthankar-dasgupta-1b1a1b1b1/" target="_blank" className="hover:text-primary"><Linkedin className="h-6 w-6" /></Link>
+            <Link href="https://github.com/MrTG1B" target="_blank" className="hover:text-primary"><Github className="h-6 w-6" /></Link>
+            <Link href="https://www.linkedin.com/in/tirthankar-dasgupta" target="_blank" className="hover:text-primary"><Linkedin className="h-6 w-6" /></Link>
           </div>
         </div>
       </footer>
     </div>
   );
 }
+
+    
 
     

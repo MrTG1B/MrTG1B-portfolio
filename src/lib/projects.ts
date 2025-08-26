@@ -14,7 +14,7 @@ export const projects = [
       "Integrated a powerful search feature for quick medicine lookup."
     ],
     links: {
-      github: "https://github.com/MrT-G-1-B/WellMed",
+      github: "https://github.com/MrTG1B/WellMed",
       live: "https://wellmed-mrt-g-1-b.web.app/"
     }
   },
@@ -32,7 +32,7 @@ export const projects = [
       "Used by a growing community of AI art and content creators."
     ],
     links: {
-      github: "https://github.com/MrT-G-1-B/PromptForge",
+      github: "https://github.com/MrTG1B/PromptForge",
       live: "https://prompt-forge-ui.web.app/"
     }
   },
@@ -80,7 +80,7 @@ export const projects = [
       "Presented the project at Rajabazar Science College, winning 1st Runner-up."
     ],
     links: {
-      github: "https://github.com/MrT-G-1-B/Auralis"
+      github: "https://github.com/MrTG1B/Auralis"
     }
   },
   {
@@ -97,7 +97,7 @@ export const projects = [
       "Created an Android app for controlling and configuring the hand."
     ],
     links: {
-      github: "https://github.com/MrT-G-1-B/Handy"
+      github: "https://github.com/MrTG1B/Handy"
     }
   },
   {
@@ -121,8 +121,11 @@ export const projects = [
     aiHint: "ai assistant robot",
     achievements: [],
     links: {
-      github: "https://github.com/MrT-G-1-B/N.O.V.A",
+      github: "https://github.com/MrTG1B/N.O.V.A",
       live: "https://mr-t-g-1-b.github.io/N.O.V.A/"
     }
   }
 ];
+
+
+    
