@@ -22,8 +22,8 @@ export const projects = [
       "Integrated a powerful search feature for quick medicine lookup."
     ],
     links: {
-      github: "#",
-      live: "#"
+      github: "https://github.com/MrT-G-1-B/WellMed",
+      live: "https://wellmed-mrt-g-1-b.web.app/"
     }
   },
   {
@@ -40,8 +40,8 @@ export const projects = [
       "Used by a growing community of AI art and content creators."
     ],
     links: {
-      github: "#",
-      live: "#"
+      github: "https://github.com/MrT-G-1-B/PromptForge",
+      live: "https://prompt-forge-ui.web.app/"
     }
   },
   {
@@ -88,7 +88,7 @@ export const projects = [
       "Presented the project at Rajabazar Science College, winning 1st Runner-up."
     ],
     links: {
-      github: "#"
+      github: "https://github.com/MrT-G-1-B/Auralis"
     }
   },
   {
@@ -105,18 +105,45 @@ export const projects = [
       "Created an Android app for controlling and configuring the hand."
     ],
     links: {
-      github: "#"
+      github: "https://github.com/MrT-G-1-B/Handy"
     }
   },
+  {
+    slug: "agridrone",
+    title: "AgriDrone",
+    description: "A cost-efficient drone for precision pesticide spraying.",
+    longDescription: "AgriDrone is an agricultural drone designed for precision pesticide spraying. It aims to reduce chemical waste and improve crop health by targeting specific areas. The drone is built with cost-effective components, making it accessible for small to medium-sized farms.",
+    image: "https://picsum.photos/600/400?random=7",
+    tags: ["Drone", "Agriculture", "Hardware", "IoT"],
+    aiHint: "agriculture drone",
+    achievements: [],
+    links: {}
+  },
+  {
+    slug: "nova",
+    title: "N.O.V.A.",
+    description: "A voice-activated personal AI assistant, similar to Jarvis.",
+    longDescription: "N.O.V.A. (Neural Operating & Voice Assistant) is a personal AI assistant inspired by Jarvis from Iron Man. It can perform various tasks through voice commands, such as controlling smart home devices, providing information, and managing schedules. It integrates with multiple APIs to extend its capabilities.",
+    image: "https://picsum.photos/600/400?random=8",
+    tags: ["AI", "Python", "Voice Assistant"],
+    aiHint: "ai assistant robot",
+    achievements: [],
+    links: {
+      github: "https://github.com/MrT-G-1-B/N.O.V.A",
+      live: "https://mr-t-g-1-b.github.io/N.O.V.A/"
+    }
+  }
 ];
 
 const skills = [
   { name: "C / C++", level: 90 },
   { name: "Python", level: 95 },
-  { name: "JavaScript (Node.js)", level: 85 },
-  { name: "Web Dev (HTML, CSS, Flask, Express)", level: 88 },
-  { name: "Hardware (ESP32, Arduino)", level: 92 },
-  { name: "Cloud & APIs (Firebase, GenAI)", level: 80 },
+  { name: "JavaScript", level: 85 },
+  { name: "Web (HTML, CSS, Node.js, Flask, Express)", level: 88 },
+  { name: "Hardware (ESP32, Arduino, 3D Printing)", level: 92 },
+  { name: "Mobile (Android Studio, XML)", level: 75 },
+  { name: "Cloud & APIs (Firebase, GenAI, REST)", level: 80 },
+  { name: "Tools (Git, GitHub, Figma, AutoCAD, Fusion 360)", level: 90 },
 ];
 
 const achievements = [
@@ -150,15 +177,16 @@ export default function Home() {
             <div className="flex flex-col justify-center space-y-6">
               <Badge variant="outline" className="w-fit text-accent font-semibold border-accent">Tirthankar Dasgupta</Badge>
               <h1 className="text-4xl font-extrabold tracking-tight lg:text-5xl font-headline">
-                Electronics Engineer & Full-Stack Developer
+                Hi there, I'm Tirthankar Dasgupta 👋
               </h1>
+               <p className="text-2xl font-semibold text-muted-foreground">Aspiring Engineer | Problem Solver | Tech Enthusiast</p>
               <p className="max-w-[600px] text-muted-foreground md:text-xl">
                 Aspiring Electronics and Communication Engineering student with a passion for IoT, Embedded Systems, Robotics, and Full‑Stack Development.
               </p>
                <div className="flex space-x-2">
                 <Link href="mailto:tirthankardasgupta913913@gmail.com" className="text-muted-foreground hover:text-primary"><Mail /></Link>
-                <Link href="#" className="text-muted-foreground hover:text-primary"><Linkedin /></Link>
-                <Link href="#" className="text-muted-foreground hover:text-primary"><Github /></Link>
+                <Link href="https://www.linkedin.com/in/tirthankar-dasgupta-1b1a1b1b1/" target="_blank" className="text-muted-foreground hover:text-primary"><Linkedin /></Link>
+                <Link href="https://github.com/MrT-G-1-B" target="_blank" className="text-muted-foreground hover:text-primary"><Github /></Link>
               </div>
               <div className="flex space-x-4">
                 <Button asChild>
@@ -187,24 +215,28 @@ export default function Home() {
              <div className="grid md:grid-cols-2 gap-12">
                 <div>
                     <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl font-headline text-primary mb-6 flex items-center"><User className="mr-3"/> About Me</h2>
-                    <p className="text-muted-foreground">
-                        I am an aspiring Electronics and Communication Engineering student with a deep passion for IoT, Embedded Systems, Robotics, and Full-Stack Development. I am eager to leverage a diverse tech stack—ranging from low-level firmware to web apps—to solve real-world problems in innovative projects.
-                    </p>
+                    <div className="space-y-4 text-muted-foreground">
+                      <p>🎓 Currently pursuing Electronics and Communication Engineering at Techno International New Town.</p>
+                      <p>💡 Passionate about IoT, Embedded Systems, Robotics, and Full Stack Development.</p>
+                      <p>🚀 Constantly learning and building innovative projects that bridge hardware and software.</p>
+                      <p>🌐 Actively exploring open-source contributions and collaborative projects.</p>
+                      <p>📱 I also develop Android apps using XML and Android Studio.</p>
+                    </div>
                 </div>
                 <div>
                     <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl font-headline text-primary mb-6 flex items-center"><GraduationCap className="mr-3"/> Education</h2>
                     <div className="space-y-4">
                         <div>
                             <h3 className="font-semibold">Techno International New Town, Kolkata</h3>
-                            <p className="text-sm text-muted-foreground">B.Tech, Electronics & Communication Engineering | 2022 – Present</p>
+                            <p className="text-sm text-muted-foreground">B.Tech, Electronics & Communication Engineering | 2022 – Present (4th Year)</p>
                         </div>
                         <div>
                             <h3 className="font-semibold">Rishi Aurobindo Memorial Academy</h3>
-                            <p className="text-sm text-muted-foreground">Higher Secondary (ISC), Pure Science with Computer Science | 2020 – 2022</p>
+                            <p className="text-sm text-muted-foreground">Higher Secondary (ISC), Pure Science with Computer Science | 2020 – 2022 (Distinction)</p>
                         </div>
                          <div>
                             <h3 className="font-semibold">Calcutta Airport English High School (H.S.)</h3>
-                            <p className="text-sm text-muted-foreground">Madhyamik | 2008 – 2020</p>
+                            <p className="text-sm text-muted-foreground">Madhyamik | 2008 – 2020 (First Division)</p>
                         </div>
                     </div>
                 </div>
@@ -316,9 +348,9 @@ export default function Home() {
             <p className="text-sm font-medium">&copy; {new Date().getFullYear()} Tirthankar Dasgupta. All Rights Reserved.</p>
           </div>
           <div className="flex space-x-4">
-            <Link href="#" className="hover:text-primary"><Twitter className="h-6 w-6" /></Link>
-            <Link href="#" className="hover:text-primary"><Github className="h-6 w-6" /></Link>
-            <Link href="#" className="hover:text-primary"><Linkedin className="h-6 w-6" /></Link>
+            <Link href="https://twitter.com" target="_blank" className="hover:text-primary"><Twitter className="h-6 w-6" /></Link>
+            <Link href="https://github.com/MrT-G-1-B" target="_blank" className="hover:text-primary"><Github className="h-6 w-6" /></Link>
+            <Link href="https://www.linkedin.com/in/tirthankar-dasgupta-1b1a1b1b1/" target="_blank" className="hover:text-primary"><Linkedin className="h-6 w-6" /></Link>
           </div>
         </div>
       </footer>
