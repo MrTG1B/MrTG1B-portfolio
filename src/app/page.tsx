@@ -1,36 +1,57 @@
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, Code, Github, Linkedin, Mail, Twitter } from "lucide-react";
+import { ArrowRight, Code, Github, Linkedin, Mail, Twitter, CheckCircle } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Progress } from "@/components/ui/progress";
 import { ContactForm } from "@/components/contact-form";
 
-const projects = [
+export const projects = [
   {
+    slug: "e-commerce-platform",
     title: "E-commerce Platform",
     description: "A full-featured e-commerce site with product galleries, a shopping cart, and a secure checkout process, built with Next.js and Stripe.",
+    longDescription: "Developed a comprehensive e-commerce platform from the ground up, providing a seamless shopping experience. The platform includes features like dynamic product catalogs, a persistent shopping cart, user authentication, and a secure payment gateway integrated with Stripe. The front-end is built with Next.js for server-side rendering and optimal performance, while the backend is powered by Node.js and Firebase for data management.",
     image: "https://picsum.photos/600/400?random=1",
-    link: "#",
-    tags: ["Next.js", "React", "Stripe", "Tailwind CSS"],
-    aiHint: "online shopping"
+    tags: ["Next.js", "React", "Stripe", "Tailwind CSS", "Firebase"],
+    aiHint: "online shopping",
+    achievements: [
+      "Reduced page load time by 40% through server-side rendering and image optimization.",
+      "Implemented a secure and reliable checkout process using Stripe Elements.",
+      "Designed a fully responsive UI that works flawlessly on all devices.",
+      "Achieved a 99.9% uptime with a scalable cloud architecture."
+    ]
   },
   {
+    slug: "project-management-tool",
     title: "Project Management Tool",
     description: "A collaborative tool for teams to manage tasks, track progress, and communicate effectively, featuring a real-time Kanban board.",
+    longDescription: "This project management tool is designed to enhance team productivity and streamline workflow. It features a real-time, drag-and-drop Kanban board, task assignments, deadline tracking, and threaded conversations. Built with React and Firebase's Firestore, it ensures that all data is synchronized across clients in real-time. GraphQL was used to create an efficient and flexible API for data fetching.",
     image: "https://picsum.photos/600/400?random=2",
-    link: "#",
-    tags: ["React", "Firebase", "Node.js", "GraphQL"],
-    aiHint: "team collaboration"
+    tags: ["React", "Firebase", "Node.js", "GraphQL", "Real-time"],
+    aiHint: "team collaboration",
+    achievements: [
+      "Enabled real-time collaboration for distributed teams, improving project completion rates by 25%.",
+      "Developed an intuitive and user-friendly interface that received highly positive feedback.",
+      "Built a flexible GraphQL API to efficiently handle complex data queries.",
+      "Ensured data consistency and real-time updates using Firestore listeners."
+    ]
   },
   {
+    slug: "personal-blog",
     title: "Personal Blog",
     description: "A sleek, modern blog with a custom CMS for easy content management and a focus on readability and performance.",
+    longDescription: "Created a high-performance personal blog using Gatsby for static site generation, ensuring fast load times and an excellent user experience. The blog is integrated with Contentful, a headless CMS, allowing for easy content creation and management without needing to touch the code. The design is minimalistic, focusing on readability, with styling implemented using Styled Components.",
     image: "https://picsum.photos/600/400?random=3",
-    link: "#",
-    tags: ["Gatsby", "Contentful", "Styled Components"],
-    aiHint: "writing reading"
+    tags: ["Gatsby", "Contentful", "Styled Components", "Jamstack"],
+    aiHint: "writing reading",
+    achievements: [
+      "Achieved perfect Lighthouse scores for performance, accessibility, and SEO.",
+      "Designed a custom, headless CMS workflow for seamless content updates.",
+      "Built with a Jamstack architecture for enhanced security and scalability.",
+      "Crafted a unique and personal brand identity through custom design and typography."
+    ]
   },
 ];
 
@@ -48,7 +69,7 @@ export default function Home() {
     <div className="flex flex-col min-h-screen">
       <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
         <div className="container mx-auto flex h-14 max-w-screen-2xl items-center justify-between px-4 md:px-6">
-          <Link href="#" className="flex items-center space-x-2">
+          <Link href="/" className="flex items-center space-x-2">
             <Code className="h-6 w-6 text-primary" />
             <span className="font-bold text-lg">MrTG1B</span>
           </Link>
@@ -106,18 +127,20 @@ export default function Home() {
             </div>
             <div className="mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-12">
               {projects.map((project) => (
-                <Card key={project.title} className="flex flex-col overflow-hidden transform transition-all duration-300 hover:scale-105 hover:shadow-2xl">
-                  <Image src={project.image} alt={project.title} width={600} height={400} className="w-full object-cover" data-ai-hint={project.aiHint} />
-                  <CardHeader>
-                    <CardTitle>{project.title}</CardTitle>
-                    <div className="flex flex-wrap gap-2 pt-2">
-                      {project.tags.map(tag => <Badge key={tag} variant="secondary">{tag}</Badge>)}
-                    </div>
-                  </CardHeader>
-                  <CardContent className="flex-grow">
-                    <CardDescription>{project.description}</CardDescription>
-                  </CardContent>
-                </Card>
+                <Link href={`/projects/${project.slug}`} key={project.slug}>
+                  <Card className="flex flex-col overflow-hidden transform transition-all duration-300 hover:scale-105 hover:shadow-2xl h-full">
+                    <Image src={project.image} alt={project.title} width={600} height={400} className="w-full object-cover" data-ai-hint={project.aiHint} />
+                    <CardHeader>
+                      <CardTitle>{project.title}</CardTitle>
+                      <div className="flex flex-wrap gap-2 pt-2">
+                        {project.tags.map(tag => <Badge key={tag} variant="secondary">{tag}</Badge>)}
+                      </div>
+                    </CardHeader>
+                    <CardContent className="flex-grow">
+                      <CardDescription>{project.description}</CardDescription>
+                    </CardContent>
+                  </Card>
+                </Link>
               ))}
             </div>
           </div>
