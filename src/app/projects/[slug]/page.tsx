@@ -4,7 +4,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { ArrowLeft, CheckCircle, Code } from 'lucide-react';
+import { ArrowLeft, CheckCircle, Code, Github, ExternalLink } from 'lucide-react';
 
 export async function generateStaticParams() {
   return projects.map((project) => ({
@@ -48,6 +48,22 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
                 className="rounded-lg object-cover shadow-2xl"
                 data-ai-hint={project.aiHint}
               />
+               <div className="mt-6 flex space-x-4">
+                {project.links?.github && (
+                  <Button asChild>
+                    <Link href={project.links.github} target="_blank">
+                      <Github className="mr-2" /> GitHub
+                    </Link>
+                  </Button>
+                )}
+                {project.links?.live && (
+                  <Button asChild variant="secondary">
+                    <Link href={project.links.live} target="_blank">
+                      <ExternalLink className="mr-2" /> Live Demo
+                    </Link>
+                  </Button>
+                )}
+              </div>
             </div>
             <div className="flex flex-col justify-center">
               <h1 className="text-4xl lg:text-5xl font-extrabold tracking-tight mb-4 text-primary">{project.title}</h1>
@@ -61,24 +77,26 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
           </div>
         </section>
 
-        <section id="achievements" className="w-full py-16 md:py-24 bg-card">
-          <div className="container mx-auto max-w-screen-2xl px-4 md:px-6">
-            <div className="flex flex-col items-center justify-center space-y-4 text-center mb-12">
-              <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl font-headline text-primary">Key Achievements</h2>
-              <p className="max-w-[800px] text-muted-foreground md:text-xl/relaxed">
-                Key milestones and successes from the {project.title} project.
-              </p>
+        {project.achievements && project.achievements.length > 0 && (
+          <section id="achievements" className="w-full py-16 md:py-24 bg-card">
+            <div className="container mx-auto max-w-screen-2xl px-4 md:px-6">
+              <div className="flex flex-col items-center justify-center space-y-4 text-center mb-12">
+                <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl font-headline text-primary">Key Achievements</h2>
+                <p className="max-w-[800px] text-muted-foreground md:text-xl/relaxed">
+                  Key milestones and successes from the {project.title} project.
+                </p>
+              </div>
+              <div className="mx-auto grid max-w-4xl gap-6">
+                {project.achievements.map((achievement, index) => (
+                  <div key={index} className="flex items-start space-x-4">
+                    <CheckCircle className="h-6 w-6 text-accent flex-shrink-0 mt-1" />
+                    <p className="text-muted-foreground">{achievement}</p>
+                  </div>
+                ))}
+              </div>
             </div>
-            <div className="mx-auto grid max-w-4xl gap-6">
-              {project.achievements.map((achievement, index) => (
-                <div key={index} className="flex items-start space-x-4">
-                  <CheckCircle className="h-6 w-6 text-accent flex-shrink-0 mt-1" />
-                  <p className="text-muted-foreground">{achievement}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
+          </section>
+        )}
       </main>
 
       <footer className="w-full bg-secondary text-secondary-foreground mt-16">

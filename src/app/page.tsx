@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, Code, Github, Linkedin, Mail, Twitter, CheckCircle, Info } from "lucide-react";
+import { ArrowRight, Code, Github, Linkedin, Mail, Twitter, CheckCircle, Info, User, GraduationCap, Star, Trophy, Briefcase } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle, CardFooter } from "@/components/ui/card";
@@ -9,60 +9,122 @@ import { ContactForm } from "@/components/contact-form";
 
 export const projects = [
   {
-    slug: "e-commerce-platform",
-    title: "E-commerce Platform",
-    description: "A full-featured e-commerce site with product galleries, a shopping cart, and a secure checkout process, built with Next.js and Stripe.",
-    longDescription: "Developed a comprehensive e-commerce platform from the ground up, providing a seamless shopping experience. The platform includes features like dynamic product catalogs, a persistent shopping cart, user authentication, and a secure payment gateway integrated with Stripe. The front-end is built with Next.js for server-side rendering and optimal performance, while the backend is powered by Node.js and Firebase for data management.",
+    slug: "wellmed",
+    title: "WellMed",
+    description: "A feature-rich medicine information & management Progressive Web App.",
+    longDescription: "WellMed is a comprehensive Progressive Web App designed to provide users with detailed information about medicines, manage their prescriptions, and set reminders for their doses. It aims to be a one-stop solution for personal healthcare management, built with modern web technologies for a seamless experience on any device.",
     image: "https://picsum.photos/600/400?random=1",
-    tags: ["Next.js", "React", "Stripe", "Tailwind CSS", "Firebase"],
-    aiHint: "online shopping",
+    tags: ["PWA", "JavaScript", "Firebase", "Health"],
+    aiHint: "medicine health",
     achievements: [
-      "Reduced page load time by 40% through server-side rendering and image optimization.",
-      "Implemented a secure and reliable checkout process using Stripe Elements.",
-      "Designed a fully responsive UI that works flawlessly on all devices.",
-      "Achieved a 99.9% uptime with a scalable cloud architecture."
-    ]
+      "Successfully implemented real-time database synchronization with Firebase.",
+      "Developed a user-friendly interface that received positive feedback for its ease of use.",
+      "Integrated a powerful search feature for quick medicine lookup."
+    ],
+    links: {
+      github: "#",
+      live: "#"
+    }
   },
   {
-    slug: "project-management-tool",
-    title: "Project Management Tool",
-    description: "A collaborative tool for teams to manage tasks, track progress, and communicate effectively, featuring a real-time Kanban board.",
-    longDescription: "This project management tool is designed to enhance team productivity and streamline workflow. It features a real-time, drag-and-drop Kanban board, task assignments, deadline tracking, and threaded conversations. Built with React and Firebase's Firestore, it ensures that all data is synchronized across clients in real-time. GraphQL was used to create an efficient and flexible API for data fetching.",
+    slug: "promptforge",
+    title: "PromptForge",
+    description: "A prompt generator tool for AI enthusiasts & content creators.",
+    longDescription: "PromptForge is a creative tool designed to help AI enthusiasts, writers, and content creators generate high-quality, diverse prompts for various generative AI models. It uses advanced algorithms to craft prompts that can be used for generating text, images, and more, sparking creativity and streamlining the content creation process.",
     image: "https://picsum.photos/600/400?random=2",
-    tags: ["React", "Firebase", "Node.js", "GraphQL", "Real-time"],
-    aiHint: "team collaboration",
+    tags: ["AI", "Next.js", "Content Creation"],
+    aiHint: "artificial intelligence",
     achievements: [
-      "Enabled real-time collaboration for distributed teams, improving project completion rates by 25%.",
-      "Developed an intuitive and user-friendly interface that received highly positive feedback.",
-      "Built a flexible GraphQL API to efficiently handle complex data queries.",
-      "Ensured data consistency and real-time updates using Firestore listeners."
-    ]
+      "Built with a sophisticated prompt generation engine.",
+      "Designed an intuitive UI that allows for easy customization of prompts.",
+      "Used by a growing community of AI art and content creators."
+    ],
+    links: {
+      github: "#",
+      live: "#"
+    }
   },
   {
-    slug: "personal-blog",
-    title: "Personal Blog",
-    description: "A sleek, modern blog with a custom CMS for easy content management and a focus on readability and performance.",
-    longDescription: "Created a high-performance personal blog using Gatsby for static site generation, ensuring fast load times and an excellent user experience. The blog is integrated with Contentful, a headless CMS, allowing for easy content creation and management without needing to touch the code. The design is minimalistic, focusing on readability, with styling implemented using Styled Components.",
+    slug: "affordable-3d-scanner",
+    title: "Affordable 3D Scanner",
+    description: "A low-cost 360° 3D scanner for monitoring pipe health and structural analysis.",
+    longDescription: "This project focuses on creating a cost-effective 3D scanning solution using accessible hardware. The scanner is capable of capturing 360-degree models of objects, with a primary application in monitoring the structural integrity of pipes and other industrial components. It provides a valuable tool for preventative maintenance and analysis.",
     image: "https://picsum.photos/600/400?random=3",
-    tags: ["Gatsby", "Contentful", "Styled Components", "Jamstack"],
-    aiHint: "writing reading",
+    tags: ["3D Scanning", "Hardware", "IoT", "Python"],
+    aiHint: "3d model scanner",
     achievements: [
-      "Achieved perfect Lighthouse scores for performance, accessibility, and SEO.",
-      "Designed a custom, headless CMS workflow for seamless content updates.",
-      "Built with a Jamstack architecture for enhanced security and scalability.",
-      "Crafted a unique and personal brand identity through custom design and typography."
-    ]
+      "Developed a working prototype for under $100.",
+      "Achieved high-resolution scans suitable for structural analysis.",
+      "Wrote custom software for processing and visualizing the 3D data."
+    ],
+    links: {}
+  },
+   {
+    slug: "gemini-powered-bot",
+    title: "Gemini-powered Bot",
+    description: "An autonomous robot powered by Google's Gemini API for smart navigation and decision making.",
+    longDescription: "This project showcases the integration of cutting-edge AI with robotics. The robot utilizes Google's Gemini API to process sensory information, understand its environment, and make intelligent decisions for autonomous navigation and task execution. It's a step towards more capable and intelligent autonomous systems.",
+    image: "https://picsum.photos/600/400?random=4",
+    tags: ["Robotics", "AI", "Gemini API", "Python"],
+    aiHint: "robot technology",
+    achievements: [
+      "Successfully integrated the Gemini API for real-time decision making.",
+      "Implemented advanced navigation algorithms for obstacle avoidance.",
+      "Demonstrated the robot's ability to perform complex tasks autonomously."
+    ],
+    links: {}
+  },
+  {
+    slug: "smart-street-light-fault-detection",
+    title: "Smart Street Light Fault Detection System",
+    description: "An IoT network with a dashboard for proactive maintenance.",
+    longDescription: "This IoT-based system monitors a network of street lights in real-time. It automatically detects faults such as bulb failures or power issues and reports them to a central dashboard. This enables maintenance teams to be proactive, reducing downtime and improving city-wide safety and efficiency.",
+    image: "https://picsum.photos/600/400?random=5",
+    tags: ["IoT", "ESP32", "Firebase", "Dashboard"],
+    aiHint: "smart city light",
+    achievements: [
+      "Designed a scalable IoT network capable of monitoring hundreds of lights.",
+      "Developed a real-time dashboard for visualization and alerting.",
+      "Presented the project at Rajabazar Science College, winning 1st Runner-up."
+    ],
+    links: {
+      github: "#"
+    }
+  },
+  {
+    slug: "handy",
+    title: "Handy",
+    description: "An affordable myoelectric prosthetic hand with a companion mobile app.",
+    longDescription: "Handy is a project aimed at creating a low-cost, highly functional myoelectric prosthetic hand. It uses muscle sensors to control the hand's movements, providing a more intuitive experience for the user. A companion mobile app allows for calibration and customization of the prosthetic.",
+    image: "https://picsum.photos/600/400?random=6",
+    tags: ["Prosthetics", "3D Printing", "Android", "Arduino"],
+    aiHint: "robotic hand",
+    achievements: [
+      "3D printed and assembled a fully functional prototype.",
+      "Developed custom firmware for processing myoelectric signals.",
+      "Created an Android app for controlling and configuring the hand."
+    ],
+    links: {
+      github: "#"
+    }
   },
 ];
 
 const skills = [
-  { name: "React / Next.js", level: 95 },
-  { name: "TypeScript", level: 90 },
-  { name: "Node.js & Express", level: 85 },
-  { name: "Firebase / GCP", level: 88 },
-  { name: "Tailwind CSS", level: 98 },
-  { name: "UI/UX Design", level: 80 },
+  { name: "C / C++", level: 90 },
+  { name: "Python", level: 95 },
+  { name: "JavaScript (Node.js)", level: 85 },
+  { name: "Web Dev (HTML, CSS, Flask, Express)", level: 88 },
+  { name: "Hardware (ESP32, Arduino)", level: 92 },
+  { name: "Cloud & APIs (Firebase, GenAI)", level: 80 },
 ];
+
+const achievements = [
+    "2nd Position — Hackfest State & Regional Round (SAP & Techno International New Town, April 2025)",
+    "1st Runner-up — Smart Street Light System at Rajabazar Science College (13th March 2025)",
+    "2nd Runner-up at Jadavpur University (17th March 2025)"
+];
+
 
 export default function Home() {
   return (
@@ -83,19 +145,24 @@ export default function Home() {
       </header>
 
       <main className="flex-1">
-        <section id="about" className="container mx-auto max-w-screen-2xl px-4 md:px-6 py-16 md:py-24 lg:py-32">
+        <section id="hero" className="container mx-auto max-w-screen-2xl px-4 md:px-6 py-16 md:py-24 lg:py-32">
           <div className="grid gap-10 lg:grid-cols-2">
             <div className="flex flex-col justify-center space-y-6">
               <Badge variant="outline" className="w-fit text-accent font-semibold border-accent">Tirthankar Dasgupta</Badge>
               <h1 className="text-4xl font-extrabold tracking-tight lg:text-5xl font-headline">
-                Full-Stack Developer & Innovator
+                Electronics Engineer & Full-Stack Developer
               </h1>
               <p className="max-w-[600px] text-muted-foreground md:text-xl">
-                I'm a passionate web developer with a knack for building beautiful, functional, and user-centric applications. With a background in computer science and years of hands-on experience, I turn complex problems into elegant digital solutions.
+                Aspiring Electronics and Communication Engineering student with a passion for IoT, Embedded Systems, Robotics, and Full‑Stack Development.
               </p>
+               <div className="flex space-x-2">
+                <Link href="mailto:tirthankardasgupta913913@gmail.com" className="text-muted-foreground hover:text-primary"><Mail /></Link>
+                <Link href="#" className="text-muted-foreground hover:text-primary"><Linkedin /></Link>
+                <Link href="#" className="text-muted-foreground hover:text-primary"><Github /></Link>
+              </div>
               <div className="flex space-x-4">
                 <Button asChild>
-                  <Link href="#contact">Get in Touch <Mail className="ml-2 h-4 w-4" /></Link>
+                  <Link href="#contact">Get in Touch</Link>
                 </Button>
                 <Button variant="secondary" asChild>
                    <Link href="#projects">View My Work <ArrowRight className="ml-2 h-4 w-4" /></Link>
@@ -115,11 +182,41 @@ export default function Home() {
           </div>
         </section>
 
-        <section id="projects" className="w-full py-16 md:py-24 lg:py-32 bg-card">
+        <section id="about" className="w-full py-16 md:py-24 lg:py-32 bg-card">
+          <div className="container mx-auto max-w-screen-2xl px-4 md:px-6">
+             <div className="grid md:grid-cols-2 gap-12">
+                <div>
+                    <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl font-headline text-primary mb-6 flex items-center"><User className="mr-3"/> About Me</h2>
+                    <p className="text-muted-foreground">
+                        I am an aspiring Electronics and Communication Engineering student with a deep passion for IoT, Embedded Systems, Robotics, and Full-Stack Development. I am eager to leverage a diverse tech stack—ranging from low-level firmware to web apps—to solve real-world problems in innovative projects.
+                    </p>
+                </div>
+                <div>
+                    <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl font-headline text-primary mb-6 flex items-center"><GraduationCap className="mr-3"/> Education</h2>
+                    <div className="space-y-4">
+                        <div>
+                            <h3 className="font-semibold">Techno International New Town, Kolkata</h3>
+                            <p className="text-sm text-muted-foreground">B.Tech, Electronics & Communication Engineering | 2022 – Present</p>
+                        </div>
+                        <div>
+                            <h3 className="font-semibold">Rishi Aurobindo Memorial Academy</h3>
+                            <p className="text-sm text-muted-foreground">Higher Secondary (ISC), Pure Science with Computer Science | 2020 – 2022</p>
+                        </div>
+                         <div>
+                            <h3 className="font-semibold">Calcutta Airport English High School (H.S.)</h3>
+                            <p className="text-sm text-muted-foreground">Madhyamik | 2008 – 2020</p>
+                        </div>
+                    </div>
+                </div>
+             </div>
+          </div>
+        </section>
+
+        <section id="projects" className="w-full py-16 md:py-24 lg:py-32">
           <div className="container mx-auto max-w-screen-2xl px-4 md:px-6">
             <div className="flex flex-col items-center justify-center space-y-4 text-center">
               <div className="space-y-2">
-                <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl font-headline text-primary">My Projects</h2>
+                 <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl font-headline text-primary flex items-center justify-center"><Briefcase className="mr-3"/> My Projects</h2>
                 <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
                   Here are some of the projects I'm proud of. Each one represents a challenge I was excited to tackle.
                 </p>
@@ -128,7 +225,7 @@ export default function Home() {
             <div className="mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-12">
               {projects.map((project) => (
                 <Card key={project.slug} className="flex flex-col overflow-hidden transform transition-all duration-300 hover:scale-105 hover:shadow-2xl h-full">
-                  <Link href={`/projects/${project.slug}`} className="block">
+                  <Link href={`/projects/${project.slug}`} className="block h-full flex flex-col">
                     <Image src={project.image} alt={project.title} width={600} height={400} className="w-full object-cover" data-ai-hint={project.aiHint} />
                     <CardHeader>
                       <CardTitle>{project.title}</CardTitle>
@@ -139,8 +236,7 @@ export default function Home() {
                     <CardContent className="flex-grow">
                       <CardDescription>{project.description}</CardDescription>
                     </CardContent>
-                  </Link>
-                  <CardFooter className="bg-secondary/20 p-4">
+                    <CardFooter className="bg-secondary/20 p-4 mt-auto">
                      <Button asChild variant="outline" className="w-full">
                         <Link href={`/projects/${project.slug}`}>
                            <Info className="mr-2 h-4 w-4" />
@@ -148,35 +244,58 @@ export default function Home() {
                         </Link>
                      </Button>
                   </CardFooter>
+                  </Link>
                 </Card>
               ))}
             </div>
           </div>
         </section>
-
-        <section id="skills" className="w-full py-16 md:py-24 lg:py-32">
-          <div className="container mx-auto max-w-screen-2xl px-4 md:px-6">
-            <div className="flex flex-col items-center justify-center space-y-4 text-center mb-12">
-              <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl font-headline text-primary">My Skillset</h2>
-              <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-                I continuously strive to learn and master new technologies. Here's a snapshot of my current capabilities.
-              </p>
-            </div>
-            <div className="mx-auto grid max-w-4xl gap-8">
-              {skills.map((skill) => (
-                <div key={skill.name} className="space-y-2">
-                  <div className="flex justify-between">
-                    <p className="font-medium">{skill.name}</p>
-                    <p className="text-sm text-accent font-semibold">{skill.level}%</p>
-                  </div>
-                  <Progress value={skill.level} className="h-3 [&>div]:bg-accent" />
+        
+        <div className="grid grid-cols-1 lg:grid-cols-2">
+            <section id="skills" className="w-full py-16 md:py-24 lg:py-32">
+              <div className="container mx-auto max-w-screen-2xl px-4 md:px-6 h-full">
+                <div className="flex flex-col items-center justify-center space-y-4 text-center mb-12">
+                  <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl font-headline text-primary flex items-center"><Star className="mr-3"/> My Skillset</h2>
+                  <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
+                    I continuously strive to learn and master new technologies.
+                  </p>
                 </div>
-              ))}
-            </div>
-          </div>
-        </section>
+                <div className="mx-auto grid max-w-4xl gap-8">
+                  {skills.map((skill) => (
+                    <div key={skill.name} className="space-y-2">
+                      <div className="flex justify-between">
+                        <p className="font-medium">{skill.name}</p>
+                        <p className="text-sm text-accent font-semibold">{skill.level}%</p>
+                      </div>
+                      <Progress value={skill.level} className="h-3 [&>div]:bg-accent" />
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </section>
 
-        <section id="contact" className="w-full py-16 md:py-24 lg:py-32 bg-card">
+            <section id="achievements" className="w-full py-16 md:py-24 lg:py-32 bg-card">
+              <div className="container mx-auto max-w-screen-2xl px-4 md:px-6 h-full">
+                <div className="flex flex-col items-center justify-center space-y-4 text-center mb-12">
+                  <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl font-headline text-primary flex items-center"><Trophy className="mr-3"/> Achievements</h2>
+                   <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
+                    Awards and recognition I've received for my work.
+                  </p>
+                </div>
+                 <div className="mx-auto grid max-w-4xl gap-6">
+                  {achievements.map((achievement, index) => (
+                    <div key={index} className="flex items-start space-x-4">
+                      <CheckCircle className="h-6 w-6 text-accent flex-shrink-0 mt-1" />
+                      <p className="text-muted-foreground">{achievement}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </section>
+        </div>
+
+
+        <section id="contact" className="w-full py-16 md:py-24 lg:py-32 bg-secondary/30">
           <div className="container mx-auto max-w-screen-2xl px-4 md:px-6">
             <div className="flex flex-col items-center justify-center space-y-4 text-center mb-12">
               <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl font-headline text-primary">Contact Me</h2>
