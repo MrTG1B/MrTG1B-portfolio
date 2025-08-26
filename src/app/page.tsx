@@ -1,9 +1,9 @@
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, Code, Github, Linkedin, Mail, Twitter, CheckCircle } from "lucide-react";
+import { ArrowRight, Code, Github, Linkedin, Mail, Twitter, CheckCircle, Info } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle, CardFooter } from "@/components/ui/card";
 import { Progress } from "@/components/ui/progress";
 import { ContactForm } from "@/components/contact-form";
 
@@ -127,8 +127,8 @@ export default function Home() {
             </div>
             <div className="mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-12">
               {projects.map((project) => (
-                <Link href={`/projects/${project.slug}`} key={project.slug}>
-                  <Card className="flex flex-col overflow-hidden transform transition-all duration-300 hover:scale-105 hover:shadow-2xl h-full">
+                <Card key={project.slug} className="flex flex-col overflow-hidden transform transition-all duration-300 hover:scale-105 hover:shadow-2xl h-full">
+                  <Link href={`/projects/${project.slug}`} className="block">
                     <Image src={project.image} alt={project.title} width={600} height={400} className="w-full object-cover" data-ai-hint={project.aiHint} />
                     <CardHeader>
                       <CardTitle>{project.title}</CardTitle>
@@ -139,8 +139,16 @@ export default function Home() {
                     <CardContent className="flex-grow">
                       <CardDescription>{project.description}</CardDescription>
                     </CardContent>
-                  </Card>
-                </Link>
+                  </Link>
+                  <CardFooter className="bg-secondary/20 p-4">
+                     <Button asChild variant="outline" className="w-full">
+                        <Link href={`/projects/${project.slug}`}>
+                           <Info className="mr-2 h-4 w-4" />
+                           More Info
+                        </Link>
+                     </Button>
+                  </CardFooter>
+                </Card>
               ))}
             </div>
           </div>
