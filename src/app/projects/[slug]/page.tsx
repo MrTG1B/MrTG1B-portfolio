@@ -38,26 +38,26 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
 
       <main className="flex-1">
         <section className="container mx-auto max-w-screen-2xl px-4 md:px-6 py-16 md:py-24">
-          <div className="grid lg:grid-cols-2 gap-12">
+          <div className="grid lg:grid-cols-2 gap-12 items-start">
             <div>
               <Image
                 src={project.image}
                 alt={project.title}
                 width={1200}
                 height={800}
-                className="rounded-lg object-cover shadow-2xl"
+                className="rounded-lg object-cover shadow-2xl w-full"
                 data-ai-hint={project.aiHint}
               />
-               <div className="mt-6 flex space-x-4">
+               <div className="mt-6 flex flex-col sm:flex-row gap-4">
                 {project.links?.github && (
-                  <Button asChild>
+                  <Button asChild className="w-full sm:w-auto">
                     <Link href={project.links.github} target="_blank">
                       <Github className="mr-2" /> GitHub
                     </Link>
                   </Button>
                 )}
                 {project.links?.live && (
-                  <Button asChild variant="secondary">
+                  <Button asChild variant="secondary" className="w-full sm:w-auto">
                     <Link href={project.links.live} target="_blank">
                       <ExternalLink className="mr-2" /> Live Demo
                     </Link>
@@ -107,5 +107,3 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
     </div>
   );
 }
-
-    

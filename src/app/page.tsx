@@ -1,12 +1,13 @@
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, Code, Github, Linkedin, Mail, Twitter, CheckCircle, Info, User, GraduationCap, Star, Trophy, Briefcase, Instagram } from "lucide-react";
+import { ArrowRight, Code, Github, Linkedin, Mail, Twitter, CheckCircle, Info, Menu, Instagram } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle, CardFooter } from "@/components/ui/card";
 import { Progress } from "@/components/ui/progress";
 import { ContactForm } from "@/components/contact-form";
 import { projects } from "@/lib/projects";
+import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 
 const topProjects = projects.slice(0, 3);
 
@@ -43,13 +44,35 @@ export default function Home() {
             <Link href="#skills" className="transition-colors hover:text-primary">Skills</Link>
             <Link href="#contact" className="transition-colors hover:text-primary">Contact</Link>
           </nav>
+          <div className="md:hidden">
+            <Sheet>
+              <SheetTrigger asChild>
+                <Button variant="ghost" size="icon">
+                  <Menu className="h-6 w-6" />
+                  <span className="sr-only">Toggle Menu</span>
+                </Button>
+              </SheetTrigger>
+              <SheetContent side="right">
+                <div className="grid gap-4 py-6">
+                  <Link href="/" className="flex items-center space-x-2">
+                     <Code className="h-6 w-6 text-primary" />
+                     <span className="font-bold text-lg">MrTG1B</span>
+                  </Link>
+                  <Link href="#about" className="flex w-full items-center py-2 text-lg font-semibold">About</Link>
+                  <Link href="/projects" className="flex w-full items-center py-2 text-lg font-semibold">Projects</Link>
+                  <Link href="#skills" className="flex w-full items-center py-2 text-lg font-semibold">Skills</Link>
+                  <Link href="#contact" className="flex w-full items-center py-2 text-lg font-semibold">Contact</Link>
+                </div>
+              </SheetContent>
+            </Sheet>
+          </div>
         </div>
       </header>
 
       <main className="flex-1">
         <section id="hero" className="container mx-auto max-w-screen-2xl px-4 md:px-6 py-16 md:py-24 lg:py-32">
-          <div className="grid gap-10 lg:grid-cols-2">
-            <div className="flex flex-col justify-center space-y-6">
+          <div className="grid gap-10 lg:grid-cols-2 items-center">
+            <div className="flex flex-col justify-center space-y-6 order-2 lg:order-1">
               <Badge variant="outline" className="w-fit text-accent font-semibold border-accent">Tirthankar Dasgupta</Badge>
               <h1 className="text-4xl font-extrabold tracking-tight lg:text-5xl font-headline">
                 Hi there, I'm Tirthankar Dasgupta 👋
@@ -58,29 +81,29 @@ export default function Home() {
               <p className="max-w-[600px] text-muted-foreground md:text-xl">
                 Aspiring Electronics and Communication Engineering student with a passion for IoT, Embedded Systems, Robotics, and Full‑Stack Development.
               </p>
-               <div className="flex space-x-2">
+               <div className="flex space-x-4">
                 <Link href="mailto:tirthankardasgupta913913@gmail.com" className="text-muted-foreground hover:text-primary"><Mail /></Link>
                 <Link href="https://www.linkedin.com/in/tirthankardasguptaprofile" target="_blank" className="text-muted-foreground hover:text-primary"><Linkedin /></Link>
                 <Link href="https://github.com/MrTG1B" target="_blank" className="text-muted-foreground hover:text-primary"><Github /></Link>
                 <Link href="https://twitter.com/TIRTHAN20755732" target="_blank" className="text-muted-foreground hover:text-primary"><Twitter /></Link>
                 <Link href="https://www.instagram.com/marveltea__" target="_blank" className="text-muted-foreground hover:text-primary"><Instagram /></Link>
               </div>
-              <div className="flex space-x-4">
-                <Button asChild>
+              <div className="flex flex-col sm:flex-row gap-4">
+                <Button asChild size="lg">
                   <Link href="#contact">Get in Touch</Link>
                 </Button>
-                <Button variant="secondary" asChild>
+                <Button variant="secondary" asChild size="lg">
                    <Link href="/projects">View My Work <ArrowRight className="ml-2 h-4 w-4" /></Link>
                 </Button>
               </div>
             </div>
-            <div className="flex items-center justify-center">
+            <div className="flex items-center justify-center order-1 lg:order-2">
               <Image
                 src="https://picsum.photos/id/237/500/500"
                 width={500}
                 height={500}
                 alt="Tirthankar Dasgupta"
-                className="rounded-full object-cover aspect-square shadow-lg border-4 border-primary/50"
+                className="rounded-full object-cover aspect-square shadow-lg border-4 border-primary/50 w-[250px] h-[250px] md:w-[400px] md:h-[400px] lg:w-[500px] lg:h-[500px]"
                 data-ai-hint="professional portrait"
               />
             </div>
