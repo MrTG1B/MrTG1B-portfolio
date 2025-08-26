@@ -225,8 +225,8 @@ export default function Home() {
             <div className="mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-12">
               {projects.map((project) => (
                 <Card key={project.slug} className="flex flex-col overflow-hidden transform transition-all duration-300 hover:scale-105 hover:shadow-2xl h-full">
-                  <Link href={`/projects/${project.slug}`} className="block h-full flex flex-col">
-                    <Image src={project.image} alt={project.title} width={600} height={400} className="w-full object-cover" data-ai-hint={project.aiHint} />
+                  <Image src={project.image} alt={project.title} width={600} height={400} className="w-full object-cover" data-ai-hint={project.aiHint} />
+                  <div className="flex flex-col flex-grow">
                     <CardHeader>
                       <CardTitle>{project.title}</CardTitle>
                       <div className="flex flex-wrap gap-2 pt-2">
@@ -244,7 +244,7 @@ export default function Home() {
                         </Link>
                      </Button>
                   </CardFooter>
-                  </Link>
+                  </div>
                 </Card>
               ))}
             </div>
