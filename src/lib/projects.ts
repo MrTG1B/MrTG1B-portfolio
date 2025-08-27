@@ -124,6 +124,17 @@ export const projects = [
       github: "https://github.com/MrTG1B/N.O.V.A",
       live: "https://mr-t-g-1-b.github.io/N.O.V.A/"
     }
+  },
+  {
+    slug: "refix",
+    title: "RefiX",
+    description: "An innovative application for managing and tracking personal projects and tasks.",
+    longDescription: "RefiX is a powerful yet simple tool designed to help individuals and small teams organize their work. It combines task management, progress tracking, and deadline reminders into a clean and intuitive interface, helping you stay on top of your projects and achieve your goals.",
+    image: "https://picsum.photos/600/400?random=9",
+    tags: ["Productivity", "Web App", "Task Management"],
+    aiHint: "app interface",
+    achievements: [],
+    links: {}
   }
 ];
 
