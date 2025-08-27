@@ -82,11 +82,11 @@ export default function Home() {
                 I'm an Electronics and Communication Engineering student passionate about building complete solutions—from firmware on a circuit board to a polished web application.
               </p>
                <div className="flex space-x-4">
-                <Link href="mailto:tirthankardasgupta913913@gmail.com" className="text-muted-foreground hover:text-primary"><Mail /></Link>
-                <Link href="https://www.linkedin.com/in/tirthankardasguptaprofile" target="_blank" className="text-muted-foreground hover:text-primary"><Linkedin /></Link>
-                <Link href="https://github.com/MrTG1B" target="_blank" className="text-muted-foreground hover:text-primary"><Github /></Link>
-                <Link href="https://twitter.com/TIRTHAN20755732" target="_blank" className="text-muted-foreground hover:text-primary"><Twitter /></Link>
-                <Link href="https://www.instagram.com/marveltea__" target="_blank" className="text-muted-foreground hover:text-primary"><Instagram /></Link>
+                <Link href="mailto:tirthankardasgupta913913@gmail.com" className="text-muted-foreground transition-colors hover:text-primary"><Mail /></Link>
+                <Link href="https://www.linkedin.com/in/tirthankardasguptaprofile" target="_blank" className="text-muted-foreground transition-colors hover:text-primary"><Linkedin /></Link>
+                <Link href="https://github.com/MrTG1B" target="_blank" className="text-muted-foreground transition-colors hover:text-primary"><Github /></Link>
+                <Link href="https://twitter.com/TIRTHAN20755732" target="_blank" className="text-muted-foreground transition-colors hover:text-primary"><Twitter /></Link>
+                <Link href="https://www.instagram.com/marveltea__" target="_blank" className="text-muted-foreground transition-colors hover:text-primary"><Instagram /></Link>
               </div>
               <div className="flex flex-col sm:flex-row gap-4">
                 <Button asChild size="lg">
@@ -253,10 +253,10 @@ export default function Home() {
             <p className="text-sm font-medium">&copy; {new Date().getFullYear()} Tirthankar Dasgupta. All Rights Reserved.</p>
           </div>
           <div className="flex space-x-4">
-            <Link href="https://twitter.com/TIRTHAN20755732" target="_blank" className="hover:text-primary"><Twitter className="h-6 w-6" /></Link>
-            <Link href="https://github.com/MrTG1B" target="_blank" className="hover:text-primary"><Github className="h-6 w-6" /></Link>
-            <Link href="https://www.linkedin.com/in/tirthankardasguptaprofile" target="_blank" className="hover:text-primary"><Linkedin className="h-6 w-6" /></Link>
-            <Link href="https://www.instagram.com/marveltea__" target="_blank" className="hover:text-primary"><Instagram className="h-6 w-6" /></Link>
+            <Link href="https://twitter.com/TIRTHAN20755732" target="_blank" className="text-muted-foreground transition-colors hover:text-primary"><Twitter className="h-6 w-6" /></Link>
+            <Link href="https://github.com/MrTG1B" target="_blank" className="text-muted-foreground transition-colors hover:text-primary"><Github className="h-6 w-6" /></Link>
+            <Link href="https://www.linkedin.com/in/tirthankardasguptaprofile" target="_blank" className="text-muted-foreground transition-colors hover:text-primary"><Linkedin className="h-6 w-6" /></Link>
+            <Link href="https://www.instagram.com/marveltea__" target="_blank" className="text-muted-foreground transition-colors hover:text-primary"><Instagram className="h-6 w-6" /></Link>
           </div>
         </div>
       </footer>
