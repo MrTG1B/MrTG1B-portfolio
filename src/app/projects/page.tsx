@@ -58,14 +58,14 @@ export default function AllProjectsPage() {
                         </Button>
                         <div className="flex w-full gap-4">
                           {project.links?.github && (
-                            <Button asChild variant="secondary" className="w-full">
+                            <Button asChild variant="code" className="w-full">
                               <Link href={project.links.github} target="_blank">
                                 <Github className="mr-2 h-4 w-4" /> Code
                               </Link>
                             </Button>
                           )}
                           {project.links?.live && (
-                            <Button asChild variant="secondary" className="w-full">
+                            <Button asChild variant="live" className="w-full">
                               <Link href={project.links.live} target="_blank">
                                 <ExternalLink className="mr-2 h-4 w-4" /> Live
                               </Link>
