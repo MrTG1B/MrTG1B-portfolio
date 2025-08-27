@@ -1,3 +1,5 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, Code, Github, Linkedin, Mail, Twitter, CheckCircle, Info, Menu, Instagram } from "lucide-react";
@@ -8,6 +10,8 @@ import { Progress } from "@/components/ui/progress";
 import { ContactForm } from "@/components/contact-form";
 import { projects } from "@/lib/projects";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+import { motion, useScroll, useTransform } from "framer-motion";
+import { useRef } from "react";
 
 const topProjects = projects.slice(0, 3);
 
@@ -28,8 +32,39 @@ const achievements = [
     "2nd Runner-up at Jadavpur University (17th March 2025)"
 ];
 
+const MotionSection = ({ children }: { children: React.ReactNode }) => {
+  const ref = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start end", "end start"],
+  });
+  const opacity = useTransform(scrollYProgress, [0, 0.5, 0.9], [0, 1, 0]);
+  const y = useTransform(scrollYProgress, [0, 0.5], [50, 0]);
+
+  return (
+    <motion.div
+      ref={ref}
+      style={{ opacity, y }}
+      initial={{ opacity: 0, y: 50 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.2 }}
+      transition={{ duration: 0.6 }}
+    >
+      {children}
+    </motion.div>
+  );
+};
+
 
 export default function Home() {
+    const heroRef = useRef<HTMLDivElement>(null);
+    const { scrollYProgress } = useScroll({
+        target: heroRef,
+        offset: ["start start", "end start"],
+    });
+
+    const heroImageY = useTransform(scrollYProgress, [0, 1], ["0%", "50%"]);
+
   return (
     <div className="flex flex-col min-h-screen">
       <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
@@ -70,9 +105,14 @@ export default function Home() {
       </header>
 
       <main className="flex-1">
-        <section id="hero" className="container mx-auto max-w-screen-2xl px-4 md:px-6 py-16 md:py-24 lg:py-32">
+        <section ref={heroRef} id="hero" className="container mx-auto max-w-screen-2xl px-4 md:px-6 py-16 md:py-24 lg:py-32 overflow-hidden">
           <div className="grid gap-10 lg:grid-cols-2 items-center">
-            <div className="flex flex-col justify-center space-y-6 order-2 lg:order-1">
+            <motion.div 
+              className="flex flex-col justify-center space-y-6 order-2 lg:order-1"
+              initial={{ opacity: 0, x: -50 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8 }}
+            >
               <Badge variant="outline" className="w-fit text-accent font-semibold border-accent">Tirthankar Dasgupta</Badge>
               <h1 className="text-4xl font-extrabold tracking-tight lg:text-5xl font-headline">
                 Bridging Hardware and Software
@@ -96,155 +136,181 @@ export default function Home() {
                    <Link href="/projects">View My Work <ArrowRight className="ml-2 h-4 w-4" /></Link>
                 </Button>
               </div>
-            </div>
+            </motion.div>
             <div className="flex items-center justify-center order-1 lg:order-2">
-              <Image
-                src="https://picsum.photos/id/237/500/500"
-                width={500}
-                height={500}
-                alt="Tirthankar Dasgupta"
-                className="rounded-full object-cover aspect-square shadow-lg border-4 border-primary/50 w-[250px] h-[250px] md:w-[400px] md:h-[400px] lg:w-[500px] lg:h-[500px]"
-                data-ai-hint="professional portrait"
-              />
+              <motion.div
+                style={{ y: heroImageY }}
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.8, delay: 0.2 }}
+              >
+                <Image
+                  src="https://picsum.photos/id/237/500/500"
+                  width={500}
+                  height={500}
+                  alt="Tirthankar Dasgupta"
+                  className="rounded-full object-cover aspect-square shadow-lg border-4 border-primary/50 w-[250px] h-[250px] md:w-[400px] md:h-[400px] lg:w-[500px] lg:h-[500px]"
+                  data-ai-hint="professional portrait"
+                  priority
+                />
+              </motion.div>
             </div>
           </div>
         </section>
 
-        <section id="about" className="w-full py-16 md:py-24 lg:py-32 bg-card">
-          <div className="container mx-auto max-w-screen-2xl px-4 md:px-6">
-             <div className="grid md:grid-cols-2 gap-12">
-                <div>
-                    <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl font-headline text-primary mb-6">About Me</h2>
-                    <div className="space-y-4 text-muted-foreground">
-                      <p>Currently pursuing Electronics and Communication Engineering at Techno International New Town.</p>
-                      <p>Passionate about IoT, Embedded Systems, Robotics, and Full Stack Development.</p>
-                      <p>Constantly learning and building innovative projects that bridge hardware and software.</p>
-                      <p>Actively exploring open-source contributions and collaborative projects.</p>
-                      <p>I also develop Android apps using XML and Android Studio.</p>
-                    </div>
-                </div>
-                <div>
-                    <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl font-headline text-primary mb-6">Education</h2>
-                    <div className="space-y-4">
-                        <div>
-                            <h3 className="font-semibold">Techno International New Town, Kolkata</h3>
-                            <p className="text-sm text-muted-foreground">B.Tech, Electronics & Communication Engineering | 2022 – Present (4th Year)</p>
-                        </div>
-                        <div>
-                            <h3 className="font-semibold">Rishi Aurobindo Memorial Academy</h3>
-                            <p className="text-sm text-muted-foreground">Higher Secondary (ISC), Pure Science with Computer Science | 2020 – 2022 (Distinction)</p>
-                        </div>
-                         <div>
-                            <h3 className="font-semibold">Calcutta Airport English High School (H.S.)</h3>
-                            <p className="text-sm text-muted-foreground">Madhyamik | 2008 – 2020 (First Division)</p>
-                        </div>
-                    </div>
-                </div>
-             </div>
-          </div>
-        </section>
+        <MotionSection>
+          <section id="about" className="w-full py-16 md:py-24 lg:py-32 bg-card">
+            <div className="container mx-auto max-w-screen-2xl px-4 md:px-6">
+               <div className="grid md:grid-cols-2 gap-12">
+                  <div>
+                      <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl font-headline text-primary mb-6">About Me</h2>
+                      <div className="space-y-4 text-muted-foreground">
+                        <p>Currently pursuing Electronics and Communication Engineering at Techno International New Town.</p>
+                        <p>Passionate about IoT, Embedded Systems, Robotics, and Full Stack Development.</p>
+                        <p>Constantly learning and building innovative projects that bridge hardware and software.</p>
+                        <p>Actively exploring open-source contributions and collaborative projects.</p>
+                        <p>I also develop Android apps using XML and Android Studio.</p>
+                      </div>
+                  </div>
+                  <div>
+                      <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl font-headline text-primary mb-6">Education</h2>
+                      <div className="space-y-4">
+                          <div>
+                              <h3 className="font-semibold">Techno International New Town, Kolkata</h3>
+                              <p className="text-sm text-muted-foreground">B.Tech, Electronics & Communication Engineering | 2022 – Present (4th Year)</p>
+                          </div>
+                          <div>
+                              <h3 className="font-semibold">Rishi Aurobindo Memorial Academy</h3>
+                              <p className="text-sm text-muted-foreground">Higher Secondary (ISC), Pure Science with Computer Science | 2020 – 2022 (Distinction)</p>
+                          </div>
+                           <div>
+                              <h3 className="font-semibold">Calcutta Airport English High School (H.S.)</h3>
+                              <p className="text-sm text-muted-foreground">Madhyamik | 2008 – 2020 (First Division)</p>
+                          </div>
+                      </div>
+                  </div>
+               </div>
+            </div>
+          </section>
+        </MotionSection>
 
-        <section id="projects" className="w-full py-16 md:py-24 lg:py-32">
-          <div className="container mx-auto max-w-screen-2xl px-4 md:px-6">
-            <div className="flex flex-col items-center justify-center space-y-4 text-center">
-              <div className="space-y-2">
-                 <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl font-headline text-primary">Featured Projects</h2>
-                <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-                  Here are some of the projects I'm proud of. Each one represents a challenge I was excited to tackle.
-                </p>
+        <MotionSection>
+          <section id="projects" className="w-full py-16 md:py-24 lg:py-32">
+            <div className="container mx-auto max-w-screen-2xl px-4 md:px-6">
+              <div className="flex flex-col items-center justify-center space-y-4 text-center">
+                <div className="space-y-2">
+                   <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl font-headline text-primary">Featured Projects</h2>
+                  <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
+                    Here are some of the projects I'm proud of. Each one represents a challenge I was excited to tackle.
+                  </p>
+                </div>
+              </div>
+              <div className="mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-12">
+                {topProjects.map((project, i) => (
+                  <motion.div
+                    key={project.slug}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, amount: 0.3 }}
+                    transition={{ duration: 0.5, delay: i * 0.1 }}
+                  >
+                    <Card className="flex flex-col overflow-hidden transform transition-all duration-300 hover:scale-105 hover:shadow-2xl h-full">
+                      <Image src={project.image} alt={project.title} width={600} height={400} className="w-full object-cover" data-ai-hint={project.aiHint} />
+                      <div className="flex flex-col flex-grow">
+                        <CardHeader>
+                          <CardTitle>{project.title}</CardTitle>
+                          <div className="flex flex-wrap gap-2 pt-2">
+                            {project.tags.map(tag => <Badge key={tag} variant="secondary">{tag}</Badge>)}
+                          </div>
+                        </CardHeader>
+                        <CardContent className="flex-grow">
+                          <CardDescription>{project.description}</CardDescription>
+                        </CardContent>
+                        <CardFooter className="bg-secondary/20 p-4 mt-auto">
+                         <Button asChild variant="outline" className="w-full">
+                            <Link href={`/projects/${project.slug}`}>
+                               <Info className="mr-2 h-4 w-4" />
+                               More Info
+                            </Link>
+                         </Button>
+                      </CardFooter>
+                      </div>
+                    </Card>
+                  </motion.div>
+                ))}
+              </div>
+               <div className="mt-12 text-center">
+                  <Button asChild size="lg">
+                    <Link href="/projects">View All Projects</Link>
+                  </Button>
               </div>
             </div>
-            <div className="mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-12">
-              {topProjects.map((project) => (
-                <Card key={project.slug} className="flex flex-col overflow-hidden transform transition-all duration-300 hover:scale-105 hover:shadow-2xl h-full">
-                  <Image src={project.image} alt={project.title} width={600} height={400} className="w-full object-cover" data-ai-hint={project.aiHint} />
-                  <div className="flex flex-col flex-grow">
-                    <CardHeader>
-                      <CardTitle>{project.title}</CardTitle>
-                      <div className="flex flex-wrap gap-2 pt-2">
-                        {project.tags.map(tag => <Badge key={tag} variant="secondary">{tag}</Badge>)}
-                      </div>
-                    </CardHeader>
-                    <CardContent className="flex-grow">
-                      <CardDescription>{project.description}</CardDescription>
-                    </CardContent>
-                    <CardFooter className="bg-secondary/20 p-4 mt-auto">
-                     <Button asChild variant="outline" className="w-full">
-                        <Link href={`/projects/${project.slug}`}>
-                           <Info className="mr-2 h-4 w-4" />
-                           More Info
-                        </Link>
-                     </Button>
-                  </CardFooter>
-                  </div>
-                </Card>
-              ))}
-            </div>
-             <div className="mt-12 text-center">
-                <Button asChild size="lg">
-                  <Link href="/projects">View All Projects</Link>
-                </Button>
-            </div>
-          </div>
-        </section>
+          </section>
+        </MotionSection>
         
         <div className="grid grid-cols-1 lg:grid-cols-2">
-            <section id="skills" className="w-full py-16 md:py-24 lg:py-32">
-              <div className="container mx-auto max-w-screen-2xl px-4 md:px-6 h-full">
-                <div className="flex flex-col items-center justify-center space-y-4 text-center mb-12">
-                  <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl font-headline text-primary">My Skillset</h2>
-                  <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-                    I continuously strive to learn and master new technologies.
-                  </p>
-                </div>
-                <div className="mx-auto grid max-w-4xl gap-8">
-                  {skills.map((skill) => (
-                    <div key={skill.name} className="space-y-2">
-                      <div className="flex justify-between">
-                        <p className="font-medium">{skill.name}</p>
-                        <p className="text-sm text-accent font-semibold">{skill.level}%</p>
+            <MotionSection>
+              <section id="skills" className="w-full py-16 md:py-24 lg:py-32">
+                <div className="container mx-auto max-w-screen-2xl px-4 md:px-6 h-full">
+                  <div className="flex flex-col items-center justify-center space-y-4 text-center mb-12">
+                    <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl font-headline text-primary">My Skillset</h2>
+                    <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
+                      I continuously strive to learn and master new technologies.
+                    </p>
+                  </div>
+                  <div className="mx-auto grid max-w-4xl gap-8">
+                    {skills.map((skill) => (
+                      <div key={skill.name} className="space-y-2">
+                        <div className="flex justify-between">
+                          <p className="font-medium">{skill.name}</p>
+                          <p className="text-sm text-accent font-semibold">{skill.level}%</p>
+                        </div>
+                        <Progress value={skill.level} className="h-3 [&>div]:bg-accent" />
                       </div>
-                      <Progress value={skill.level} className="h-3 [&>div]:bg-accent" />
-                    </div>
-                  ))}
+                    ))}
+                  </div>
                 </div>
-              </div>
-            </section>
+              </section>
+            </MotionSection>
 
-            <section id="achievements" className="w-full py-16 md:py-24 lg:py-32 bg-card">
-              <div className="container mx-auto max-w-screen-2xl px-4 md:px-6 h-full">
-                <div className="flex flex-col items-center justify-center space-y-4 text-center mb-12">
-                  <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl font-headline text-primary">Achievements</h2>
-                   <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-                    Awards and recognition I've received for my work.
-                  </p>
+            <MotionSection>
+              <section id="achievements" className="w-full py-16 md:py-24 lg:py-32 bg-card">
+                <div className="container mx-auto max-w-screen-2xl px-4 md:px-6 h-full">
+                  <div className="flex flex-col items-center justify-center space-y-4 text-center mb-12">
+                    <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl font-headline text-primary">Achievements</h2>
+                     <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
+                      Awards and recognition I've received for my work.
+                    </p>
+                  </div>
+                   <div className="mx-auto grid max-w-4xl gap-6">
+                    {achievements.map((achievement, index) => (
+                      <div key={index} className="flex items-start space-x-4">
+                        <CheckCircle className="h-6 w-6 text-accent flex-shrink-0 mt-1" />
+                        <p className="text-muted-foreground">{achievement}</p>
+                      </div>
+                    ))}
+                  </div>
                 </div>
-                 <div className="mx-auto grid max-w-4xl gap-6">
-                  {achievements.map((achievement, index) => (
-                    <div key={index} className="flex items-start space-x-4">
-                      <CheckCircle className="h-6 w-6 text-accent flex-shrink-0 mt-1" />
-                      <p className="text-muted-foreground">{achievement}</p>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </section>
+              </section>
+            </MotionSection>
         </div>
 
 
-        <section id="contact" className="w-full py-16 md:py-24 lg:py-32 bg-secondary/30">
-          <div className="container mx-auto max-w-screen-2xl px-4 md:px-6">
-            <div className="flex flex-col items-center justify-center space-y-4 text-center mb-12">
-              <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl font-headline text-primary">Contact Me</h2>
-              <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-                Have a project in mind or just want to say hello? I'd love to hear from you.
-              </p>
+        <MotionSection>
+          <section id="contact" className="w-full py-16 md:py-24 lg:py-32 bg-secondary/30">
+            <div className="container mx-auto max-w-screen-2xl px-4 md:px-6">
+              <div className="flex flex-col items-center justify-center space-y-4 text-center mb-12">
+                <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl font-headline text-primary">Contact Me</h2>
+                <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
+                  Have a project in mind or just want to say hello? I'd love to hear from you.
+                </p>
+              </div>
+              <div className="mx-auto w-full max-w-2xl">
+                <ContactForm />
+              </div>
             </div>
-            <div className="mx-auto w-full max-w-2xl">
-              <ContactForm />
-            </div>
-          </div>
-        </section>
+          </section>
+        </MotionSection>
       </main>
       
       <footer className="w-full bg-secondary text-secondary-foreground">
