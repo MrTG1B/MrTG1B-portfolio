@@ -75,11 +75,11 @@ export default function Home() {
             <div className="flex flex-col justify-center space-y-6 order-2 lg:order-1">
               <Badge variant="outline" className="w-fit text-accent font-semibold border-accent">Tirthankar Dasgupta</Badge>
               <h1 className="text-4xl font-extrabold tracking-tight lg:text-5xl font-headline">
-                Hi there, I'm Tirthankar Dasgupta 👋
+                Bridging Hardware and Software
               </h1>
-               <p className="text-2xl font-semibold text-muted-foreground">Aspiring Engineer | Problem Solver | Tech Enthusiast</p>
+               <p className="text-2xl font-semibold text-muted-foreground">ECE Student | Full-Stack Developer | Hardware Innovator</p>
               <p className="max-w-[600px] text-muted-foreground md:text-xl">
-                Aspiring Electronics and Communication Engineering student with a passion for IoT, Embedded Systems, Robotics, and Full‑Stack Development.
+                I'm an Electronics and Communication Engineering student passionate about building complete solutions—from firmware on a circuit board to a polished web application.
               </p>
                <div className="flex space-x-4">
                 <Link href="mailto:tirthankardasgupta913913@gmail.com" className="text-muted-foreground hover:text-primary"><Mail /></Link>
