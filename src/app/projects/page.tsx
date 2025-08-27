@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowLeft, Briefcase, Code, Info } from "lucide-react";
+import { ArrowLeft, Briefcase, Code, Info, Github, ExternalLink } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle, CardFooter } from "@/components/ui/card";
@@ -49,13 +49,29 @@ export default function AllProjectsPage() {
                       <CardContent className="flex-grow">
                         <CardDescription>{project.description}</CardDescription>
                       </CardContent>
-                      <CardFooter className="bg-secondary/20 p-4 mt-auto">
-                      <Button asChild variant="outline" className="w-full">
-                          <Link href={`/projects/${project.slug}`}>
-                            <Info className="mr-2 h-4 w-4" />
-                            More Info
-                          </Link>
-                      </Button>
+                      <CardFooter className="bg-secondary/20 p-4 mt-auto flex-col items-start gap-4">
+                        <Button asChild variant="outline" className="w-full">
+                            <Link href={`/projects/${project.slug}`}>
+                              <Info className="mr-2 h-4 w-4" />
+                              More Info
+                            </Link>
+                        </Button>
+                        <div className="flex w-full gap-4">
+                          {project.links?.github && (
+                            <Button asChild variant="secondary" className="w-full">
+                              <Link href={project.links.github} target="_blank">
+                                <Github className="mr-2 h-4 w-4" /> Code
+                              </Link>
+                            </Button>
+                          )}
+                          {project.links?.live && (
+                            <Button asChild variant="secondary" className="w-full">
+                              <Link href={project.links.live} target="_blank">
+                                <ExternalLink className="mr-2 h-4 w-4" /> Live
+                              </Link>
+                            </Button>
+                          )}
+                        </div>
                     </CardFooter>
                     </div>
                   </Card>
@@ -73,5 +89,3 @@ export default function AllProjectsPage() {
     </div>
   );
 }
-
-    
