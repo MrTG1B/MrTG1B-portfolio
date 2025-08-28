@@ -286,12 +286,11 @@ export default function Home() {
                     </p>
                   </div>
                   
-                  <div
-                    className="group relative w-full overflow-hidden whitespace-nowrap [mask-image:_linear-gradient(to_right,_transparent_0,_black_10%,_black_90%,_transparent_100%)]">
-                    <div className="animate-scroll-slow inline-block w-max">
-                      {[...techStack, ...techStack].map((skill, index) => (
-                        <div key={index} className="inline-flex px-4">
-                           <Image src={skill.logo} alt={skill.name} width={120} height={30} className="h-8 object-contain" />
+                  <div className="w-full overflow-hidden relative group [mask-image:_linear-gradient(to_right,transparent_0,_black_10%,_black_90%,transparent_100%)]">
+                    <div className="flex w-max animate-scroll group-hover:[animation-play-state:paused]">
+                      {techStack.map((skill) => (
+                        <div key={skill.name} className="flex-shrink-0 flex items-center justify-center bg-card rounded-lg p-2 mx-4 h-12">
+                          <Image src={skill.logo} alt={skill.name} width={120} height={30} className="h-full w-auto object-contain" />
                         </div>
                       ))}
                     </div>

@@ -84,11 +84,19 @@
 }
 
 @layer utilities {
-  .animate-scroll-slow {
-    animation: scroll-slow 40s linear infinite;
+  .animate-scroll {
+    animation: scroll 40s linear infinite;
   }
 
-  @keyframes scroll-slow {
+  .animate-scroll::before {
+    content: attr(data-content);
+    position: absolute;
+    top: 0;
+    left: 100%;
+    white-space: nowrap;
+  }
+
+  @keyframes scroll {
     from {
       transform: translateX(0);
     }
