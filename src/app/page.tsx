@@ -6,7 +6,6 @@ import { ArrowRight, Code, Github, Linkedin, Mail, Twitter, CheckCircle, Info, M
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle, CardFooter } from "@/components/ui/card";
-import { Progress } from "@/components/ui/progress";
 import { ContactForm } from "@/components/contact-form";
 import { projects } from "@/lib/projects";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
