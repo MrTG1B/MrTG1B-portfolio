@@ -30,12 +30,11 @@ const techStack = [
 ];
 
 const otherSkills = {
-    "Web": ["Flask", "Express"],
+    "Web": ["Node.js", "Flask", "Express"],
     "Mobile": ["XML", "Android Studio"],
     "Hardware": ["ESP32", "Arduino", "Sensors", "Actuators", "3D Printing (Ender 3)"],
-    "Tools": ["AutoCAD", "VS Code"],
-    "Others": ["Google Generative AI", "Flask-SocketIO", "API Integrations"]
-}
+    "Tools & Others": ["Git", "GitHub", "Figma", "AutoCAD", "VS Code", "Firebase", "Google Generative AI", "Flask-SocketIO", "API Integrations"]
+};
 
 const achievements = [
     "2nd Position — Hackfest State & Regional Round (SAP & Techno International New Town, April 2025)",
@@ -286,8 +285,11 @@ export default function Home() {
                     </p>
                   </div>
                   
-                  <div className="w-full overflow-hidden relative group [mask-image:_linear-gradient(to_right,transparent_0,_black_10%,_black_90%,transparent_100%)]">
-                    <div className="flex w-max animate-scroll group-hover:[animation-play-state:paused]">
+                  <div
+                    className="relative w-full overflow-hidden [mask-image:_linear-gradient(to_right,transparent_0,_black_10%,_black_90%,transparent_100%)]"
+                    data-content={JSON.stringify(techStack)}
+                  >
+                    <div className="flex w-max animate-scroll">
                       {techStack.map((skill) => (
                         <div key={skill.name} className="flex-shrink-0 flex items-center justify-center bg-card rounded-lg p-2 mx-4 h-12">
                           <Image src={skill.logo} alt={skill.name} width={120} height={30} className="h-full w-auto object-contain" />
@@ -296,7 +298,7 @@ export default function Home() {
                     </div>
                   </div>
 
-                  <div className="mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 mt-12 max-w-4xl">
+                  <div className="mx-auto grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-12 mt-12 max-w-4xl">
                     {Object.entries(otherSkills).map(([category, skills]) => (
                         <div key={category}>
                             <h3 className="font-bold text-xl mb-4 text-accent">{category}</h3>
