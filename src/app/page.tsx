@@ -15,16 +15,28 @@ import { useRef } from "react";
 
 const topProjects = projects.slice(0, 3);
 
-const skills = [
-  { name: "C / C++", level: 90 },
-  { name: "Python", level: 95 },
-  { name: "JavaScript", level: 85 },
-  { name: "Web (HTML, CSS, Node.js, Flask, Express)", level: 88 },
-  { name: "Hardware (ESP32, Arduino, 3D Printing)", level: 92 },
-  { name: "Mobile (Android Studio, XML)", level: 75 },
-  { name: "Cloud & APIs (Firebase, GenAI, REST)", level: 80 },
-  { name: "Tools (Git, GitHub, Figma, AutoCAD, Fusion 360)", level: 90 },
+const techStack = [
+  { name: "C", logo: "https://img.shields.io/badge/-C-00599C?style=for-the-badge&logo=c&logoColor=white" },
+  { name: "C++", logo: "https://img.shields.io/badge/-C++-00599C?style=for-the-badge&logo=c%2B%2B&logoColor=white" },
+  { name: "Python", logo: "https://img.shields.io/badge/-Python-3776AB?style=for-the-badge&logo=python&logoColor=white" },
+  { name: "JavaScript", logo: "https://img.shields.io/badge/-JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black" },
+  { name: "HTML5", logo: "https://img.shields.io/badge/-HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white" },
+  { name: "CSS3", logo: "https://img.shields.io/badge/-CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white" },
+  { name: "Fusion360", logo: "https://img.shields.io/badge/-Fusion360-1797ED?style=for-the-badge&logo=autodesk&logoColor=white" },
+  { name: "Firebase", logo: "https://img.shields.io/badge/-Firebase-FFCA28?style=for-the-badge&logo=firebase&logoColor=black" },
+  { name: "Node.js", logo: "https://img.shields.io/badge/-Node.js-339933?style=for-the-badge&logo=node.js&logoColor=white" },
+  { name: "Git", logo: "https://img.shields.io/badge/-Git-F05032?style=for-the-badge&logo=git&logoColor=white" },
+  { name: "GitHub", logo: "https://img.shields.io/badge/-GitHub-181717?style=for-the-badge&logo=github&logoColor=white" },
+  { name: "Figma", logo: "https://img.shields.io/badge/-Figma-F24E1E?style=for-the-badge&logo=figma&logoColor=white" },
 ];
+
+const otherSkills = {
+    "Web": ["Flask", "Express"],
+    "Mobile": ["XML", "Android Studio"],
+    "Hardware": ["ESP32", "Arduino", "Sensors", "Actuators", "3D Printing (Ender 3)"],
+    "Tools": ["AutoCAD", "VS Code"],
+    "Others": ["Google Generative AI", "Flask-SocketIO", "API Integrations"]
+}
 
 const achievements = [
     "2nd Position — Hackfest State & Regional Round (SAP & Techno International New Town, April 2025)",
@@ -274,17 +286,33 @@ export default function Home() {
                       I continuously strive to learn and master new technologies.
                     </p>
                   </div>
-                  <div className="mx-auto grid max-w-4xl gap-8">
-                    {skills.map((skill) => (
-                      <div key={skill.name} className="space-y-2">
-                        <div className="flex justify-between">
-                          <p className="font-medium">{skill.name}</p>
-                          <p className="text-sm text-accent font-semibold">{skill.level}%</p>
+                  
+                  <div className="relative w-full overflow-hidden">
+                    <div className="flex animate-scroll group-hover:pause">
+                      {[...techStack, ...techStack].map((skill, index) => (
+                        <div key={index} className="flex-shrink-0 w-auto px-4">
+                           <Image src={skill.logo} alt={skill.name} width={120} height={30} className="h-10 object-contain" />
                         </div>
-                        <Progress value={skill.level} className="h-3 [&>div]:bg-accent" />
-                      </div>
+                      ))}
+                    </div>
+                  </div>
+
+                  <div className="mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 mt-12 max-w-4xl">
+                    {Object.entries(otherSkills).map(([category, skills]) => (
+                        <div key={category}>
+                            <h3 className="font-bold text-xl mb-4 text-accent">{category}</h3>
+                            <ul className="space-y-2">
+                                {skills.map(skill => (
+                                    <li key={skill} className="flex items-center gap-2">
+                                        <CheckCircle className="h-4 w-4 text-primary" />
+                                        <span className="text-muted-foreground">{skill}</span>
+                                    </li>
+                                ))}
+                            </ul>
+                        </div>
                     ))}
                   </div>
+
                 </div>
               </section>
             </MotionSection>
