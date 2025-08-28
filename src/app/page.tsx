@@ -290,7 +290,7 @@ export default function Home() {
                     <div className="flex animate-scroll">
                       {[...techStack, ...techStack].map((skill, index) => (
                         <div key={index} className="flex-shrink-0 w-auto px-4">
-                           <Image src={skill.logo} alt={skill.name} width={120} height={30} className="h-10 object-contain" />
+                           <Image src={skill.logo} alt={skill.name} width={120} height={30} className="h-8 object-contain" />
                         </div>
                       ))}
                     </div>
