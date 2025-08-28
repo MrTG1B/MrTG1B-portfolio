@@ -30,10 +30,10 @@ const techStack = [
 ];
 
 const otherSkills = {
-    "Web": ["Node.js", "Flask", "Express"],
-    "Mobile": ["XML", "Android Studio"],
-    "Hardware": ["ESP32", "Arduino", "Sensors", "Actuators", "3D Printing (Ender 3)"],
-    "Tools & Others": ["Git", "GitHub", "Figma", "AutoCAD", "VS Code", "Firebase", "Google Generative AI", "Flask-SocketIO", "API Integrations"]
+    "Web Development": ["Node.js", "Flask", "Express", "Firebase", "API Integrations"],
+    "Mobile & Hardware": ["XML", "Android Studio", "ESP32", "Arduino", "Sensors", "Actuators"],
+    "Design & Prototyping": ["Figma", "AutoCAD", "Fusion360", "3D Printing (Ender 3)"],
+    "Tools & Others": ["Git", "GitHub", "VS Code", "Google Generative AI", "Flask-SocketIO"]
 };
 
 const achievements = [
@@ -289,9 +289,9 @@ export default function Home() {
                     className="relative w-full overflow-hidden [mask-image:_linear-gradient(to_right,transparent_0,_black_10%,_black_90%,transparent_100%)]"
                     data-content={JSON.stringify(techStack)}
                   >
-                    <div className="flex w-max animate-scroll">
-                      {techStack.map((skill) => (
-                        <div key={skill.name} className="flex-shrink-0 flex items-center justify-center bg-card rounded-lg p-2 mx-4 h-12">
+                     <div className="flex w-max animate-scroll" data-content={JSON.stringify(techStack)}>
+                      {[...techStack, ...techStack].map((skill, index) => (
+                        <div key={index} className="flex-shrink-0 flex items-center justify-center bg-card rounded-lg p-2 mx-4 h-12">
                           <Image src={skill.logo} alt={skill.name} width={120} height={30} className="h-full w-auto object-contain" />
                         </div>
                       ))}
@@ -358,16 +358,22 @@ export default function Home() {
         </MotionSection>
       </main>
       
-      <footer className="w-full bg-secondary text-secondary-foreground">
-        <div className="container mx-auto max-w-screen-2xl px-4 md:px-6 py-8 flex flex-col md:flex-row items-center justify-between">
-          <div className="text-center md:text-left mb-4 md:mb-0">
-            <p className="text-sm font-medium">&copy; {new Date().getFullYear()} Tirthankar Dasgupta. All Rights Reserved.</p>
-          </div>
-          <div className="flex space-x-4">
-            <Link href="https://twitter.com/TIRTHAN20755732" target="_blank" className="text-muted-foreground transition-colors hover:text-primary"><Twitter className="h-6 w-6" /></Link>
-            <Link href="https://github.com/MrTG1B" target="_blank" className="text-muted-foreground transition-colors hover:text-primary"><Github className="h-6 w-6" /></Link>
-            <Link href="https://www.linkedin.com/in/tirthankardasguptaprofile" target="_blank" className="text-muted-foreground transition-colors hover:text-primary"><Linkedin className="h-6 w-6" /></Link>
-            <Link href="https://www.instagram.com/marveltea__" target="_blank" className="text-muted-foreground transition-colors hover:text-primary"><Instagram className="h-6 w-6" /></Link>
+      <footer className="w-full border-t border-border/40 bg-background/95">
+        <div className="container mx-auto max-w-screen-2xl px-4 md:px-6 py-6">
+          <div className="flex flex-col md:flex-row items-center justify-between gap-4">
+            <div className="flex items-center gap-2">
+              <Code className="h-6 w-6 text-primary" />
+              <span className="font-bold text-lg">MrTG1B</span>
+            </div>
+            <p className="text-sm text-muted-foreground text-center md:text-left">
+              &copy; {new Date().getFullYear()} Tirthankar Dasgupta. All Rights Reserved.
+            </p>
+            <div className="flex space-x-4">
+              <Link href="https://twitter.com/TIRTHAN20755732" target="_blank" className="text-muted-foreground transition-colors hover:text-primary"><Twitter className="h-5 w-5" /></Link>
+              <Link href="https://github.com/MrTG1B" target="_blank" className="text-muted-foreground transition-colors hover:text-primary"><Github className="h-5 w-5" /></Link>
+              <Link href="https://www.linkedin.com/in/tirthankardasguptaprofile" target="_blank" className="text-muted-foreground transition-colors hover:text-primary"><Linkedin className="h-5 w-5" /></Link>
+              <Link href="https://www.instagram.com/marveltea__" target="_blank" className="text-muted-foreground transition-colors hover:text-primary"><Instagram className="h-5 w-5" /></Link>
+            </div>
           </div>
         </div>
       </footer>
