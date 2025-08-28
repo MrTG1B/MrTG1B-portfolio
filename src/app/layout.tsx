@@ -1,7 +1,7 @@
 import type {Metadata} from 'next';
 import './globals.css';
 import { Toaster } from "@/components/ui/toaster";
-import { Orbitron, Share_Tech_Mono } from 'next/font/google';
+import { Orbitron, Inter } from 'next/font/google';
 import { cn } from '@/lib/utils';
 
 const orbitron = Orbitron({
@@ -9,10 +9,9 @@ const orbitron = Orbitron({
   variable: '--font-orbitron',
 });
 
-const shareTechMono = Share_Tech_Mono({
+const inter = Inter({
   subsets: ['latin'],
-  weight: '400',
-  variable: '--font-share-tech-mono',
+  variable: '--font-inter',
 });
 
 export const metadata: Metadata = {
@@ -26,11 +25,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={cn(orbitron.variable, shareTechMono.variable, "dark scroll-smooth")} suppressHydrationWarning>
+    <html lang="en" className={cn(orbitron.variable, inter.variable, "dark scroll-smooth")} suppressHydrationWarning>
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&family=Share+Tech+Mono&display=swap" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&family=Inter:wght@400;500;700&display=swap" rel="stylesheet" />
       </head>
       <body className={cn("font-body", "antialiased")} suppressHydrationWarning>
         {children}
