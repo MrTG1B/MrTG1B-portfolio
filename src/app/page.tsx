@@ -286,8 +286,8 @@ export default function Home() {
                     </p>
                   </div>
                   
-                  <div className="relative w-full overflow-hidden">
-                    <div className="flex animate-scroll group-hover:pause">
+                  <div className="relative w-full overflow-hidden group">
+                    <div className="flex animate-scroll">
                       {[...techStack, ...techStack].map((skill, index) => (
                         <div key={index} className="flex-shrink-0 w-auto px-4">
                            <Image src={skill.logo} alt={skill.name} width={120} height={30} className="h-10 object-contain" />
@@ -317,7 +317,7 @@ export default function Home() {
             </MotionSection>
 
             <MotionSection>
-              <section id="achievements" className="w-full py-16 mdpy-24 lg:py-32 bg-card">
+              <section id="achievements" className="w-full py-16 md:py-24 lg:py-32 bg-card">
                 <div className="container mx-auto max-w-screen-2xl px-4 md:px-6 h-full">
                   <div className="flex flex-col items-center justify-center space-y-4 text-center mb-12">
                     <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl font-headline text-primary">Achievements</h2>
@@ -372,5 +372,3 @@ export default function Home() {
     </div>
   );
 }
-
-    
