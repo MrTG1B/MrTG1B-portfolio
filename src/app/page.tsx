@@ -11,6 +11,7 @@ import { projects } from "@/lib/projects";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
+import { Separator } from "@/components/ui/separator";
 
 const topProjects = projects.slice(0, 3);
 
@@ -30,11 +31,12 @@ const techStack = [
 ];
 
 const otherSkills = {
-    "Web Development": ["Node.js", "Flask", "Express", "Firebase", "API Integrations"],
-    "Mobile & Hardware": ["XML", "Android Studio", "ESP32", "Arduino", "Sensors", "Actuators"],
-    "Design & Prototyping": ["Figma", "AutoCAD", "Fusion360", "3D Printing (Ender 3)"],
-    "Tools & Others": ["Git", "GitHub", "VS Code", "Google Generative AI", "Flask-SocketIO"]
+    "Web & Mobile": ["Node.js", "Flask", "Express", "Firebase", "XML", "Android Studio"],
+    "Hardware & IoT": ["ESP32", "Arduino", "Sensors", "Actuators", "3D Printing"],
+    "Design & Prototyping": ["Figma", "AutoCAD", "Fusion360", "API Integrations"],
+    "Tools & Technologies": ["Git", "GitHub", "VS Code", "Google Generative AI", "Flask-SocketIO"]
 };
+
 
 const achievements = [
     "2nd Position — Hackfest State & Regional Round (SAP & Techno International New Town, April 2025)",
@@ -358,22 +360,50 @@ export default function Home() {
         </MotionSection>
       </main>
       
-      <footer className="w-full border-t border-border/40 bg-background/95">
-        <div className="container mx-auto max-w-screen-2xl px-4 md:px-6 py-6">
-          <div className="flex flex-col md:flex-row items-center justify-between gap-4">
-            <div className="flex items-center gap-2">
-              <Code className="h-6 w-6 text-primary" />
-              <span className="font-bold text-lg">MrTG1B</span>
+      <footer className="w-full bg-card">
+        <div className="container mx-auto max-w-screen-2xl px-4 md:px-6 py-12">
+          <div className="grid gap-8 md:grid-cols-3">
+            <div className="flex flex-col gap-4">
+               <Link href="/" className="flex items-center space-x-2 w-fit">
+                <Code className="h-8 w-8 text-primary" />
+                <span className="font-bold text-xl">MrTG1B</span>
+              </Link>
+              <p className="text-muted-foreground text-sm max-w-sm">
+                An innovator at the intersection of hardware and software, dedicated to building complete, impactful solutions from the ground up.
+              </p>
             </div>
+            <div className="md:col-span-2 grid grid-cols-2 md:grid-cols-3 gap-8">
+              <div>
+                <h3 className="font-semibold mb-4">Quick Links</h3>
+                <ul className="space-y-2 text-sm">
+                  <li><Link href="#about" className="text-muted-foreground hover:text-primary">About</Link></li>
+                  <li><Link href="/projects" className="text-muted-foreground hover:text-primary">Projects</Link></li>
+                  <li><Link href="#skills" className="text-muted-foreground hover:text-primary">Skills</Link></li>
+                  <li><Link href="#contact" className="text-muted-foreground hover:text-primary">Contact</Link></li>
+                </ul>
+              </div>
+              <div>
+                <h3 className="font-semibold mb-4">Social Media</h3>
+                <ul className="space-y-2 text-sm">
+                  <li><Link href="https://github.com/MrTG1B" target="_blank" className="text-muted-foreground hover:text-primary">GitHub</Link></li>
+                  <li><Link href="https://www.linkedin.com/in/tirthankardasguptaprofile" target="_blank" className="text-muted-foreground hover:text-primary">LinkedIn</Link></li>
+                  <li><Link href="https://twitter.com/TIRTHAN20755732" target="_blank" className="text-muted-foreground hover:text-primary">Twitter</Link></li>
+                  <li><Link href="https://www.instagram.com/marveltea__" target="_blank" className="text-muted-foreground hover:text-primary">Instagram</Link></li>
+                </ul>
+              </div>
+               <div>
+                <h3 className="font-semibold mb-4">Contact</h3>
+                 <ul className="space-y-2 text-sm">
+                  <li><a href="mailto:tirthankardasgupta913913@gmail.com" className="text-muted-foreground hover:text-primary flex items-center gap-2"><Mail className="h-4 w-4" /> Email</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <Separator className="my-8 bg-border/40" />
+          <div className="flex flex-col md:flex-row items-center justify-between gap-4">
             <p className="text-sm text-muted-foreground text-center md:text-left">
               &copy; {new Date().getFullYear()} Tirthankar Dasgupta. All Rights Reserved.
             </p>
-            <div className="flex space-x-4">
-              <Link href="https://twitter.com/TIRTHAN20755732" target="_blank" className="text-muted-foreground transition-colors hover:text-primary"><Twitter className="h-5 w-5" /></Link>
-              <Link href="https://github.com/MrTG1B" target="_blank" className="text-muted-foreground transition-colors hover:text-primary"><Github className="h-5 w-5" /></Link>
-              <Link href="https://www.linkedin.com/in/tirthankardasguptaprofile" target="_blank" className="text-muted-foreground transition-colors hover:text-primary"><Linkedin className="h-5 w-5" /></Link>
-              <Link href="https://www.instagram.com/marveltea__" target="_blank" className="text-muted-foreground transition-colors hover:text-primary"><Instagram className="h-5 w-5" /></Link>
-            </div>
           </div>
         </div>
       </footer>
