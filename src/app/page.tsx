@@ -13,7 +13,8 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 import { Separator } from "@/components/ui/separator";
 
-const topProjects = projects.slice(0, 3);
+const topProjectSlugs = ["promptforge", "refix", "auralis", "handy"];
+const topProjects = projects.filter(p => topProjectSlugs.includes(p.slug));
 
 const techStack = [
   { name: "C", logo: "https://img.shields.io/badge/-C-00599C?style=for-the-badge&logo=c&logoColor=white" },
@@ -216,7 +217,7 @@ export default function Home() {
                   </p>
                 </div>
               </div>
-              <div className="mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-12">
+              <div className="mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mt-12">
                 {topProjects.map((project, i) => (
                   <motion.div
                     key={project.slug}
@@ -405,5 +406,3 @@ export default function Home() {
     </div>
   );
 }
-
-    

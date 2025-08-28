@@ -134,6 +134,8 @@ export const projects = [
     tags: ["Productivity", "Web App", "Task Management"],
     aiHint: "app interface",
     achievements: [],
-    links: {}
+    links: {
+       github: "https://github.com/MrTG1B/RefiX"
+    }
   }
 ];
