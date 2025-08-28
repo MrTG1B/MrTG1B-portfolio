@@ -37,7 +37,6 @@ const otherSkills = {
     "Tools & Technologies": ["Git", "GitHub", "VS Code", "Google Generative AI", "Flask-SocketIO"]
 };
 
-
 const achievements = [
     "2nd Position — Hackfest State & Regional Round (SAP & Techno International New Town, April 2025)",
     "1st Runner-up — Smart Street Light System at Rajabazar Science College (13th March 2025)",
@@ -276,71 +275,67 @@ export default function Home() {
           </section>
         </MotionSection>
         
-        <div className="grid grid-cols-1 lg:grid-cols-2">
-            <MotionSection>
-              <section id="skills" className="w-full py-16 md:py-24 lg:py-32">
-                <div className="container mx-auto max-w-screen-2xl px-4 md:px-6 h-full">
-                  <div className="flex flex-col items-center justify-center space-y-4 text-center mb-12">
-                    <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl font-headline text-primary">My Skillset</h2>
-                    <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-                      I continuously strive to learn and master new technologies.
-                    </p>
-                  </div>
-                  
-                  <div
-                    className="relative w-full overflow-hidden [mask-image:_linear-gradient(to_right,transparent_0,_black_10%,_black_90%,transparent_100%)]"
-                    data-content={JSON.stringify(techStack)}
-                  >
-                     <div className="flex w-max animate-scroll" data-content={JSON.stringify(techStack)}>
-                      {[...techStack, ...techStack].map((skill, index) => (
-                        <div key={index} className="flex-shrink-0 flex items-center justify-center bg-card rounded-lg p-2 mx-4 h-12">
-                          <Image src={skill.logo} alt={skill.name} width={120} height={30} className="h-full w-auto object-contain" />
+        <section id="skills-achievements" className="w-full py-16 md:py-24 lg:py-32">
+          <div className="container mx-auto max-w-screen-2xl px-4 md:px-6">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+              <MotionSection>
+                <Card className="h-full">
+                  <CardHeader>
+                    <CardTitle className="text-3xl font-bold tracking-tighter sm:text-4xl font-headline text-primary">My Skillset</CardTitle>
+                    <CardDescription>I continuously strive to learn and master new technologies.</CardDescription>
+                  </CardHeader>
+                  <CardContent>
+                    <div
+                        className="relative w-full overflow-hidden [mask-image:_linear-gradient(to_right,transparent_0,_black_10%,_black_90%,transparent_100%)]"
+                    >
+                        <div className="flex w-max animate-scroll">
+                          {[...techStack, ...techStack].map((skill, index) => (
+                              <div key={index} className="flex-shrink-0 flex items-center justify-center bg-card rounded-lg p-2 mx-4 h-12">
+                                <Image src={skill.logo} alt={skill.name} width={120} height={30} className="h-full w-auto object-contain" />
+                              </div>
+                          ))}
                         </div>
-                      ))}
                     </div>
-                  </div>
+                    <div className="mx-auto grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-8 mt-8">
+                        {Object.entries(otherSkills).map(([category, skills]) => (
+                            <div key={category}>
+                                <h3 className="font-bold text-lg mb-3 text-accent">{category}</h3>
+                                <ul className="space-y-2">
+                                    {skills.map(skill => (
+                                        <li key={skill} className="flex items-center gap-2">
+                                            <CheckCircle className="h-4 w-4 text-primary" />
+                                            <span className="text-sm text-muted-foreground">{skill}</span>
+                                        </li>
+                                    ))}
+                                </ul>
+                            </div>
+                        ))}
+                    </div>
+                  </CardContent>
+                </Card>
+              </MotionSection>
 
-                  <div className="mx-auto grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-12 mt-12 max-w-4xl">
-                    {Object.entries(otherSkills).map(([category, skills]) => (
-                        <div key={category}>
-                            <h3 className="font-bold text-xl mb-4 text-accent">{category}</h3>
-                            <ul className="space-y-2">
-                                {skills.map(skill => (
-                                    <li key={skill} className="flex items-center gap-2">
-                                        <CheckCircle className="h-4 w-4 text-primary" />
-                                        <span className="text-muted-foreground">{skill}</span>
-                                    </li>
-                                ))}
-                            </ul>
-                        </div>
-                    ))}
-                  </div>
-
-                </div>
-              </section>
-            </MotionSection>
-
-            <MotionSection>
-              <section id="achievements" className="w-full py-16 md:py-24 lg:py-32 bg-card">
-                <div className="container mx-auto max-w-screen-2xl px-4 md:px-6 h-full">
-                  <div className="flex flex-col items-center justify-center space-y-4 text-center mb-12">
-                    <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl font-headline text-primary">Achievements</h2>
-                     <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-                      Awards and recognition I've received for my work.
-                    </p>
-                  </div>
-                   <div className="mx-auto grid max-w-4xl gap-6">
-                    {achievements.map((achievement, index) => (
-                      <div key={index} className="flex items-start space-x-4">
-                        <CheckCircle className="h-6 w-6 text-accent flex-shrink-0 mt-1" />
-                        <p className="text-muted-foreground">{achievement}</p>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              </section>
-            </MotionSection>
-        </div>
+              <MotionSection>
+                <Card className="h-full">
+                  <CardHeader>
+                    <CardTitle className="text-3xl font-bold tracking-tighter sm:text-4xl font-headline text-primary">Achievements</CardTitle>
+                    <CardDescription>Awards and recognition I've received for my work.</CardDescription>
+                  </CardHeader>
+                  <CardContent>
+                    <ul className="space-y-4">
+                      {achievements.map((achievement, index) => (
+                        <li key={index} className="flex items-start space-x-4">
+                          <CheckCircle className="h-6 w-6 text-accent flex-shrink-0 mt-1" />
+                          <p className="text-muted-foreground">{achievement}</p>
+                        </li>
+                      ))}
+                    </ul>
+                  </CardContent>
+                </Card>
+              </MotionSection>
+            </div>
+          </div>
+        </section>
 
 
         <MotionSection>
@@ -410,3 +405,5 @@ export default function Home() {
     </div>
   );
 }
+
+    
