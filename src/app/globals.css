@@ -84,16 +84,16 @@
 }
 
 @layer utilities {
-  .animate-scroll {
-    animation: scroll 20s linear infinite;
+  .animate-scroll-slow {
+    animation: scroll-slow 40s linear infinite;
   }
 
-  @keyframes scroll {
+  @keyframes scroll-slow {
     from {
       transform: translateX(0);
     }
     to {
-      transform: translateX(-50%);
+      transform: translateX(-100%);
     }
   }
 }

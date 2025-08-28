@@ -286,10 +286,11 @@ export default function Home() {
                     </p>
                   </div>
                   
-                  <div className="relative w-full overflow-hidden group">
-                    <div className="flex animate-scroll">
+                  <div
+                    className="group relative w-full overflow-hidden whitespace-nowrap [mask-image:_linear-gradient(to_right,_transparent_0,_black_10%,_black_90%,_transparent_100%)]">
+                    <div className="animate-scroll-slow inline-block w-max">
                       {[...techStack, ...techStack].map((skill, index) => (
-                        <div key={index} className="flex-shrink-0 w-auto px-4">
+                        <div key={index} className="inline-flex px-4">
                            <Image src={skill.logo} alt={skill.name} width={120} height={30} className="h-8 object-contain" />
                         </div>
                       ))}
