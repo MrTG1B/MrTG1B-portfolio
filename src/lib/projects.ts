@@ -3,15 +3,16 @@ export const projects = [
   {
     slug: "wellmed",
     title: "WellMed",
-    description: "A feature-rich medicine info & management PWA, blending a user-friendly interface with robust backend services.",
-    longDescription: "WellMed is a comprehensive Progressive Web App designed to provide users with detailed information about medicines, manage their prescriptions, and set reminders for their doses. It aims to be a one-stop solution for personal healthcare management, built with modern web technologies for a seamless experience on any device.",
+    description: "An AI-powered medicine PWA with multilingual support, barcode search, and data for over 900 medicines.",
+    longDescription: "WellMed is an AI-powered medicine search Progressive Web App (PWA) designed to help users quickly find information about over 900 medicines. With multilingual support (English, Hindi, and Bengali) and smart search features powered by the Gemini API, the app is ideal for users looking for medicine information by name, composition, or barcode scanning. It also features a full admin dashboard for managing medicine data.",
     image: "https://picsum.photos/600/400?random=1",
-    tags: ["PWA", "JavaScript", "Firebase", "Health"],
+    tags: ["React", "TypeScript", "PWA", "Gemini API", "Firebase", "Health"],
     aiHint: "medicine health",
     achievements: [
-      "Successfully implemented real-time database synchronization with Firebase.",
-      "Developed a user-friendly interface that received positive feedback for its ease of use.",
-      "Integrated a powerful search feature for quick medicine lookup."
+      "Enhanced search with Gemini AI for intelligent suggestions and accurate results.",
+      "Implemented multilingual support for English, Hindi, and Bengali to ensure broader accessibility.",
+      "Developed as a fully installable Progressive Web App (PWA) with offline capabilities.",
+      "Built a comprehensive admin dashboard for easy management of the 900+ medicine database."
     ],
     links: {
       github: "https://github.com/MrTG1B/WellMed",
