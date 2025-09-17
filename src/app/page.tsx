@@ -40,6 +40,8 @@ const otherSkills = {
 
 const achievements = [
     "2nd Position — Hackfest State & Regional Round (SAP & Techno International New Town, April 2025)",
+    "1st Runner-up — Smart Street Light System (Auralis), Rajabazar Science College",
+    "2nd Runner-up — Auralis, Jadavpur University"
 ];
 
 const MotionSection = ({ children }: { children: React.ReactNode }) => {
@@ -380,7 +382,7 @@ export default function Home() {
                 <h3 className="font-semibold mb-4">Social Media</h3>
                 <ul className="space-y-2 text-sm">
                   <li><Link href="https://github.com/MrTG1B" target="_blank" className="text-muted-foreground hover:text-primary">GitHub</Link></li>
-                  <li><Link href="https://www.linkedin.com/in/tirthankardasguptaprofile" target="_blank" className="text-muted-foreground hover:text-primary">LinkedIn</Link></li>
+                  <li><Link href="https://www.linkedin.com/in/tirthankardasguptaprofile" target_blank" className="text-muted-foreground hover:text-primary">LinkedIn</Link></li>
                   <li><Link href="https://twitter.com/TIRTHAN20755732" target="_blank" className="text-muted-foreground hover:text-primary">Twitter</Link></li>
                   <li><Link href="https://www.instagram.com/marveltea__" target="_blank" className="text-muted-foreground hover:text-primary">Instagram</Link></li>
                 </ul>
