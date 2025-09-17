@@ -21,19 +21,20 @@ export const projects = [
   {
     slug: "promptforge",
     title: "PromptForge",
-    description: "An AI-powered prompt generator for content creators, built with a focus on creative and diverse output.",
-    longDescription: "PromptForge is a creative tool designed to help AI enthusiasts, writers, and content creators generate high-quality, diverse prompts for various generative AI models. It uses advanced algorithms to craft prompts that can be used for generating text, images, and more, sparking creativity and streamlining the content creation process.",
+    description: "A user-friendly platform to craft, refine, and generate high-quality prompts for various AI models.",
+    longDescription: "PromptForge is a user-friendly web-based platform designed to help users craft high-quality, effective prompts for various AI models. Whether you're a beginner exploring AI tools or a seasoned prompt engineer, PromptForge streamlines the process of generating and refining prompts to get the best possible responses from your AI of choice.",
     image: "https://picsum.photos/600/400?random=2",
-    tags: ["AI", "Next.js", "Content Creation"],
+    tags: ["Next.js", "TypeScript", "Firebase", "Appwrite", "AI", "reCAPTCHA"],
     aiHint: "artificial intelligence",
     achievements: [
-      "Built with a sophisticated prompt generation engine.",
-      "Designed an intuitive UI that allows for easy customization of prompts.",
-      "Used by a growing community of AI art and content creators."
+      "Implemented secure user authentication with Firebase, including Google and Facebook login options.",
+      "Integrated reCAPTCHA Enterprise to protect the platform from automated abuse.",
+      "Developed an intuitive, mobile-friendly interface with features like a prompt template generator and one-click copy to clipboard.",
+      "Used Appwrite for secure storage and management of user profile images."
     ],
     links: {
       github: "https://github.com/MrTG1B/PromptForge",
-      live: "https://prompt-forge-ui.web.app/"
+      live: "https://prompt-forge-blond.vercel.app/"
     }
   },
   {
