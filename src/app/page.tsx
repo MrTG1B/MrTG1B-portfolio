@@ -1,3 +1,4 @@
+
 "use client";
 
 import Image from "next/image";
@@ -39,9 +40,8 @@ const otherSkills = {
 };
 
 const achievements = [
-    "2nd Position — Hackfest State & Regional Round (SAP & Techno International New Town, April 2025)",
-    "1st Runner-up — Smart Street Light System (Auralis), Rajabazar Science College",
-    "2nd Runner-up — Auralis, Jadavpur University"
+    "1st Runner-up — Auralis, Smart Street Light System (Rajabazar Science College)",
+    "2nd Runner-up — Auralis, Smart Street Light System (Jadavpur University)",
 ];
 
 const MotionSection = ({ children }: { children: React.ReactNode }) => {
@@ -66,6 +66,7 @@ const MotionSection = ({ children }: { children: React.ReactNode }) => {
     </motion.div>
   );
 };
+
 
 export default function Home() {
     const heroRef = useRef<HTMLDivElement>(null);
@@ -372,7 +373,7 @@ export default function Home() {
                 <h3 className="font-semibold mb-4">Quick Links</h3>
                 <ul className="space-y-2 text-sm">
                   <li><Link href="#about" className="text-muted-foreground hover:text-primary">About</Link></li>
-                  <li><Link href="/projects" className="text-muted-foreground hover:text-primary">Projects</Link></li>
+                  <li><Link href="/projects" className="text-muted-foreground hovertext-primary">Projects</Link></li>
                   <li><Link href="#skills" className="text-muted-foreground hover:text-primary">Skills</Link></li>
                   <li><Link href="#contact" className="text-muted-foreground hover:text-primary">Contact</Link></li>
                 </ul>
