@@ -55,16 +55,17 @@ export const projects = [
   },
    {
     slug: "gemini-powered-bot",
-    title: "Gemini-powered Bot",
-    description: "An autonomous robot integrating Google's Gemini API for intelligent navigation and decision-making.",
-    longDescription: "This project showcases the integration of cutting-edge AI with robotics. The robot utilizes Google's Gemini API to process sensory information, understand its environment, and make intelligent decisions for autonomous navigation and task execution. It's a step towards more capable and intelligent autonomous systems.",
+    title: "AI-Powered Mobile Robot",
+    description: "An autonomous robot integrating Google's Gemini API for intelligent navigation and decision-making in complex environments.",
+    longDescription: "This project showcases the integration of cutting-edge cloud AI with robotics. The robot utilizes Google's Gemini API to process real-time sensory information from LiDAR, ultrasonic, and IMU sensors, enabling it to navigate complex environments and make intelligent decisions without predefined paths. A Flask-based web interface allows for remote monitoring and control, demonstrating a scalable and low-cost solution for modern automation challenges.",
     image: "https://picsum.photos/600/400?random=4",
-    tags: ["Robotics", "AI", "Gemini API", "Python"],
+    tags: ["Robotics", "AI", "Gemini API", "ESP32", "LiDAR", "Flask", "IoT"],
     aiHint: "robot technology",
     achievements: [
-      "Successfully integrated the Gemini API for real-time decision making.",
-      "Implemented advanced navigation algorithms for obstacle avoidance.",
-      "Demonstrated the robot's ability to perform complex tasks autonomously."
+      "Successfully integrated the Google Gemini API for real-time, cloud-based navigation decisions, reducing onboard computational load.",
+      "Engineered a multi-sensor system (LiDAR, Ultrasonic, IMU) for robust environmental perception and obstacle avoidance.",
+      "Developed a reliable fail-safe mechanism that enables local, sonar-based navigation during network or API failures.",
+      "Built a Python Flask web interface for remote monitoring and manual control of the robot."
     ],
     links: {}
   },
