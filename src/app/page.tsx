@@ -82,7 +82,7 @@ export default function Home() {
         <div className="container mx-auto flex h-14 max-w-screen-2xl items-center justify-between px-4 md:px-6">
           <Link href="/" className="flex items-center space-x-2">
             <Code className="h-6 w-6 text-primary" />
-            <span className="font-bold text-lg">MrTG1B</span>
+            <span className="font-bold text-lg font-headline">MrTG1B</span>
           </Link>
           <nav className="hidden md:flex items-center space-x-6 text-sm font-medium">
             <Link href="#about" className="transition-colors hover:text-primary">About</Link>
@@ -102,7 +102,7 @@ export default function Home() {
                 <div className="grid gap-4 py-6">
                   <Link href="/" className="flex items-center space-x-2">
                      <Code className="h-6 w-6 text-primary" />
-                     <span className="font-bold text-lg">MrTG1B</span>
+                     <span className="font-bold text-lg font-headline">MrTG1B</span>
                   </Link>
                   <Link href="#about" className="flex w-full items-center py-2 text-lg font-semibold">About</Link>
                   <Link href="/projects" className="flex w-full items-center py-2 text-lg font-semibold">Projects</Link>
@@ -361,7 +361,7 @@ export default function Home() {
             <div className="flex flex-col gap-4">
                <Link href="/" className="flex items-center space-x-2 w-fit">
                 <Code className="h-8 w-8 text-primary" />
-                <span className="font-bold text-xl">MrTG1B</span>
+                <span className="font-bold text-xl font-headline">MrTG1B</span>
               </Link>
               <p className="text-muted-foreground text-sm max-w-sm">
                 An innovator at the intersection of hardware and software, dedicated to building complete, impactful solutions from the ground up.
