@@ -78,10 +78,11 @@ export const projects = [
     tags: ["IoT", "ESP32", "LoRaWAN", "Energy Efficiency", "Smart City"],
     aiHint: "smart city light",
     achievements: [
+      "Won 1st Runner-up for the Smart Street Light System at Rajabazar Science College.",
+      "Awarded 2nd Runner-up at Jadavpur University for the project's innovation.",
       "Achieved up to 80% reduction in energy consumption through adaptive lighting algorithms.",
       "Developed a real-time fault detection system that monitors power, network, and hardware anomalies.",
-      "Designed a dual-communication architecture using Wi-Fi and LoRaWAN for versatile deployment.",
-      "Presented the project at Rajabazar Science College, winning 1st Runner-up."
+      "Designed a dual-communication architecture using Wi-Fi and LoRaWAN for versatile deployment."
     ],
     links: {
       github: "https://github.com/MrTG1B/Auralis"

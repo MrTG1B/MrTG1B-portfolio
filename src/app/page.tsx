@@ -40,8 +40,6 @@ const otherSkills = {
 
 const achievements = [
     "2nd Position — Hackfest State & Regional Round (SAP & Techno International New Town, April 2025)",
-    "1st Runner-up — Smart Street Light System at Rajabazar Science College (13th March 2025)",
-    "2nd Runner-up at Jadavpur University (17th March 2025)"
 ];
 
 const MotionSection = ({ children }: { children: React.ReactNode }) => {
