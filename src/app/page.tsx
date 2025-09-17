@@ -67,7 +67,6 @@ const MotionSection = ({ children }: { children: React.ReactNode }) => {
   );
 };
 
-
 export default function Home() {
     const heroRef = useRef<HTMLDivElement>(null);
     const { scrollYProgress } = useScroll({
@@ -356,7 +355,7 @@ export default function Home() {
         </MotionSection>
       </main>
       
-      <footer className="w-full bg-card">
+      <footer className="w-full bg-card border-t border-border/40">
         <div className="container mx-auto max-w-screen-2xl px-4 md:px-6 py-12">
           <div className="grid gap-8 md:grid-cols-3">
             <div className="flex flex-col gap-4">
