@@ -67,7 +67,6 @@ const MotionSection = ({ children }: { children: React.ReactNode }) => {
   );
 };
 
-
 export default function Home() {
     const heroRef = useRef<HTMLDivElement>(null);
     const { scrollYProgress } = useScroll({
