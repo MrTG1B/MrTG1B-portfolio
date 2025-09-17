@@ -72,14 +72,15 @@ export const projects = [
   {
     slug: "auralis",
     title: "Auralis",
-    description: "An IoT network for proactive street light maintenance, featuring a real-time monitoring dashboard.",
-    longDescription: "This IoT-based system monitors a network of street lights in real-time. It automatically detects faults such as bulb failures or power issues and reports them to a central dashboard. This enables maintenance teams to be proactive, reducing downtime and improving city-wide safety and efficiency.",
+    description: "An IoT-enabled smart street lighting system with adaptive brightness, fault detection, and dual communication (Wi-Fi/LoRaWAN).",
+    longDescription: "Auralis is an innovative IoT-enabled smart street lighting system designed to significantly reduce energy consumption and improve fault management. It features adaptive lighting based on real-time ambient light and motion detection, and a dual-communication architecture using both Wi-Fi and LoRaWAN to ensure scalability and reliability in urban and rural settings. A cloud-based dashboard provides centralized monitoring and control.",
     image: "https://picsum.photos/600/400?random=5",
-    tags: ["IoT", "ESP32", "Firebase", "Dashboard"],
+    tags: ["IoT", "ESP32", "LoRaWAN", "Energy Efficiency", "Smart City"],
     aiHint: "smart city light",
     achievements: [
-      "Designed a scalable IoT network capable of monitoring hundreds of lights.",
-      "Developed a real-time dashboard for visualization and alerting.",
+      "Achieved up to 80% reduction in energy consumption through adaptive lighting algorithms.",
+      "Developed a real-time fault detection system that monitors power, network, and hardware anomalies.",
+      "Designed a dual-communication architecture using Wi-Fi and LoRaWAN for versatile deployment.",
       "Presented the project at Rajabazar Science College, winning 1st Runner-up."
     ],
     links: {
