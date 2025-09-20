@@ -49,7 +49,8 @@ const skillsLogos = [
     { name: "AutoCAD", logo: "https://img.shields.io/badge/AutoCAD-F29B0C?logo=autocad&logoColor=white" },
     { name: "VS Code", logo: "https://img.shields.io/badge/VS_Code-007ACC?logo=visualstudiocode&logoColor=white" },
     { name: "Firebase", logo: "https://img.shields.io/badge/Firebase-FFCA28?logo=firebase&logoColor=black" },
-    { name: "Altium Designer", logo: "https://img.shields.io/badge/Altium_Designer-A59162?logo=altiumdesigner&logoColor=white" }
+    { name: "Altium Designer", logo: "https://img.shields.io/badge/Altium_Designer-A59162?logo=altiumdesigner&logoColor=white" },
+    { name: "KiCad", logo: "https://img.shields.io/badge/KiCad-2F2F2F?logo=kicad&logoColor=white" }
 ];
 
 const otherSkills = [
@@ -345,3 +346,5 @@ export default function Page() {
     </div>
   );
 }
+
+    
