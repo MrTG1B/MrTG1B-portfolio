@@ -24,7 +24,7 @@ export const projects = [
     title: "PromptForge",
     description: "A user-friendly platform to craft, refine, and generate high-quality prompts for various AI models.",
     longDescription: "PromptForge is a user-friendly web-based platform designed to help users craft high-quality, effective prompts for various AI models. Whether you're a beginner exploring AI tools or a seasoned prompt engineer, PromptForge streamlines the process of generating and refining prompts to get the best possible responses from your AI of choice.",
-    image: "https://image.thum.io/get/width/600/crop/400/https://prompttforge.vercel.app/",
+    image: "https://picsum.photos/seed/promptforge/600/400",
     tags: ["Next.js", "TypeScript", "Firebase", "Appwrite", "AI", "reCAPTCHA"],
     aiHint: "artificial intelligence",
     achievements: [
