@@ -1,4 +1,5 @@
 
+
 "use client";
 
 import Image from 'next/image';
@@ -11,9 +12,6 @@ import { Card, CardContent, CardHeader, CardTitle, CardFooter } from '@/componen
 import { Badge } from '@/components/ui/badge';
 import { ArrowRight, Briefcase, Code, Mail, Linkedin, Github, Info, Cpu, Wrench, Languages as LanguagesIcon } from 'lucide-react';
 import { ContactForm } from '@/components/contact-form';
-import { Carousel, CarouselContent, CarouselItem } from '@/components/ui/carousel';
-import Autoplay from "embla-carousel-autoplay";
-
 
 const topProjectSlugs = ["wellmed", "promptforge", "gemini-powered-bot"];
 const topProjects = projects.filter(p => topProjectSlugs.includes(p.slug));
@@ -247,37 +245,22 @@ export default function Page() {
                         A glimpse into the technologies and tools I work with.
                     </p>
                 </div>
-                 <Carousel 
-                    opts={{
-                        align: "start",
-                        loop: true,
-                    }}
-                    plugins={[
-                        Autoplay({
-                            delay: 2000,
-                            stopOnInteraction: false,
-                        }),
-                    ]}
-                    className="w-full max-w-6xl mx-auto mb-16"
-                >
-                    <CarouselContent>
-                        {skillsLogos.map((skill, index) => (
-                            <CarouselItem key={index} className="basis-1/3 md:basis-1/4 lg:basis-1/6">
-                                <div className="p-1">
-                                    <div className="flex aspect-video items-center justify-center p-2 rounded-lg bg-muted">
-                                        <Image 
-                                            src={skill.logo} 
-                                            alt={skill.name} 
-                                            width={120} 
-                                            height={40}
-                                            className="object-contain"
-                                        />
-                                    </div>
-                                </div>
-                            </CarouselItem>
+                
+                <div className="relative w-full overflow-hidden group mb-16">
+                    <div className="flex animate-scroll group-hover:pause">
+                        {[...skillsLogos, ...skillsLogos].map((skill, index) => (
+                           <div key={index} className="flex-shrink-0 w-[160px] h-[60px] mx-4 flex items-center justify-center p-2 rounded-lg bg-muted">
+                               <Image 
+                                   src={skill.logo} 
+                                   alt={skill.name} 
+                                   width={120} 
+                                   height={40}
+                                   className="object-contain max-h-full max-w-full"
+                               />
+                           </div>
                         ))}
-                    </CarouselContent>
-                </Carousel>
+                    </div>
+                </div>
 
                 <div className="mx-auto grid max-w-4xl gap-8 md:grid-cols-3">
                     {otherSkills.map((item, index) => (
