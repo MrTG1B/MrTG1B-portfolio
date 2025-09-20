@@ -46,7 +46,7 @@ const skillsLogos = [
 const otherSkills = [
     {
         category: "Languages",
-        skills: "C++, Python, C, JavaScript, Node.js, Express, Flask, HTML/CSS",
+        skills: "C++, C, Express, Flask, HTML/CSS",
         icon: <LanguagesIcon className="h-8 w-8 text-accent" />
     },
     {
@@ -56,7 +56,7 @@ const otherSkills = [
     },
     {
         category: "Tools",
-        skills: "Git, GitHub, Firebase, Google Gen AI, VS Code, Figma, Android Studio",
+        skills: "Git, GitHub, Google Gen AI, VS Code, Figma, Android Studio",
         icon: <Wrench className="h-8 w-8 text-accent" />
     }
 ];
