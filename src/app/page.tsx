@@ -1,5 +1,4 @@
 
-
 "use client";
 
 import Image from 'next/image';
@@ -10,7 +9,7 @@ import { projects } from '@/lib/projects';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle, CardFooter } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { ArrowRight, Briefcase, Code, Mail, Linkedin, Github, Info, Cpu, Wrench, Languages as LanguagesIcon, Smartphone, Server, Cog } from 'lucide-react';
+import { ArrowRight, Briefcase, Code, Mail, Linkedin, Github, Info, Cpu, Smartphone, Cog } from 'lucide-react';
 import { ContactForm } from '@/components/contact-form';
 
 const topProjectSlugs = ["wellmed", "promptforge", "gemini-powered-bot"];
@@ -50,6 +49,7 @@ const skillsLogos = [
     { name: "AutoCAD", logo: "https://img.shields.io/badge/AutoCAD-F29B0C?logo=autocad&logoColor=white" },
     { name: "VS Code", logo: "https://img.shields.io/badge/VS_Code-007ACC?logo=visualstudiocode&logoColor=white" },
     { name: "Firebase", logo: "https://img.shields.io/badge/Firebase-FFCA28?logo=firebase&logoColor=black" },
+    { name: "Altium Designer", logo: "https://img.shields.io/badge/Altium_Designer-A59162?logo=altiumdesigner&logoColor=white" }
 ];
 
 const otherSkills = [
@@ -60,7 +60,7 @@ const otherSkills = [
     },
     {
         category: "Design & Mobile",
-        skills: "Fusion360, XML, Altium",
+        skills: "Fusion360, XML",
         icon: <Smartphone className="h-8 w-8 text-accent" />
     },
     {
@@ -345,4 +345,3 @@ export default function Page() {
     </div>
   );
 }
-
