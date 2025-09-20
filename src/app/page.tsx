@@ -209,7 +209,23 @@ export default function Page() {
             <div className="mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-12">
               {topProjects.map((project) => (
                 <Card key={project.slug} className="flex flex-col overflow-hidden transform transition-all duration-300 hover:scale-105 hover:shadow-2xl h-full">
-                  <Image src={project.image} alt={project.title} width={600} height={400} className="w-full object-cover" data-ai-hint={project.aiHint} />
+                  {project.slug === 'promptforge' ? (
+                    <div className="w-full h-[225px] bg-secondary border-b">
+                      <div className="bg-muted p-2 flex items-center gap-1.5">
+                        <div className="w-3 h-3 rounded-full bg-red-500"></div>
+                        <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
+                        <div className="w-3 h-3 rounded-full bg-green-500"></div>
+                      </div>
+                      <iframe
+                        src={project.links?.live}
+                        className="w-full h-full"
+                        style={{ transform: 'scale(1)', transformOrigin: 'top left' }}
+                        sandbox="allow-scripts allow-same-origin"
+                      />
+                    </div>
+                  ) : (
+                    <Image src={project.image} alt={project.title} width={600} height={400} className="w-full object-cover" data-ai-hint={project.aiHint} />
+                  )}
                   <div className="flex flex-col flex-grow">
                     <CardHeader>
                       <CardTitle>{project.title}</CardTitle>
@@ -349,3 +365,4 @@ export default function Page() {
     
 
     
+
