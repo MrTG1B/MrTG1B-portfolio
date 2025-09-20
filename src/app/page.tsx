@@ -9,7 +9,7 @@ import { projects } from '@/lib/projects';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle, CardFooter } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { ArrowRight, Briefcase, Code, Mail, Linkedin, Github, Info } from 'lucide-react';
+import { ArrowRight, Briefcase, Code, Mail, Linkedin, Github, Info, Cpu, Wrench, Languages as LanguagesIcon } from 'lucide-react';
 import { ContactForm } from '@/components/contact-form';
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel';
 
@@ -44,6 +44,24 @@ const skillsLogos = [
     { name: "Framer Motion", logo: "https://img.shields.io/badge/Framer_Motion-E428C1?logo=framer&logoColor=white" },
     { name: "Git", logo: "https://img.shields.io/badge/Git-F05032?logo=git&logoColor=white" },
     { name: "Docker", logo: "https://img.shields.io/badge/Docker-2496ED?logo=docker&logoColor=white" }
+];
+
+const otherSkills = [
+    {
+        category: "Languages",
+        skills: "C++, Python, C, JavaScript, Node.js, Express, Flask, HTML/CSS",
+        icon: <LanguagesIcon className="h-8 w-8 text-accent" />
+    },
+    {
+        category: "Hardware",
+        skills: "ESP32, Arduino, Sensors, Actuators, 3D Printing",
+        icon: <Cpu className="h-8 w-8 text-accent" />
+    },
+    {
+        category: "Tools",
+        skills: "Git, GitHub, Firebase, Google Gen AI, VS Code, Figma, Android Studio",
+        icon: <Wrench className="h-8 w-8 text-accent" />
+    }
 ];
 
 export default function Page() {
@@ -225,7 +243,7 @@ export default function Page() {
         >
             <div className="container mx-auto max-w-screen-2xl px-4 md:px-6">
                 <div className="flex flex-col items-center justify-center space-y-4 text-center mb-12">
-                    <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl font-headline text-primary">Skills & Expertise</h2>
+                    <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl font-headline text-primary">Skills &amp; Expertise</h2>
                     <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed">
                         A glimpse into the technologies and tools I work with.
                     </p>
@@ -235,7 +253,7 @@ export default function Page() {
                         align: "start",
                         loop: true,
                     }}
-                    className="w-full max-w-6xl mx-auto"
+                    className="w-full max-w-6xl mx-auto mb-16"
                 >
                     <CarouselContent>
                         {skillsLogos.map((skill, index) => (
@@ -257,6 +275,18 @@ export default function Page() {
                     <CarouselPrevious />
                     <CarouselNext />
                 </Carousel>
+
+                <div className="mx-auto grid max-w-4xl gap-8 md:grid-cols-3">
+                    {otherSkills.map((item, index) => (
+                       <div key={index} className="flex items-start space-x-4 p-4 rounded-lg bg-card">
+                           <div className="flex-shrink-0 mt-1">{item.icon}</div>
+                           <div>
+                               <h3 className="text-xl font-bold">{item.category}</h3>
+                               <p className="mt-2 text-muted-foreground leading-relaxed">{item.skills}</p>
+                           </div>
+                       </div>
+                   ))}
+                </div>
             </div>
         </MotionSection>
 
@@ -270,7 +300,7 @@ export default function Page() {
         >
             <div className="container mx-auto max-w-screen-2xl px-4 md:px-6">
                 <div className="flex flex-col items-center justify-center space-y-4 text-center mb-12">
-                    <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl font-headline text-primary">Awards & Recognition</h2>
+                    <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl font-headline text-primary">Awards &amp; Recognition</h2>
                     <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed">
                         Proud moments from my journey in technology and innovation.
                     </p>
@@ -320,3 +350,5 @@ export default function Page() {
     </div>
   );
 }
+
+    
