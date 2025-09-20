@@ -11,7 +11,9 @@ import { Card, CardContent, CardHeader, CardTitle, CardFooter } from '@/componen
 import { Badge } from '@/components/ui/badge';
 import { ArrowRight, Briefcase, Code, Mail, Linkedin, Github, Info, Cpu, Wrench, Languages as LanguagesIcon } from 'lucide-react';
 import { ContactForm } from '@/components/contact-form';
-import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel';
+import { Carousel, CarouselContent, CarouselItem } from '@/components/ui/carousel';
+import Autoplay from "embla-carousel-autoplay";
+
 
 const topProjectSlugs = ["wellmed", "promptforge", "gemini-powered-bot"];
 const topProjects = projects.filter(p => topProjectSlugs.includes(p.slug));
@@ -250,6 +252,12 @@ export default function Page() {
                         align: "start",
                         loop: true,
                     }}
+                    plugins={[
+                        Autoplay({
+                            delay: 2000,
+                            stopOnInteraction: false,
+                        }),
+                    ]}
                     className="w-full max-w-6xl mx-auto mb-16"
                 >
                     <CarouselContent>
@@ -269,8 +277,6 @@ export default function Page() {
                             </CarouselItem>
                         ))}
                     </CarouselContent>
-                    <CarouselPrevious />
-                    <CarouselNext />
                 </Carousel>
 
                 <div className="mx-auto grid max-w-4xl gap-8 md:grid-cols-3">
