@@ -41,12 +41,20 @@ const skillsLogos = [
     { name: "Python", logo: "https://img.shields.io/badge/Python-3776AB?logo=python&logoColor=white" },
     { name: "Firebase", logo: "https://img.shields.io/badge/Firebase-FFCA28?logo=firebase&logoColor=black" },
     { name: "TailwindCSS", logo: "https://img.shields.io/badge/Tailwind_CSS-06B6D4?logo=tailwindcss&logoColor=white" },
+    { name: "C", logo: "https://img.shields.io/badge/C-A8B9CC?logo=c&logoColor=white" },
+    { name: "C++", logo: "https://img.shields.io/badge/C++-00599C?logo=cplusplus&logoColor=white" },
+    { name: "HTML5", logo: "https://img.shields.io/badge/HTML5-E34F26?logo=html5&logoColor=white" },
+    { name: "CSS3", logo: "https://img.shields.io/badge/CSS3-1572B6?logo=css3&logoColor=white" },
+    { name: "Git", logo: "https://img.shields.io/badge/Git-F05032?logo=git&logoColor=white" },
+    { name: "GitHub", logo: "https://img.shields.io/badge/GitHub-181717?logo=github&logoColor=white" },
+    { name: "VS Code", logo: "https://img.shields.io/badge/VS_Code-007ACC?logo=visualstudiocode&logoColor=white" },
+    { name: "Figma", logo: "https://img.shields.io/badge/Figma-F24E1E?logo=figma&logoColor=white" },
 ];
 
 const otherSkills = [
     {
         category: "Languages",
-        skills: "C++, C, Express, Flask, HTML/CSS",
+        skills: "Express, Flask",
         icon: <LanguagesIcon className="h-8 w-8 text-accent" />
     },
     {
@@ -56,7 +64,7 @@ const otherSkills = [
     },
     {
         category: "Tools",
-        skills: "Git, GitHub, Google Gen AI, VS Code, Figma, Android Studio",
+        skills: "Google Gen AI, Android Studio",
         icon: <Wrench className="h-8 w-8 text-accent" />
     }
 ];
@@ -336,5 +344,3 @@ export default function Page() {
     </div>
   );
 }
-
-    
