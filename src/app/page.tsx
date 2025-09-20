@@ -42,8 +42,6 @@ const skillsLogos = [
     { name: "Firebase", logo: "https://img.shields.io/badge/Firebase-FFCA28?logo=firebase&logoColor=black" },
     { name: "TailwindCSS", logo: "https://img.shields.io/badge/Tailwind_CSS-06B6D4?logo=tailwindcss&logoColor=white" },
     { name: "Framer Motion", logo: "https://img.shields.io/badge/Framer_Motion-E428C1?logo=framer&logoColor=white" },
-    { name: "Git", logo: "https://img.shields.io/badge/Git-F05032?logo=git&logoColor=white" },
-    { name: "Docker", logo: "https://img.shields.io/badge/Docker-2496ED?logo=docker&logoColor=white" }
 ];
 
 const otherSkills = [
