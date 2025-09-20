@@ -10,7 +10,7 @@ import { projects } from '@/lib/projects';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle, CardFooter } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { ArrowRight, Briefcase, Code, Mail, Linkedin, Github, Info, Cpu, Wrench, Languages as LanguagesIcon } from 'lucide-react';
+import { ArrowRight, Briefcase, Code, Mail, Linkedin, Github, Info, Cpu, Wrench, Languages as LanguagesIcon, Smartphone, Server, Cog } from 'lucide-react';
 import { ContactForm } from '@/components/contact-form';
 
 const topProjectSlugs = ["wellmed", "promptforge", "gemini-powered-bot"];
@@ -34,38 +34,39 @@ const achievements = [
 const MotionSection = motion.section;
 
 const skillsLogos = [
-    { name: "TypeScript", logo: "https://img.shields.io/badge/TypeScript-3178C6?logo=typescript&logoColor=white" },
-    { name: "React", logo: "https://img.shields.io/badge/React-61DAFB?logo=react&logoColor=black" },
-    { name: "Next.js", logo: "https://img.shields.io/badge/Next.js-000000?logo=nextdotjs&logoColor=white" },
-    { name: "Node.js", logo: "https://img.shields.io/badge/Node.js-339933?logo=nodedotjs&logoColor=white" },
-    { name: "Python", logo: "https://img.shields.io/badge/Python-3776AB?logo=python&logoColor=white" },
-    { name: "Firebase", logo: "https://img.shields.io/badge/Firebase-FFCA28?logo=firebase&logoColor=black" },
-    { name: "TailwindCSS", logo: "https://img.shields.io/badge/Tailwind_CSS-06B6D4?logo=tailwindcss&logoColor=white" },
     { name: "C", logo: "https://img.shields.io/badge/C-A8B9CC?logo=c&logoColor=white" },
     { name: "C++", logo: "https://img.shields.io/badge/C++-00599C?logo=cplusplus&logoColor=white" },
+    { name: "Python", logo: "https://img.shields.io/badge/Python-3776AB?logo=python&logoColor=white" },
+    { name: "JavaScript", logo: "https://img.shields.io/badge/JavaScript-F7DF1E?logo=javascript&logoColor=black" },
     { name: "HTML5", logo: "https://img.shields.io/badge/HTML5-E34F26?logo=html5&logoColor=white" },
     { name: "CSS3", logo: "https://img.shields.io/badge/CSS3-1572B6?logo=css3&logoColor=white" },
+    { name: "Node.js", logo: "https://img.shields.io/badge/Node.js-339933?logo=nodedotjs&logoColor=white" },
+    { name: "Flask", logo: "https://img.shields.io/badge/Flask-000000?logo=flask&logoColor=white" },
+    { name: "Express", logo: "https://img.shields.io/badge/Express-000000?logo=express&logoColor=white" },
+    { name: "Android Studio", logo: "https://img.shields.io/badge/Android_Studio-3DDC84?logo=androidstudio&logoColor=white" },
     { name: "Git", logo: "https://img.shields.io/badge/Git-F05032?logo=git&logoColor=white" },
     { name: "GitHub", logo: "https://img.shields.io/badge/GitHub-181717?logo=github&logoColor=white" },
-    { name: "VS Code", logo: "https://img.shields.io/badge/VS_Code-007ACC?logo=visualstudiocode&logoColor=white" },
     { name: "Figma", logo: "https://img.shields.io/badge/Figma-F24E1E?logo=figma&logoColor=white" },
+    { name: "AutoCAD", logo: "https://img.shields.io/badge/AutoCAD-F29B0C?logo=autocad&logoColor=white" },
+    { name: "VS Code", logo: "https://img.shields.io/badge/VS_Code-007ACC?logo=visualstudiocode&logoColor=white" },
+    { name: "Firebase", logo: "https://img.shields.io/badge/Firebase-FFCA28?logo=firebase&logoColor=black" },
 ];
 
 const otherSkills = [
     {
-        category: "Languages",
-        skills: "Express, Flask",
-        icon: <LanguagesIcon className="h-8 w-8 text-accent" />
-    },
-    {
         category: "Hardware",
-        skills: "ESP32, Arduino, Sensors, Actuators, 3D Printing",
+        skills: "ESP32, Arduino, Sensors, Actuators, 3D Printing (Ender 3)",
         icon: <Cpu className="h-8 w-8 text-accent" />
     },
     {
-        category: "Tools",
-        skills: "Google Gen AI, Android Studio",
-        icon: <Wrench className="h-8 w-8 text-accent" />
+        category: "Design & Mobile",
+        skills: "Fusion360, XML",
+        icon: <Smartphone className="h-8 w-8 text-accent" />
+    },
+    {
+        category: "Other Technologies",
+        skills: "Google Generative AI, Flask-SocketIO, API Integrations",
+        icon: <Cog className="h-8 w-8 text-accent" />
     }
 ];
 
@@ -344,3 +345,4 @@ export default function Page() {
     </div>
   );
 }
+
