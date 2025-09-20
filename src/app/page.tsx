@@ -11,15 +11,10 @@ import { Card, CardContent, CardHeader, CardTitle, CardFooter } from '@/componen
 import { Badge } from '@/components/ui/badge';
 import { ArrowRight, Briefcase, Code, Mail, Linkedin, Github, Info } from 'lucide-react';
 import { ContactForm } from '@/components/contact-form';
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel';
 
 const topProjectSlugs = ["wellmed", "promptforge", "gemini-powered-bot"];
 const topProjects = projects.filter(p => topProjectSlugs.includes(p.slug));
-
-const techStack = [
-    "TypeScript", "React", "Next.js", "Node.js", "Python", "Firebase", 
-    "TailwindCSS", "Framer Motion", "ShadCN UI", "Genkit", "Git", "Docker", 
-    "CI/CD", "Agile Methodologies", "Jira", "Figma"
-];
 
 const achievements = [
     {
@@ -50,9 +45,6 @@ const skillsLogos = [
     { name: "Git", logo: "https://img.shields.io/badge/Git-F05032?logo=git&logoColor=white" },
     { name: "Docker", logo: "https://img.shields.io/badge/Docker-2496ED?logo=docker&logoColor=white" }
 ];
-
-const duplicatedSkills = [...skillsLogos, ...skillsLogos];
-
 
 export default function Page() {
     const heroRef = useRef<HTMLDivElement>(null);
@@ -238,30 +230,33 @@ export default function Page() {
                         A glimpse into the technologies and tools I work with.
                     </p>
                 </div>
-                <div 
-                    className="relative w-full overflow-hidden"
-                    style={{
-                        maskImage: 'linear-gradient(to right, transparent, black 10%, black 90%, transparent)',
-                        WebkitMaskImage: 'linear-gradient(to right, transparent, black 10%, black 90%, transparent)',
+                 <Carousel 
+                    opts={{
+                        align: "start",
+                        loop: true,
                     }}
+                    className="w-full max-w-6xl mx-auto"
                 >
-                    <div
-                        className="flex animate-scroll"
-                        data-content={duplicatedSkills.map(s => s.name).join(' ')}
-                    >
-                        {duplicatedSkills.map((skill, index) => (
-                            <div key={index} className="flex-shrink-0 mx-4">
-                                <Image 
-                                    src={skill.logo} 
-                                    alt={skill.name} 
-                                    width={120} 
-                                    height={40}
-                                    className="object-contain"
-                                />
-                            </div>
+                    <CarouselContent>
+                        {skillsLogos.map((skill, index) => (
+                            <CarouselItem key={index} className="basis-1/3 md:basis-1/4 lg:basis-1/6">
+                                <div className="p-1">
+                                    <div className="flex aspect-video items-center justify-center p-2 rounded-lg bg-muted">
+                                        <Image 
+                                            src={skill.logo} 
+                                            alt={skill.name} 
+                                            width={120} 
+                                            height={40}
+                                            className="object-contain"
+                                        />
+                                    </div>
+                                </div>
+                            </CarouselItem>
                         ))}
-                    </div>
-                </div>
+                    </CarouselContent>
+                    <CarouselPrevious />
+                    <CarouselNext />
+                </Carousel>
             </div>
         </MotionSection>
 
@@ -325,5 +320,3 @@ export default function Page() {
     </div>
   );
 }
-
-    
