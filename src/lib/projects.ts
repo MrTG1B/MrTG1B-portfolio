@@ -5,7 +5,7 @@ export const projects = [
     title: "WellMed",
     description: "An AI-powered medicine PWA with multilingual support, barcode search, and data for over 900 medicines.",
     longDescription: "WellMed is an AI-powered medicine search Progressive Web App (PWA) designed to help users quickly find information about over 900 medicines. With multilingual support (English, Hindi, and Bengali) and smart search features powered by the Gemini API, the app is ideal for users looking for medicine information by name, composition, or barcode scanning. It also features a full admin dashboard for managing medicine data.",
-    image: "https://picsum.photos/600/400?random=1",
+    image: "https://image.thum.io/get/width/600/crop/400/https://wellmed-mrt-g-1-b.web.app/",
     tags: ["React", "TypeScript", "PWA", "Gemini API", "Firebase", "Health"],
     aiHint: "medicine health",
     achievements: [
@@ -24,7 +24,7 @@ export const projects = [
     title: "PromptForge",
     description: "A user-friendly platform to craft, refine, and generate high-quality prompts for various AI models.",
     longDescription: "PromptForge is a user-friendly web-based platform designed to help users craft high-quality, effective prompts for various AI models. Whether you're a beginner exploring AI tools or a seasoned prompt engineer, PromptForge streamlines the process of generating and refining prompts to get the best possible responses from your AI of choice.",
-    image: "https://picsum.photos/600/400?random=2",
+    image: "https://image.thum.io/get/width/600/crop/400/https://prompt-forge-blond.vercel.app/",
     tags: ["Next.js", "TypeScript", "Firebase", "Appwrite", "AI", "reCAPTCHA"],
     aiHint: "artificial intelligence",
     achievements: [
@@ -121,7 +121,7 @@ export const projects = [
     title: "N.O.V.A.",
     description: "A voice-activated personal AI assistant, combining Python backend with API integrations.",
     longDescription: "N.O.V.A. (Neural Operating & Voice Assistant) is a personal AI assistant inspired by Jarvis from Iron Man. It can perform various tasks through voice commands, such as controlling smart home devices, providing information, and managing schedules. It integrates with multiple APIs to extend its capabilities.",
-    image: "https://picsum.photos/600/400?random=8",
+    image: "https://image.thum.io/get/width/600/crop/400/https://mr-t-g-1-b.github.io/N.O.V.A/",
     tags: ["AI", "Python", "Voice Assistant"],
     aiHint: "ai assistant robot",
     achievements: [],
