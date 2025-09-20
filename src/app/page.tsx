@@ -60,7 +60,7 @@ const otherSkills = [
     },
     {
         category: "Design & Mobile",
-        skills: "Fusion360, XML",
+        skills: "Fusion360, XML, Altium",
         icon: <Smartphone className="h-8 w-8 text-accent" />
     },
     {
