@@ -74,7 +74,7 @@ export default function Home() {
         offset: ["start start", "end start"],
     });
 
-    const heroImageY = useTransform(scrollYProgress, [0, 1], ["0%", "50%"]);
+    const heroImageY = useTransform(scrollYProgress, [0, 1], ["0%", "50%"])
 
   return (
     <div className="flex flex-col min-h-screen">
