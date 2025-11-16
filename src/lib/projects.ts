@@ -40,9 +40,9 @@ export const projects = [
   },
   {
     slug: "wellmed",
-    title: "WellMed",
+    title: "WellMeds",
     description: "An AI-powered medicine PWA with multilingual support, barcode search, and data for over 900 medicines.",
-    longDescription: "WellMed is an AI-powered medicine search Progressive Web App (PWA) designed to help users quickly find information about over 900 medicines. With multilingual support (English, Hindi, and Bengali) and smart search features powered by the Gemini API, the app is ideal for users looking for medicine information by name, composition, or barcode scanning. It also features a full admin dashboard for managing medicine data.",
+    longDescription: "WellMeds is an AI-powered medicine search Progressive Web App (PWA) designed to help users quickly find information about over 900 medicines. With multilingual support (English, Hindi, and Bengali) and smart search features powered by the Gemini API, the app is ideal for users looking for medicine information by name, composition, or barcode scanning. It also features a full admin dashboard for managing medicine data.",
     tags: ["React", "TypeScript", "PWA", "Gemini API", "Firebase", "Health"],
     aiHint: "medicine health",
     image: "",
