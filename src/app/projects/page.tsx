@@ -1,7 +1,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowLeft, Briefcase, Code, Info, Github, ExternalLink } from "lucide-react";
+import { ArrowLeft, Code, Info, Github, ExternalLink } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle, CardFooter } from "@/components/ui/card";
@@ -55,7 +55,7 @@ export default function AllProjectsPage() {
                         />
                       </div>
                     ) : (
-                      <Image src={project.image} alt={project.title} width={600} height={400} className="w-full object-cover" data-ai-hint={project.aiHint} />
+                      project.image && <Image src={project.image} alt={project.title} width={600} height={400} className="w-full object-cover" data-ai-hint={project.aiHint} />
                     )}
                     <div className="flex flex-col flex-grow">
                       <CardHeader>
