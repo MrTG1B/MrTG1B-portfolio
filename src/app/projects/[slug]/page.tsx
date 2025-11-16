@@ -48,16 +48,12 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
                     <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
                     <div className="w-3 h-3 rounded-full bg-green-500"></div>
                   </div>
-                   <div className="w-full h-full pt-[34px] flex items-center justify-center overflow-hidden">
-                       <iframe
-                           className="w-[1920px] h-[1080px] transform scale-[0.35] -translate-y-[28%]"
-                           style={{ transformOrigin: 'center center' }}
-                           src={project.links.live}
-                           sandbox="allow-scripts allow-same-origin"
-                           loading="lazy"
-                           title={project.title}
-                       />
-                  </div>
+                   <Image
+                      src={`https://image.thum.io/get/width/1200/crop/630/auth/3228-32a24cc35336d302a818c39e7019f6f6/${project.links.live}`}
+                      alt={`Screenshot of ${project.title}`}
+                      fill
+                      className="object-cover pt-[34px]"
+                    />
                 </div>
               ) : (
                 project.image && <Image

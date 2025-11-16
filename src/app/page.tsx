@@ -1,5 +1,3 @@
-
-
 "use client";
 
 import Image from 'next/image';
@@ -42,7 +40,6 @@ const allAchievements = [
       icon: <Award className="h-8 w-8 text-accent" />
     }
 ];
-
 
 const MotionSection = motion.section;
 
@@ -252,18 +249,14 @@ export default function Page() {
                       <div className="w-3 h-3 rounded-full bg-green-500"></div>
                     </div>
                     {project.links?.live ? (
-                       <div className="w-full h-full pt-[34px] flex items-center justify-center overflow-hidden">
-                           <iframe
-                               className="w-[1920px] h-[1080px] transform scale-[0.2] -translate-y-1/4"
-                               style={{ transformOrigin: 'center center' }}
-                               src={project.links.live}
-                               sandbox="allow-scripts allow-same-origin"
-                               loading="lazy"
-                               title={project.title}
-                           />
-                      </div>
+                      <Image
+                        src={`https://image.thum.io/get/width/1200/crop/630/auth/3228-32a24cc35336d302a818c39e7019f6f6/${project.links.live}`}
+                        alt={`Screenshot of ${project.title}`}
+                        fill
+                        className="object-cover pt-[34px]"
+                      />
                     ) : (
-                      project.image && <Image src={project.image} alt={project.title} width={600} height={400} className="w-full h-full object-cover pt-[34px]" data-ai-hint={project.aiHint} />
+                      project.image && <Image src={project.image} alt={project.title} fill className="w-full h-full object-cover pt-[34px]" data-ai-hint={project.aiHint} />
                     )}
                   </div>
                   <div className="flex flex-col flex-grow">
@@ -401,7 +394,3 @@ export default function Page() {
     </div>
   );
 }
-
-    
-
-    
