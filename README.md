@@ -52,8 +52,8 @@ Follow these instructions to get a copy of the project up and running on your lo
 
 1.  **Clone the repository:**
     ```bash
-    git clone https://github.com/MrTG1B/MrTG1B-protfolio.git
-    cd MrTG1B-protfolio
+    git clone https://github.com/MrTG1B/MrTG1B-portfolio.git
+    cd MrTG1B-portfolio
     ```
 
 2.  **Install dependencies:**
@@ -96,7 +96,7 @@ This application is optimized for deployment on [Vercel](https://vercel.com/), t
 
 - **Deploy Your Own**: Click the button below to deploy your own version of this portfolio.
 
-  [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2FMrTG1B%2FMrTG1B-protfolio)
+  [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2FMrTG1B%2FMrTG1B-portfolio)
 
 - **Environment Variables**: Ensure you add your `GOOGLE_API_KEY` to the environment variables in your Vercel project settings to enable the AI features.
 
