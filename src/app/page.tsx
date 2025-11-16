@@ -3,14 +3,16 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
-import { useRef } from 'react';
+import { useRef, useState } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { projects } from '@/lib/projects';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle, CardFooter } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { ArrowRight, Briefcase, Code, Mail, Linkedin, Github, Info, Cpu, Smartphone, Cog, Award } from 'lucide-react';
+import { ArrowRight, Briefcase, Code, Mail, Linkedin, Github, Info, Cpu, Smartphone, Cog, Award, Menu } from 'lucide-react';
 import { ContactForm } from '@/components/contact-form';
+import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
+import { Separator } from '@/components/ui/separator';
 
 const topProjectSlugs = ["wellmed", "promptforge", "gemini-powered-bot"];
 const topProjects = projects.filter(p => topProjectSlugs.includes(p.slug));
@@ -106,6 +108,8 @@ export default function Page() {
         offset: ["start start", "end start"],
     });
 
+    const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
     const heroImageY = useTransform(scrollYProgress, [0, 1], ["0%", "50%"]);
 
   return (
@@ -125,6 +129,31 @@ export default function Page() {
             <Button asChild variant="outline" size="sm" className="hidden md:flex">
               <Link href="#contact">Get in Touch</Link>
             </Button>
+            <Sheet open={isMobileMenuOpen} onOpenChange={setIsMobileMenuOpen}>
+              <SheetTrigger asChild>
+                <Button variant="outline" size="icon" className="md:hidden">
+                  <Menu className="h-6 w-6" />
+                  <span className="sr-only">Open navigation menu</span>
+                </Button>
+              </SheetTrigger>
+              <SheetContent side="left">
+                <div className="p-6">
+                  <Link href="/" className="flex items-center space-x-2 mb-6" onClick={() => setIsMobileMenuOpen(false)}>
+                    <Code className="h-6 w-6 text-primary" />
+                    <span className="font-bold text-lg">MrTG1B</span>
+                  </Link>
+                  <nav className="flex flex-col gap-4 text-lg">
+                    <Link href="#about" className="hover:text-primary transition-colors" onClick={() => setIsMobileMenuOpen(false)}>About</Link>
+                    <Link href="#projects" className="hover:text-primary transition-colors" onClick={() => setIsMobileMenuOpen(false)}>Projects</Link>
+                    <Link href="#skills" className="hover:text-primary transition-colors" onClick={() => setIsMobileMenuOpen(false)}>Skills</Link>
+                  </nav>
+                  <Separator className="my-6" />
+                  <Button asChild className="w-full">
+                    <Link href="#contact" onClick={() => setIsMobileMenuOpen(false)}>Get in Touch</Link>
+                  </Button>
+                </div>
+              </SheetContent>
+            </Sheet>
           </div>
         </div>
       </header>
@@ -398,4 +427,6 @@ export default function Page() {
     </div>
   );
 }
+    
+
     

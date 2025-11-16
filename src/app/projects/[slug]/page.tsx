@@ -1,4 +1,5 @@
 
+'use client';
 import { projects } from '@/lib/projects';
 import { notFound } from 'next/navigation';
 import Image from 'next/image';
@@ -6,12 +7,6 @@ import Link from 'next/link';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { ArrowLeft, CheckCircle, Code, Github, ExternalLink } from 'lucide-react';
-
-export async function generateStaticParams() {
-  return projects.map((project) => ({
-    slug: project.slug,
-  }));
-}
 
 export default function ProjectPage({ params }: { params: { slug: string } }) {
   const project = projects.find((p) => p.slug === params.slug);
@@ -76,7 +71,7 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
                   </Button>
                 )}
                 {project.links?.live && (
-                  <Button asChild variant="secondary" className="w-full smw-auto">
+                  <Button asChild variant="secondary" className="w-full sm:w-auto">
                     <Link href={project.links.live} target="_blank">
                       <ExternalLink className="mr-2" /> Live Demo
                     </Link>
@@ -126,4 +121,6 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
     </div>
   );
 }
+    
+
     
