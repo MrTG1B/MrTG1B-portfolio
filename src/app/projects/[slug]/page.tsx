@@ -49,7 +49,7 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
                 </div>
                 <div className="absolute inset-0 pt-[34px] overflow-hidden rounded-b-lg">
                   {project.links?.live ? (
-                      <div className="w-full h-full bg-black flex items-center justify-center">
+                      <div className="w-full h-full bg-black flex items-center justify-center overflow-hidden rounded-b-lg">
                         <iframe
                           src={project.links.live}
                           className="w-[1280px] h-[720px] origin-top-left scale-[0.6]"
@@ -126,5 +126,4 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
     </div>
   );
 }
-
     

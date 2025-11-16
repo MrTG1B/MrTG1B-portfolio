@@ -45,9 +45,9 @@ export default function AllProjectsPage() {
                           <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
                           <div className="w-3 h-3 rounded-full bg-green-500"></div>
                         </div>
-                        <div className="absolute inset-0 pt-[34px] overflow-hidden">
+                        <div className="absolute inset-0 pt-[34px] overflow-hidden rounded-b-lg">
                           {project.links?.live ? (
-                              <div className="w-full h-full bg-black flex items-center justify-center">
+                              <div className="w-full h-full bg-black flex items-center justify-center overflow-hidden rounded-b-lg">
                                   <iframe
                                       src={project.links.live}
                                       className="w-[1280px] h-[720px] origin-top-left scale-[0.3]"
@@ -109,5 +109,4 @@ export default function AllProjectsPage() {
     </div>
   );
 }
-
     
