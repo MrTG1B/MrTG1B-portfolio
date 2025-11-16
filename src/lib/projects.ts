@@ -96,7 +96,7 @@ export const projects = [
     longDescription: "This project showcases the integration of cutting-edge cloud AI with robotics. The robot utilizes Google's Gemini API to process real-time sensory information from LiDAR, ultrasonic, and IMU sensors, enabling it to navigate complex environments and make intelligent decisions without predefined paths. A Flask-based web interface allows for remote monitoring and control, demonstrating a scalable and low-cost solution for modern automation challenges.",
     tags: ["Robotics", "AI", "Gemini API", "ESP32", "LiDAR", "Flask", "IoT"],
     aiHint: "robot technology",
-    image: "https://picsum.photos/seed/5/600/400",
+    image: "https://images.unsplash.com/photo-1745688810809-5040dc0cd002?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMnx8cm92ZXIlMjByb2JvdHxlbnwwfHx8fDE3NjMzMDUwMzl8MA&ixlib=rb-4.1.0&q=80&w=1080",
     achievements: [
       "Successfully integrated the Google Gemini API for real-time, cloud-based navigation decisions, reducing onboard computational load.",
       "Engineered a multi-sensor system (LiDAR, Ultrasonic, IMU) for robust environmental perception and obstacle avoidance.",
