@@ -259,7 +259,7 @@ export default function Page() {
                             />
                           </div>
                       ) : (
-                        project.image && <Image src={project.image} alt={project.title} fill className="w-full h-full object-contain" data-ai-hint={project.aiHint} />
+                        project.image && <Image src={project.image} alt={project.title} fill className={`w-full h-full ${project.imageFit === 'cover' ? 'object-cover' : 'object-contain'}`} data-ai-hint={project.aiHint} />
                       )}
                     </div>
                   </div>

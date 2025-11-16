@@ -97,6 +97,7 @@ export const projects = [
     tags: ["Robotics", "AI", "Gemini API", "ESP32", "LiDAR", "Flask", "IoT"],
     aiHint: "robot technology",
     image: "https://images.unsplash.com/photo-1745688810809-5040dc0cd002?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMnx8cm92ZXIlMjByb2JvdHxlbnwwfHx8fDE3NjMzMDUwMzl8MA&ixlib=rb-4.1.0&q=80&w=1080",
+    imageFit: "cover" as const,
     achievements: [
       "Successfully integrated the Google Gemini API for real-time, cloud-based navigation decisions, reducing onboard computational load.",
       "Engineered a multi-sensor system (LiDAR, Ultrasonic, IMU) for robust environmental perception and obstacle avoidance.",

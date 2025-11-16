@@ -61,7 +61,7 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
                       src={project.image}
                       alt={project.title}
                       fill
-                      className="w-full h-full object-contain"
+                      className={`w-full h-full ${project.imageFit === 'cover' ? 'object-cover' : 'object-contain'}`}
                       data-ai-hint={project.aiHint}
                     />
                   )}
