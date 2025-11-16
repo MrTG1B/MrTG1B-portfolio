@@ -14,7 +14,7 @@ import { ContactForm } from '@/components/contact-form';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 import { Separator } from '@/components/ui/separator';
 
-const topProjectSlugs = ["wellmed", "promptforge", "gemini-powered-bot"];
+const topProjectSlugs = ["auralis", "resuai", "dgen-technologies", "wellmed"];
 const topProjects = projects.filter(p => topProjectSlugs.includes(p.slug));
 
 const allAchievements = [
@@ -269,7 +269,7 @@ export default function Page() {
                 A selection of projects that showcase my skills and passion for building.
               </p>
             </div>
-            <div className="mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-12">
+            <div className="mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 mt-12">
               {topProjects.map((project) => (
                 <Card key={project.slug} className="flex flex-col overflow-hidden transform transition-all duration-300 hover:scale-105 hover:shadow-2xl h-full">
                   <div className="relative w-full h-[225px] bg-secondary border-b">
@@ -427,6 +427,8 @@ export default function Page() {
     </div>
   );
 }
+    
+
     
 
     
