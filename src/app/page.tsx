@@ -248,15 +248,16 @@ export default function Page() {
                       <div className="w-3 h-3 rounded-full bg-green-500"></div>
                     </div>
                     {project.links?.live ? (
-                      <div className="w-full h-full pt-[34px] flex items-center justify-center">
-                        <iframe
-                          className="w-[1920px] h-[1080px]"
-                          style={{ transform: 'scale(0.25)', transformOrigin: 'center center' }}
-                          src={project.links.live}
-                          sandbox="allow-scripts allow-same-origin"
-                          loading="lazy"
-                          title={project.title}
-                        />
+                      <div className="w-full h-full pt-[34px] flex items-center justify-center overflow-hidden">
+                        <div className="w-[1920px] h-[1080px] origin-top-left" style={{ transform: 'scale(0.2) translateY(-10%)', transformOrigin: 'center center' }}>
+                            <iframe
+                                className="w-full h-full"
+                                src={project.links.live}
+                                sandbox="allow-scripts allow-same-origin"
+                                loading="lazy"
+                                title={project.title}
+                            />
+                        </div>
                       </div>
                     ) : (
                       project.image && <Image src={project.image} alt={project.title} width={600} height={400} className="w-full h-full object-cover pt-[34px]" data-ai-hint={project.aiHint} />
