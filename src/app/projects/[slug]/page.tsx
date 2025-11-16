@@ -40,31 +40,33 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
       <main className="flex-1">
         <section className="container mx-auto max-w-screen-2xl px-4 md:px-6 py-16 md:py-24">
           <div className="grid lg:grid-cols-2 gap-12 items-start">
-            <div>
-              {project.links?.live ? (
-                <div className="relative w-full aspect-video bg-secondary border rounded-lg overflow-hidden">
-                  <div className="absolute top-0 left-0 right-0 bg-muted p-2 flex items-center gap-1.5 z-10">
-                    <div className="w-3 h-3 rounded-full bg-red-500"></div>
-                    <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
-                    <div className="w-3 h-3 rounded-full bg-green-500"></div>
-                  </div>
-                   <Image
-                      src={`https://image.thum.io/get/width/1200/crop/630/auth/3228-32a24cc35336d302a818c39e7019f6f6/${project.links.live}`}
-                      alt={`Screenshot of ${project.title}`}
-                      fill
-                      className="object-cover pt-[34px]"
-                    />
+            <div className="sticky top-20">
+              <div className="relative w-full aspect-video bg-secondary border rounded-lg">
+                <div className="absolute top-0 left-0 right-0 bg-muted p-2 flex items-center gap-1.5 z-10">
+                  <div className="w-3 h-3 rounded-full bg-red-500"></div>
+                  <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
+                  <div className="w-3 h-3 rounded-full bg-green-500"></div>
                 </div>
-              ) : (
-                project.image && <Image
-                  src={project.image}
-                  alt={project.title}
-                  width={1200}
-                  height={800}
-                  className="rounded-lg object-cover shadow-2xl w-full"
-                  data-ai-hint={project.aiHint}
-                />
-              )}
+                <div className="absolute inset-0 pt-[34px] overflow-hidden rounded-b-lg">
+                  {project.links?.live ? (
+                      <div className="relative w-full h-full bg-black">
+                          <iframe
+                              src={project.links.live}
+                              className="absolute top-0 left-0 w-[1280px] h-[720px] origin-top-left scale-[0.4] md:scale-[0.5] lg:scale-[0.6] pointer-events-none"
+                              title={project.title}
+                          />
+                      </div>
+                  ) : (
+                    project.image && <Image
+                      src={project.image}
+                      alt={project.title}
+                      fill
+                      className="w-full h-full object-cover"
+                      data-ai-hint={project.aiHint}
+                    />
+                  )}
+                </div>
+              </div>
                <div className="mt-6 flex flex-col sm:flex-row gap-4">
                 {project.links?.github && (
                   <Button asChild className="w-full sm:w-auto">
@@ -124,3 +126,5 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
     </div>
   );
 }
+
+    
