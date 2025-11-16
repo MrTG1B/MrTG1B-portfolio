@@ -1,4 +1,5 @@
 
+
 "use client";
 
 import Image from 'next/image';
@@ -9,26 +10,37 @@ import { projects } from '@/lib/projects';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle, CardFooter } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { ArrowRight, Briefcase, Code, Mail, Linkedin, Github, Info, Cpu, Smartphone, Cog } from 'lucide-react';
+import { ArrowRight, Briefcase, Code, Mail, Linkedin, Github, Info, Cpu, Smartphone, Cog, Award } from 'lucide-react';
 import { ContactForm } from '@/components/contact-form';
 
 const topProjectSlugs = ["wellmed", "promptforge", "gemini-powered-bot"];
 const topProjects = projects.filter(p => topProjectSlugs.includes(p.slug));
 
-const achievements = [
-    {
-        title: "1st Runner-up",
-        event: "Smart Street Light System, Rajabazar Science College",
-        description: "Awarded for the innovative Auralis project, an IoT-based smart street lighting solution.",
-        icon: <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="h-8 w-8 text-accent"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z" /><path d="M10.5 8.5L8 12l2.5 3.5" /><path d="M13.5 8.5L16 12l-2.5 3.5" /></svg>
-    },
-    {
-        title: "2nd Runner-up",
-        event: "Jadavpur University Tech Fest",
-        description: "Recognized for the Auralis project's potential in smart city infrastructure.",
-        icon: <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="h-8 w-8 text-accent"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z" /><path d="m9 12 2 2 4-4" /></svg>
-    },
-];
+const allAchievements = projects.flatMap(project =>
+  project.achievements?.map(achievement => {
+    // Attempt to extract a title-like part from the achievement string
+    let title = "Achievement";
+    let description = achievement;
+    if (achievement.includes("Won") || achievement.includes("Awarded") || achievement.includes("Secured")) {
+        const parts = achievement.split(' at ')[0].split(' with ')[0].split(' in ')[0];
+        title = parts;
+        description = achievement;
+    } else if (project.title) {
+        title = `Key feature in ${project.title}`;
+    }
+
+    // A simple way to associate a project with its achievements
+    const event = project.title;
+
+    return {
+      title: title,
+      event: event,
+      description: description,
+      icon: <Award className="h-8 w-8 text-accent" />
+    };
+  }) ?? []
+).filter(Boolean); // Filter out any undefined entries if a project has no achievements
+
 
 const MotionSection = motion.section;
 
@@ -221,8 +233,8 @@ export default function Page() {
                         <div className="w-full h-full relative">
                           <iframe
                             src={project.links.live}
-                            className="absolute top-0 left-0 w-full h-full"
-                            style={{ transform: 'scale(0.3)', transformOrigin: 'center center' }}
+                            className="absolute top-0 left-0 w-full h-full border-0"
+                            style={{ transform: 'scale(0.3)', transformOrigin: '0 0', width: '333.33%', height: '333.33%' }}
                             sandbox="allow-scripts allow-same-origin"
                             loading="lazy"
                             title={project.title}
@@ -324,7 +336,7 @@ export default function Page() {
                     </p>
                 </div>
                 <div className="mx-auto grid max-w-4xl gap-8 md:grid-cols-2">
-                    {achievements.map((item, index) => (
+                    {allAchievements.map((item, index) => (
                        <div key={index} className="flex items-start space-x-6 p-6 rounded-lg bg-background/50">
                            <div className="flex-shrink-0">{item.icon}</div>
                            <div>
@@ -368,3 +380,5 @@ export default function Page() {
     </div>
   );
 }
+
+    
