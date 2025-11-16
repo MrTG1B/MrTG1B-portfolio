@@ -1,6 +1,24 @@
 
 export const projects = [
   {
+    slug: "resuai",
+    title: "ResuAI",
+    description: "An AI-powered resume builder that helps users create professional resumes in minutes.",
+    longDescription: "ResuAI is an intelligent resume-building application that leverages AI to simplify and accelerate the process of creating a professional resume. Users can input their details and let the AI assist in crafting compelling descriptions, suggesting skills, and formatting the document for a polished, modern look. It's designed to help job seekers stand out.",
+    tags: ["AI", "Resume Builder", "Next.js", "TypeScript", "Vercel"],
+    aiHint: "resume builder",
+    image: "",
+    achievements: [
+      "Integrated a generative AI model to assist with content creation for resume sections.",
+      "Developed an intuitive, multi-step form for easy data entry.",
+      "Designed several professional resume templates for users to choose from.",
+      "Ensured the application is fully responsive for use on both desktop and mobile devices."
+    ],
+    links: {
+      live: "https://resuu-ai.vercel.app/"
+    }
+  },
+  {
     slug: "dgen-technologies",
     title: "Dgen Technologies Pvt. Ltd.",
     description: "Developed the official corporate website for a startup, showcasing their services and expertise in the tech industry.",
@@ -161,3 +179,5 @@ export const projects = [
     }
   }
 ];
+
+    
