@@ -186,7 +186,7 @@ export default function Page() {
               className="mt-8 flex space-x-6"
             >
               <Link href="https://github.com/MrTG1B" target="_blank" aria-label="GitHub" className="text-primary-foreground/80 hover:text-primary transition-colors"><Github size={28} /></Link>
-              <Link href="https://www.linkedin.com/in/tirthankar-dasgupta-310b67202" target="_blank" aria-label="LinkedIn" className="text-primary-foreground/80 hover:text-primary transition-colors"><Linkedin size={28} /></Link>
+              <Link href="https://www.linkedin.com/in/tirthankardasguptaprofile" target="_blank" aria-label="LinkedIn" className="text-primary-foreground/80 hover:text-primary transition-colors"><Linkedin size={28} /></Link>
               <Link href="https://x.com/TIRTHAN20755732?t=_B9d0N8RyZLsDb41zOwd_A&s=09" target="_blank" aria-label="X" className="text-primary-foreground/80 hover:text-primary transition-colors"><XIcon className="h-7 w-7" /></Link>
             </motion.div>
           </div>
