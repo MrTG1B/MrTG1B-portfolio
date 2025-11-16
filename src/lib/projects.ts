@@ -150,7 +150,7 @@ export const projects = [
     longDescription: "AgriDrone is an agricultural drone designed for precision pesticide spraying. It aims to reduce chemical waste and improve crop health by targeting specific areas. The drone is built with cost-effective components, making it accessible for small to medium-sized farms.",
     tags: ["Drone", "Agriculture", "Hardware", "IoT"],
     aiHint: "agriculture drone",
-    image: "https://picsum.photos/seed/8/600/400",
+    image: "https://images.unsplash.com/photo-1720071702672-d18c69cb475c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxhZ3JpY3VsdHVyYWwlMjBkcm9uZXxlbnwwfHx8fDE3NjMzMDQ4MzF8MA&ixlib=rb-4.1.0&q=80&w=1080",
     achievements: [],
     links: {}
   },
