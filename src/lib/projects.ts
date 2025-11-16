@@ -111,7 +111,7 @@ export const projects = [
     longDescription: "Auralis is an innovative IoT-enabled smart street lighting system designed to significantly reduce energy consumption and improve fault management. It features adaptive lighting based on real-time ambient light and motion detection, and a dual-communication architecture using both Wi-Fi and LoRaWAN to ensure scalability and reliability in urban and rural settings. A cloud-based dashboard provides centralized monitoring and control.",
     tags: ["IoT", "ESP32", "LoRaWAN", "Energy Efficiency", "Smart City"],
     aiHint: "smart city light",
-    image: "https://picsum.photos/seed/6/600/400",
+    image: "/Images/auralis.png",
     achievements: [
       "Won 1st Runner-up for the Smart Street Light System at Rajabazar Science College.",
       "Awarded 2nd Runner-up at Jadavpur University for the project's innovation.",
