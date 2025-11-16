@@ -249,16 +249,14 @@ export default function Page() {
                     </div>
                     {project.links?.live ? (
                       <div className="w-full h-full pt-[34px] flex items-center justify-center">
-                        <div className="relative aspect-video w-full">
-                           <iframe
-                              className="absolute top-0 left-0 w-[1920px] h-[1080px] origin-top-left"
-                              style={{ transform: 'scale(0.25)', transformOrigin: '0 0' }}
-                              src={project.links.live}
-                              sandbox="allow-scripts allow-same-origin"
-                              loading="lazy"
-                              title={project.title}
-                          />
-                        </div>
+                        <iframe
+                          className="w-[1920px] h-[1080px]"
+                          style={{ transform: 'scale(0.25)', transformOrigin: 'center center' }}
+                          src={project.links.live}
+                          sandbox="allow-scripts allow-same-origin"
+                          loading="lazy"
+                          title={project.title}
+                        />
                       </div>
                     ) : (
                       project.image && <Image src={project.image} alt={project.title} width={600} height={400} className="w-full h-full object-cover pt-[34px]" data-ai-hint={project.aiHint} />

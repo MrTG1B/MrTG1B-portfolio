@@ -49,16 +49,14 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
                     <div className="w-3 h-3 rounded-full bg-green-500"></div>
                   </div>
                   <div className="w-full h-full pt-[34px] flex items-center justify-center">
-                    <div className="w-full h-full relative">
-                        <iframe
-                            src={project.links.live}
-                            className="absolute top-0 left-0 w-full h-full"
-                            style={{ transform: 'scale(0.5)', transformOrigin: 'center center' }}
-                            sandbox="allow-scripts allow-same-origin"
-                            loading="lazy"
-                            title={project.title}
-                        />
-                    </div>
+                    <iframe
+                      className="w-[1920px] h-[1080px]"
+                      style={{ transform: 'scale(0.5)', transformOrigin: 'center center' }}
+                      src={project.links.live}
+                      sandbox="allow-scripts allow-same-origin"
+                      loading="lazy"
+                      title={project.title}
+                    />
                   </div>
                 </div>
               ) : (

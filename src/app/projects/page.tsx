@@ -47,16 +47,14 @@ export default function AllProjectsPage() {
                         </div>
                         {project.links?.live ? (
                            <div className="w-full h-full pt-[34px] flex items-center justify-center">
-                            <div className="w-full h-full relative">
                               <iframe
-                                src={project.links.live}
-                                className="absolute top-0 left-0 w-full h-full"
+                                className="w-[1280px] h-[720px]"
                                 style={{ transform: 'scale(0.3)', transformOrigin: 'center center' }}
+                                src={project.links.live}
                                 sandbox="allow-scripts allow-same-origin"
                                 loading="lazy"
                                 title={project.title}
                               />
-                            </div>
                           </div>
                       ) : (
                           project.image && <Image src={project.image} alt={project.title} width={600} height={400} className="w-full h-full object-cover pt-[34px]" data-ai-hint={project.aiHint} />
