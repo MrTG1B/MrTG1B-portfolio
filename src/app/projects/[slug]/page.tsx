@@ -1,3 +1,4 @@
+
 import { projects } from '@/lib/projects';
 import { notFound } from 'next/navigation';
 import Image from 'next/image';
@@ -40,14 +41,31 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
         <section className="container mx-auto max-w-screen-2xl px-4 md:px-6 py-16 md:py-24">
           <div className="grid lg:grid-cols-2 gap-12 items-start">
             <div>
-              <Image
-                src={project.image}
-                alt={project.title}
-                width={1200}
-                height={800}
-                className="rounded-lg object-cover shadow-2xl w-full"
-                data-ai-hint={project.aiHint}
-              />
+              {project.links?.live ? (
+                <div className="relative w-full aspect-video bg-secondary border rounded-lg overflow-hidden">
+                  <div className="absolute top-0 left-0 right-0 bg-muted p-2 flex items-center gap-1.5 z-10">
+                    <div className="w-3 h-3 rounded-full bg-red-500"></div>
+                    <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
+                    <div className="w-3 h-3 rounded-full bg-green-500"></div>
+                  </div>
+                  <iframe
+                    src={project.links.live}
+                    className="w-full h-full pt-[34px]"
+                    sandbox="allow-scripts allow-same-origin"
+                    loading="lazy"
+                    title={project.title}
+                  />
+                </div>
+              ) : (
+                <Image
+                  src={project.image}
+                  alt={project.title}
+                  width={1200}
+                  height={800}
+                  className="rounded-lg object-cover shadow-2xl w-full"
+                  data-ai-hint={project.aiHint}
+                />
+              )}
                <div className="mt-6 flex flex-col sm:flex-row gap-4">
                 {project.links?.github && (
                   <Button asChild className="w-full sm:w-auto">
