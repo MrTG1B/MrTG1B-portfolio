@@ -134,7 +134,8 @@ export const projects = [
     achievements: [
       "3D printed and assembled a fully functional prototype.",
       "Developed custom firmware for processing myoelectric signals.",
-      "Created an Android app for controlling and configuring the hand."
+      "Created an Android app for controlling and configuring the hand.",
+      "Won Best Approach award with a cash prize at Hacksprint, organized by IIEST Shibpur."
     ],
     links: {
       github: "https://github.com/MrTG1B/Handy"
@@ -179,5 +180,3 @@ export const projects = [
     }
   }
 ];
-
-    
