@@ -5,7 +5,7 @@ export const projects = [
     title: "WellMed",
     description: "An AI-powered medicine PWA with multilingual support, barcode search, and data for over 900 medicines.",
     longDescription: "WellMed is an AI-powered medicine search Progressive Web App (PWA) designed to help users quickly find information about over 900 medicines. With multilingual support (English, Hindi, and Bengali) and smart search features powered by the Gemini API, the app is ideal for users looking for medicine information by name, composition, or barcode scanning. It also features a full admin dashboard for managing medicine data.",
-    image: "https://image.thum.io/get/width/600/crop/400/https://wellmed-mrt-g-1-b.web.app/",
+    image: "https://image.thum.io/get/width/600/crop/400/https://wellmed.vercel.app/",
     tags: ["React", "TypeScript", "PWA", "Gemini API", "Firebase", "Health"],
     aiHint: "medicine health",
     achievements: [
@@ -16,7 +16,7 @@ export const projects = [
     ],
     links: {
       github: "https://github.com/MrTG1B/WellMed",
-      live: "https://wellmed-mrt-g-1-b.web.app/"
+      live: "https://wellmed.vercel.app/"
     }
   },
   {
