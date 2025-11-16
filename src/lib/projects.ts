@@ -8,6 +8,7 @@ export const projects = [
     tags: ["AI", "Resume Builder", "Next.js", "TypeScript", "Vercel"],
     aiHint: "resume builder",
     image: "",
+    imageFit: "cover" as const,
     achievements: [
       "Integrated a generative AI model to assist with content creation for resume sections.",
       "Developed an intuitive, multi-step form for easy data entry.",
@@ -27,6 +28,7 @@ export const projects = [
     tags: ["Web Development", "Corporate Website", "Next.js", "React", "Startup"],
     aiHint: "corporate website technology",
     image: "",
+    imageFit: "cover" as const,
     achievements: [
       "Designed and launched a fully responsive corporate website from scratch.",
       "Created a clean and professional UI to represent the company's brand identity.",
@@ -44,6 +46,7 @@ export const projects = [
     tags: ["React", "TypeScript", "PWA", "Gemini API", "Firebase", "Health"],
     aiHint: "medicine health",
     image: "",
+    imageFit: "cover" as const,
     achievements: [
       "Enhanced search with Gemini AI for intelligent suggestions and accurate results.",
       "Implemented multilingual support for English, Hindi, and Bengali to ensure broader accessibility.",
@@ -63,6 +66,7 @@ export const projects = [
     tags: ["Next.js", "TypeScript", "Firebase", "Appwrite", "AI", "reCAPTCHA"],
     aiHint: "artificial intelligence",
     image: "https://picsum.photos/seed/3/600/400",
+    imageFit: "cover" as const,
     achievements: [
       "Implemented secure user authentication with Firebase, including Google and Facebook login options.",
       "Integrated reCAPTCHA Enterprise to protect the platform from automated abuse.",
@@ -82,6 +86,7 @@ export const projects = [
     tags: ["3D Scanning", "Hardware", "IoT", "Python"],
     aiHint: "3d model scanner",
     image: "https://images.unsplash.com/photo-1526593714223-37c814d5aea9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxsaWRhcnxlbnwwfHx8fDE3NjMzMDQ5Mzd8MA&ixlib=rb-4.1.0&q=80&w=1080",
+    imageFit: "cover" as const,
     achievements: [
       "Developed a working prototype for under $100.",
       "Achieved high-resolution scans suitable for structural analysis.",
@@ -114,6 +119,7 @@ export const projects = [
     tags: ["IoT", "ESP32", "LoRaWAN", "Energy Efficiency", "Smart City"],
     aiHint: "smart city light",
     image: "/Images/auralis.png",
+    imageFit: "contain" as const,
     achievements: [
       "Won 1st Runner-up for the Smart Street Light System at Rajabazar Science College.",
       "Awarded 2nd Runner-up at Jadavpur University for the project's innovation.",
@@ -133,6 +139,7 @@ export const projects = [
     tags: ["Prosthetics", "3D Printing", "Android", "Arduino"],
     aiHint: "robotic hand",
     image: "https://images.unsplash.com/photo-1531746790731-6c087fecd65a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxyb2JvdCUyMGhhbmR8ZW58MHx8fHwxNzYzMjk5Nzk4fDA&ixlib=rb-4.1.0&q=80&w=1080",
+    imageFit: "cover" as const,
     achievements: [
       "3D printed and assembled a fully functional prototype.",
       "Developed custom firmware for processing myoelectric signals.",
@@ -152,6 +159,7 @@ export const projects = [
     tags: ["Drone", "Agriculture", "Hardware", "IoT"],
     aiHint: "agriculture drone",
     image: "https://images.unsplash.com/photo-1720071702672-d18c69cb475c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxhZ3JpY3VsdHVyYWwlMjBkcm9uZXxlbnwwfHx8fDE3NjMzMDQ4MzF8MA&ixlib=rb-4.1.0&q=80&w=1080",
+    imageFit: "cover" as const,
     achievements: [],
     links: {}
   },
@@ -163,6 +171,7 @@ export const projects = [
     tags: ["AI", "Python", "Voice Assistant"],
 aiHint: "ai assistant robot",
     image: "https://picsum.photos/seed/9/600/400",
+    imageFit: "cover" as const,
     achievements: [],
     links: {
       github: "https://github.com/MrTG1B/N.O.V.A",
@@ -177,6 +186,7 @@ aiHint: "ai assistant robot",
     tags: ["Productivity", "Web App", "Task Management"],
     aiHint: "app interface",
     image: "https://picsum.photos/seed/10/600/400",
+    imageFit: "cover" as const,
     achievements: [],
     link: {
        github: "https://github.com/MrTG1B/RefiX"
