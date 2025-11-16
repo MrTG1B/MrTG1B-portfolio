@@ -220,8 +220,8 @@ export default function Page() {
                       <div className="w-full h-full pt-[34px] flex items-center justify-center">
                         <iframe
                           src={project.links.live}
-                          className="w-full h-full transform scale-[0.25] origin-center"
-                          style={{width: 'calc(100% / 0.25)', height: 'calc(100% / 0.25)'}}
+                          className="transform scale-[0.25] origin-top-left"
+                          style={{ width: '1920px', height: '1080px' }}
                           sandbox="allow-scripts allow-same-origin"
                           loading="lazy"
                           title={project.title}
