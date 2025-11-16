@@ -81,7 +81,7 @@ export const projects = [
     longDescription: "This project focuses on creating a cost-effective 3D scanning solution using accessible hardware. The scanner is capable of capturing 360-degree models of objects, with a primary application in monitoring the structural integrity of pipes and other industrial components. It provides a valuable tool for preventative maintenance and analysis.",
     tags: ["3D Scanning", "Hardware", "IoT", "Python"],
     aiHint: "3d model scanner",
-    image: "https://picsum.photos/seed/4/600/400",
+    image: "https://images.unsplash.com/photo-1526593714223-37c814d5aea9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxsaWRhcnxlbnwwfHx8fDE3NjMzMDQ5Mzd8MA&ixlib=rb-4.1.0&q=80&w=1080",
     achievements: [
       "Developed a working prototype for under $100.",
       "Achieved high-resolution scans suitable for structural analysis.",
