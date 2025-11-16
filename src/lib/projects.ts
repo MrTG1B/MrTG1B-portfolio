@@ -130,7 +130,7 @@ export const projects = [
     longDescription: "Handy is a project aimed at creating a low-cost, highly functional myoelectric prosthetic hand. It uses muscle sensors to control the hand's movements, providing a more intuitive experience for the user. A companion mobile app allows for calibration and customization of the prosthetic.",
     tags: ["Prosthetics", "3D Printing", "Android", "Arduino"],
     aiHint: "robotic hand",
-    image: "https://picsum.photos/seed/7/600/400",
+    image: "https://images.unsplash.com/photo-1531746790731-6c087fecd65a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxyb2JvdCUyMGhhbmR8ZW58MHx8fHwxNzYzMjk5Nzk4fDA&ixlib=rb-4.1.0&q=80&w=1080",
     achievements: [
       "3D printed and assembled a fully functional prototype.",
       "Developed custom firmware for processing myoelectric signals.",
@@ -158,7 +158,7 @@ export const projects = [
     description: "A voice-activated personal AI assistant, combining Python backend with API integrations.",
     longDescription: "N.O.V.A. (Neural Operating & Voice Assistant) is a personal AI assistant inspired by Jarvis from Iron Man. It can perform various tasks through voice commands, such as controlling smart home devices, providing information, and managing schedules. It integrates with multiple APIs to extend its capabilities.",
     tags: ["AI", "Python", "Voice Assistant"],
-    aiHint: "ai assistant robot",
+aiHint: "ai assistant robot",
     image: "https://picsum.photos/seed/9/600/400",
     achievements: [],
     links: {
