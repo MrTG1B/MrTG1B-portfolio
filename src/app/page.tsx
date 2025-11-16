@@ -118,12 +118,16 @@ export default function Page() {
             <Code className="h-6 w-6 text-primary" />
             <span className="font-bold text-lg">MrTG1B</span>
           </Link>
-          <nav className="hidden md:flex gap-6 text-sm font-medium">
-            <Link href="#about" className="hover:text-primary transition-colors">About</Link>
-            <Link href="#projects" className="hover:text-primary transition-colors">Projects</Link>
-            <Link href="#skills" className="hover:text-primary transition-colors">Skills</Link>
-            <Link href="#contact" className="hover:text-primary transition-colors">Contact</Link>
-          </nav>
+          <div className="flex items-center gap-4">
+            <nav className="hidden md:flex gap-6 text-sm font-medium">
+              <Link href="#about" className="hover:text-primary transition-colors">About</Link>
+              <Link href="#projects" className="hover:text-primary transition-colors">Projects</Link>
+              <Link href="#skills" className="hover:text-primary transition-colors">Skills</Link>
+            </nav>
+            <Button asChild variant="outline" size="sm" className="hidden md:flex">
+              <Link href="#contact">Get in Touch</Link>
+            </Button>
+          </div>
         </div>
       </header>
       <main className="flex-1">
@@ -249,7 +253,7 @@ export default function Page() {
                     </div>
                     {project.links?.live ? (
                       <div className="w-full h-full pt-[34px] flex items-center justify-center overflow-hidden">
-                        <div className="w-[1920px] h-[1080px] origin-top-left" style={{ transform: 'scale(0.2) translateY(-10%)', transformOrigin: 'center center' }}>
+                        <div className="w-[1920px] h-[1080px] origin-center transform scale-[0.2]" >
                             <iframe
                                 className="w-full h-full"
                                 src={project.links.live}
@@ -398,5 +402,7 @@ export default function Page() {
     </div>
   );
 }
+
+    
 
     
