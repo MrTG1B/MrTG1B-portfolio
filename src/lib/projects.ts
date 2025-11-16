@@ -54,7 +54,7 @@ export const projects = [
       "Built a comprehensive admin dashboard for easy management of the 900+ medicine database."
     ],
     links: {
-      github: "https://github.com/MrTG1B/WellMed",
+      github: "https://github.com/MrTG1B/WellMeds",
       live: "https://wellmed.vercel.app/"
     }
   },
