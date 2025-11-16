@@ -43,7 +43,7 @@ export const projects = [
     longDescription: "PromptForge is a user-friendly web-based platform designed to help users craft high-quality, effective prompts for various AI models. Whether you're a beginner exploring AI tools or a seasoned prompt engineer, PromptForge streamlines the process of generating and refining prompts to get the best possible responses from your AI of choice.",
     tags: ["Next.js", "TypeScript", "Firebase", "Appwrite", "AI", "reCAPTCHA"],
     aiHint: "artificial intelligence",
-    image: "",
+    image: "https://picsum.photos/seed/3/600/400",
     achievements: [
       "Implemented secure user authentication with Firebase, including Google and Facebook login options.",
       "Integrated reCAPTCHA Enterprise to protect the platform from automated abuse.",
@@ -144,7 +144,7 @@ export const projects = [
     achievements: [],
     links: {
       github: "https://github.com/MrTG1B/N.O.V.A",
-      live: "https://mr-t-g-1-b.github.io/N.O.V.A/"
+      live: "https://project-nova.netlify.app/"
     }
   },
   {
