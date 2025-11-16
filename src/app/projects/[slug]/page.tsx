@@ -47,13 +47,13 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
                   <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
                   <div className="w-3 h-3 rounded-full bg-green-500"></div>
                 </div>
-                <div className="absolute inset-0 pt-[34px] overflow-hidden rounded-b-lg">
+                 <div className="absolute inset-0 pt-[34px] bg-black flex justify-center items-center overflow-hidden rounded-b-lg">
                   {project.links?.live ? (
-                      <div className="w-full h-full bg-black flex items-center justify-center overflow-hidden rounded-b-lg">
+                      <div className="w-full h-full relative flex justify-center items-center">
                         <iframe
-                          src={project.links.live}
-                          className="w-[1280px] h-[720px] origin-top-left scale-[0.6]"
-                          title={project.title}
+                            src={project.links.live}
+                            className="absolute w-[1920px] h-[1080px] transform scale-[0.45] -translate-x-[50%] -translate-y-[50%] top-1/2 left-1/2"
+                            title={project.title}
                         />
                       </div>
                   ) : (
