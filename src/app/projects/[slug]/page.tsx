@@ -49,19 +49,19 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
                 </div>
                 <div className="absolute inset-0 pt-[34px] overflow-hidden rounded-b-lg">
                   {project.links?.live ? (
-                      <div className="relative w-full h-full bg-black">
-                          <iframe
-                              src={project.links.live}
-                              className="absolute top-0 left-0 w-[1280px] h-[720px] origin-top-left scale-[0.4] md:scale-[0.5] lg:scale-[0.6] pointer-events-none"
-                              title={project.title}
-                          />
+                      <div className="w-full h-full bg-black flex items-center justify-center">
+                        <iframe
+                          src={project.links.live}
+                          className="w-[1280px] h-[720px] origin-top-left scale-[0.6]"
+                          title={project.title}
+                        />
                       </div>
                   ) : (
                     project.image && <Image
                       src={project.image}
                       alt={project.title}
                       fill
-                      className="w-full h-full object-cover"
+                      className="w-full h-full object-contain"
                       data-ai-hint={project.aiHint}
                     />
                   )}
