@@ -48,14 +48,16 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
                     <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
                     <div className="w-3 h-3 rounded-full bg-green-500"></div>
                   </div>
-                  <iframe
-                    src={project.links.live}
-                    className="w-full h-full pt-[34px] origin-top-left scale-[0.35] sm:scale-[0.5] md:scale-[0.4] lg:scale-[0.3] xl:scale-[0.25] transform absolute"
-                    style={{width: 'calc(100% / 0.25)', height: 'calc(100% / 0.25)'}}
-                    sandbox="allow-scripts allow-same-origin"
-                    loading="lazy"
-                    title={project.title}
-                  />
+                  <div className="w-full h-full pt-[34px] flex items-center justify-center">
+                    <iframe
+                      src={project.links.live}
+                      className="w-full h-full transform scale-[0.25] origin-center"
+                      style={{width: 'calc(100% / 0.25)', height: 'calc(100% / 0.25)'}}
+                      sandbox="allow-scripts allow-same-origin"
+                      loading="lazy"
+                      title={project.title}
+                    />
+                  </div>
                 </div>
               ) : (
                 project.image && <Image
@@ -126,3 +128,5 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
     </div>
   );
 }
+
+    
