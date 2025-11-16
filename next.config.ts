@@ -34,6 +34,12 @@ const nextConfig: NextConfig = {
         hostname: 'image.thum.io',
         port: '',
         pathname: '/**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'images.unsplash.com',
+        port: '',
+        pathname: '/**',
       }
     ],
   },
