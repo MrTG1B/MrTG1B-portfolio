@@ -15,7 +15,8 @@ export const projects = [
       "Ensured the application is fully responsive for use on both desktop and mobile devices."
     ],
     links: {
-      live: "https://resuu-ai.vercel.app/"
+      live: "https://resuu-ai.vercel.app/",
+      github: "https://github.com/MrTG1B/ResuAI"
     }
   },
   {
