@@ -16,29 +16,32 @@ import { ContactForm } from '@/components/contact-form';
 const topProjectSlugs = ["wellmed", "promptforge", "gemini-powered-bot"];
 const topProjects = projects.filter(p => topProjectSlugs.includes(p.slug));
 
-const allAchievements = projects.flatMap(project =>
-  project.achievements?.map(achievement => {
-    let title = achievement;
-    // A more robust way to find a title, looking for specific keywords.
-    if (achievement.includes("Won") || achievement.includes("Awarded") || achievement.includes("Secured")) {
-        // Extracts a more reasonable title like "Won 1st Runner-up" or "Best Approach award"
-        const match = achievement.match(/(Won .*?|Awarded .*?|Secured .*?|Best Approach award)/);
-        if (match) {
-            title = match[0].split(' at ')[0].split(' with ')[0];
-        }
-    } else if (project.title) {
-        // Fallback for achievements that are features.
-        title = `Key feature in ${project.title}`;
-    }
-
-    return {
-      title: title,
-      event: project.title, // The project is the "event"
-      description: achievement,
+const allAchievements = [
+    {
+      title: "1st Runner-up, Smart Street Light System",
+      event: "Auralis @ Rajabazar Science College",
+      description: "Won 1st Runner-up for the Smart Street Light System at Rajabazar Science College.",
       icon: <Award className="h-8 w-8 text-accent" />
-    };
-  }) ?? []
-).filter(Boolean); // Filter out any undefined entries if a project has no achievements
+    },
+    {
+      title: "2nd Runner-up, Project Innovation",
+      event: "Auralis @ Jadavpur University",
+      description: "Awarded 2nd Runner-up at Jadavpur University for the project's innovation.",
+      icon: <Award className="h-8 w-8 text-accent" />
+    },
+    {
+      title: "'Best Approach' Award",
+      event: "Handy @ Hacksprint, IIEST Shibpur",
+      description: "Won 'Best Approach' award with a cash prize at Hacksprint, organized by IIEST Shibpur.",
+      icon: <Award className="h-8 w-8 text-accent" />
+    },
+    {
+      title: "2nd Position, Regional Round",
+      event: "Handy with Team Lumen",
+      description: "Secured 2nd position and a cash prize in the regional round with Team Lumen.",
+      icon: <Award className="h-8 w-8 text-accent" />
+    }
+];
 
 
 const MotionSection = motion.section;
