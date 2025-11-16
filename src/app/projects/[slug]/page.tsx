@@ -50,14 +50,15 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
                   </div>
                   <iframe
                     src={project.links.live}
-                    className="w-full h-full pt-[34px]"
+                    className="w-full h-full pt-[34px] origin-top-left scale-[0.35] sm:scale-[0.5] md:scale-[0.4] lg:scale-[0.3] xl:scale-[0.25] transform absolute"
+                    style={{width: 'calc(100% / 0.25)', height: 'calc(100% / 0.25)'}}
                     sandbox="allow-scripts allow-same-origin"
                     loading="lazy"
                     title={project.title}
                   />
                 </div>
               ) : (
-                <Image
+                project.image && <Image
                   src={project.image}
                   alt={project.title}
                   width={1200}
