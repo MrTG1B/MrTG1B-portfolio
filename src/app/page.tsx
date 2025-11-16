@@ -18,24 +18,23 @@ const topProjects = projects.filter(p => topProjectSlugs.includes(p.slug));
 
 const allAchievements = projects.flatMap(project =>
   project.achievements?.map(achievement => {
-    // Attempt to extract a title-like part from the achievement string
-    let title = "Achievement";
-    let description = achievement;
+    let title = achievement;
+    // A more robust way to find a title, looking for specific keywords.
     if (achievement.includes("Won") || achievement.includes("Awarded") || achievement.includes("Secured")) {
-        const parts = achievement.split(' at ')[0].split(' with ')[0].split(' in ')[0];
-        title = parts;
-        description = achievement;
+        // Extracts a more reasonable title like "Won 1st Runner-up" or "Best Approach award"
+        const match = achievement.match(/(Won .*?|Awarded .*?|Secured .*?|Best Approach award)/);
+        if (match) {
+            title = match[0].split(' at ')[0].split(' with ')[0];
+        }
     } else if (project.title) {
+        // Fallback for achievements that are features.
         title = `Key feature in ${project.title}`;
     }
 
-    // A simple way to associate a project with its achievements
-    const event = project.title;
-
     return {
       title: title,
-      event: event,
-      description: description,
+      event: project.title, // The project is the "event"
+      description: achievement,
       icon: <Award className="h-8 w-8 text-accent" />
     };
   }) ?? []
@@ -53,7 +52,6 @@ const skillsLogos = [
     { name: "HTML5", logo: "https://img.shields.io/badge/HTML5-E34F26?logo=html5&logoColor=white" },
     { name: "CSS3", logo: "https://img.shields.io/badge/CSS3-1572B6?logo=css3&logoColor=white" },
     { name: "Node.js", logo: "https://img.shields.io/badge/Node.js-339933?logo=nodedotjs&logoColor=white" },
-    { name: "Express", logo: "https://img.shields.io/badge/Express-000000?logo=express&logoColor=white" },
     { name: "Android Studio", logo: "https://img.shields.io/badge/Android_Studio-3DDC84?logo=androidstudio&logoColor=white" },
     { name: "Git", logo: "https://img.shields.io/badge/Git-F05032?logo=git&logoColor=white" },
     { name: "GitHub", logo: "https://img.shields.io/badge/GitHub-181717?logo=github&logoColor=white" },
@@ -230,14 +228,14 @@ export default function Page() {
                     </div>
                     {project.links?.live ? (
                       <div className="w-full h-full pt-[34px] flex items-center justify-center">
-                        <div className="w-full h-full relative">
-                          <iframe
-                            src={project.links.live}
-                            className="absolute top-0 left-0 w-full h-full border-0"
-                            style={{ transform: 'scale(0.3)', transformOrigin: '0 0', width: '333.33%', height: '333.33%' }}
-                            sandbox="allow-scripts allow-same-origin"
-                            loading="lazy"
-                            title={project.title}
+                        <div className="relative aspect-video w-full">
+                           <iframe
+                              className="absolute top-0 left-0 w-[1920px] h-[1080px] origin-[0_0]"
+                              style={{ transform: 'scale(calc(1/4))', transformOrigin: 'top left' }}
+                              src={project.links.live}
+                              sandbox="allow-scripts allow-same-origin"
+                              loading="lazy"
+                              title={project.title}
                           />
                         </div>
                       </div>
@@ -380,5 +378,3 @@ export default function Page() {
     </div>
   );
 }
-
-    
