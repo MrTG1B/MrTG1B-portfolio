@@ -52,6 +52,7 @@ const skillsLogos = [
     { name: "HTML5", logo: "https://img.shields.io/badge/HTML5-E34F26?logo=html5&logoColor=white" },
     { name: "CSS3", logo: "https://img.shields.io/badge/CSS3-1572B6?logo=css3&logoColor=white" },
     { name: "Node.js", logo: "https://img.shields.io/badge/Node.js-339933?logo=nodedotjs&logoColor=white" },
+    { name: "Express", logo: "https://img.shields.io/badge/Express-000000?logo=express&logoColor=white" },
     { name: "Android Studio", logo: "https://img.shields.io/badge/Android_Studio-3DDC84?logo=androidstudio&logoColor=white" },
     { name: "Git", logo: "https://img.shields.io/badge/Git-F05032?logo=git&logoColor=white" },
     { name: "GitHub", logo: "https://img.shields.io/badge/GitHub-181717?logo=github&logoColor=white" },
