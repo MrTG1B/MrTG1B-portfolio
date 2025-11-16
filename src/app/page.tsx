@@ -217,11 +217,12 @@ export default function Page() {
                       <div className="w-3 h-3 rounded-full bg-green-500"></div>
                     </div>
                     {project.links?.live ? (
-                      <div className="w-full h-full pt-[34px] overflow-hidden">
-                        <div className="aspect-video w-full h-full relative">
+                      <div className="w-full h-full pt-[34px] flex items-center justify-center">
+                        <div className="w-full h-full relative">
                           <iframe
                             src={project.links.live}
-                            className="absolute top-0 left-0 w-[1920px] h-[1080px] origin-top-left transform scale-[0.22] sm:scale-[0.28] md:scale-[0.34] lg:scale-[0.19] xl:scale-[0.24]"
+                            className="absolute top-0 left-0 w-full h-full"
+                            style={{ transform: 'scale(0.3)', transformOrigin: 'center center' }}
                             sandbox="allow-scripts allow-same-origin"
                             loading="lazy"
                             title={project.title}
