@@ -42,27 +42,6 @@ const nextConfig = {
       }
     ],
   },
-  webpack: (config, { isServer }) => {
-    // Deduplicate Three.js to prevent multiple instances
-    if (!isServer) {
-      // Get the absolute path to the three module
-      const threeModulePath = require.resolve('three');
-      const threeBasePath = threeModulePath.substring(0, threeModulePath.lastIndexOf('node_modules') + 'node_modules/three'.length);
-
-      config.resolve.alias = {
-        ...config.resolve.alias,
-        'three': threeBasePath,
-      };
-
-      // Ensure only one instance is loaded
-      config.optimization = {
-        ...config.optimization,
-        providedExports: true,
-        usedExports: true,
-      };
-    }
-    return config;
-  },
 };
 
 export default nextConfig;
