@@ -42,32 +42,6 @@ function StarField(props: any) {
     );
 }
 
-function FloatingCube() {
-    const meshRef = useRef<any>();
-
-    useFrame((state) => {
-        if (meshRef.current) {
-            meshRef.current.rotation.x = state.clock.elapsedTime * 0.2;
-            meshRef.current.rotation.y = state.clock.elapsedTime * 0.3;
-            meshRef.current.position.y = Math.sin(state.clock.elapsedTime) * 0.1;
-        }
-    });
-
-    return (
-        <mesh ref={meshRef} position={[0, 0, 0]}>
-            <boxGeometry args={[0.7, 0.7, 0.7]} />
-            <meshStandardMaterial
-                color="#bd00ff"
-                wireframe
-                transparent
-                opacity={0.7}
-                emissive="#bd00ff"
-                emissiveIntensity={0.5}
-            />
-        </mesh>
-    );
-}
-
 function CameraController({ mouseX, mouseY }: { mouseX: number; mouseY: number }) {
     const { camera } = useThree();
 
@@ -102,7 +76,6 @@ export default function Hero3D() {
                 <ambientLight intensity={1} />
                 <pointLight position={[10, 10, 10]} intensity={2} />
                 <StarField />
-                <FloatingCube />
                 <CameraController mouseX={mousePosition.x} mouseY={mousePosition.y} />
             </Canvas>
         </div>
