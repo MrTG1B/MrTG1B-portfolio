@@ -1,17 +1,19 @@
-import type {Metadata} from 'next';
+import type { Metadata } from 'next';
 import './globals.css';
 import { Toaster } from "@/components/ui/toaster";
-import { Orbitron, Share_Tech_Mono, Inter } from 'next/font/google';
+import { Outfit, Space_Grotesk } from 'next/font/google';
 import { cn } from '@/lib/utils';
 
-const orbitron = Orbitron({
+const outfit = Outfit({
   subsets: ['latin'],
-  variable: '--font-orbitron',
+  variable: '--font-outfit',
+  display: 'swap',
 });
 
-const inter = Inter({
+const spaceGrotesk = Space_Grotesk({
   subsets: ['latin'],
-  variable: '--font-inter',
+  variable: '--font-space',
+  display: 'swap',
 });
 
 export const metadata: Metadata = {
@@ -25,13 +27,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={cn(orbitron.variable, inter.variable, "dark scroll-smooth")} suppressHydrationWarning>
-      <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&family=Inter:wght@400;500;700&display=swap" rel="stylesheet" />
-      </head>
-      <body className={cn("font-body", "antialiased")} suppressHydrationWarning>
+    <html lang="en" className={cn(outfit.variable, spaceGrotesk.variable, "dark scroll-smooth")} suppressHydrationWarning>
+      <body className={cn("font-sans bg-background text-foreground antialiased selection:bg-primary selection:text-primary-foreground")} suppressHydrationWarning>
         {children}
         <Toaster />
       </body>
