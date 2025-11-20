@@ -32,10 +32,10 @@ function StarField(props: any) {
                 <PointMaterial
                     transparent
                     color="#00f0ff"
-                    size={0.005}
+                    size={0.01}
                     sizeAttenuation={true}
                     depthWrite={false}
-                    opacity={0.8}
+                    opacity={1}
                 />
             </Points>
         </group>
@@ -55,12 +55,14 @@ function FloatingCube() {
 
     return (
         <mesh ref={meshRef} position={[0, 0, 0]}>
-            <boxGeometry args={[0.5, 0.5, 0.5]} />
+            <boxGeometry args={[0.7, 0.7, 0.7]} />
             <meshStandardMaterial
                 color="#bd00ff"
                 wireframe
                 transparent
-                opacity={0.3}
+                opacity={0.7}
+                emissive="#bd00ff"
+                emissiveIntensity={0.5}
             />
         </mesh>
     );
@@ -89,12 +91,16 @@ export default function Hero3D() {
 
     return (
         <div
-            className="w-full h-full absolute inset-0 -z-10"
+            className="w-full h-full absolute inset-0"
+            style={{ zIndex: 0 }}
             onMouseMove={handleMouseMove}
         >
-            <Canvas camera={{ position: [0, 0, 1], fov: 75 }}>
-                <ambientLight intensity={0.5} />
-                <pointLight position={[10, 10, 10]} intensity={1} />
+            <Canvas
+                camera={{ position: [0, 0, 1], fov: 75 }}
+                style={{ background: 'transparent' }}
+            >
+                <ambientLight intensity={1} />
+                <pointLight position={[10, 10, 10]} intensity={2} />
                 <StarField />
                 <FloatingCube />
                 <CameraController mouseX={mousePosition.x} mouseY={mousePosition.y} />
