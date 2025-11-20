@@ -4,7 +4,11 @@ import { useRef, useMemo, useState } from "react";
 import { Canvas, useFrame, useThree } from "@react-three/fiber";
 import { Points, PointMaterial } from "@react-three/drei";
 import * as random from "maath/random/dist/maath-random.cjs";
-import * as THREE from "three";
+
+// Custom lerp function to avoid importing THREE
+const lerp = (start: number, end: number, factor: number) => {
+    return start + (end - start) * factor;
+};
 
 function StarField(props: any) {
     const ref = useRef<any>();
@@ -66,8 +70,8 @@ function CameraController({ mouseX, mouseY }: { mouseX: number; mouseY: number }
     const { camera } = useThree();
 
     useFrame(() => {
-        camera.position.x = THREE.MathUtils.lerp(camera.position.x, mouseX * 0.5, 0.05);
-        camera.position.y = THREE.MathUtils.lerp(camera.position.y, -mouseY * 0.5, 0.05);
+        camera.position.x = lerp(camera.position.x, mouseX * 0.5, 0.05);
+        camera.position.y = lerp(camera.position.y, -mouseY * 0.5, 0.05);
         camera.lookAt(0, 0, 0);
     });
 
