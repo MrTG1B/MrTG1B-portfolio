@@ -42,6 +42,16 @@ const nextConfig = {
       }
     ],
   },
+  webpack: (config, { isServer }) => {
+    // Deduplicate Three.js to prevent multiple instances
+    if (!isServer) {
+      config.resolve.alias = {
+        ...config.resolve.alias,
+        'three': 'three',
+      };
+    }
+    return config;
+  },
 };
 
 export default nextConfig;

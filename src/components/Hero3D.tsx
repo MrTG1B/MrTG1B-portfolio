@@ -1,13 +1,18 @@
 "use client";
 
-import { useRef } from "react";
+import { useRef, useMemo } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
-import { Points, PointMaterial, Preload } from "@react-three/drei";
+import { Points, PointMaterial } from "@react-three/drei";
 import * as random from "maath/random/dist/maath-random.cjs";
 
 function StarField(props: any) {
     const ref = useRef<any>();
-    const sphere = random.inSphere(new Float32Array(5000), { radius: 1.5 });
+
+    const sphere = useMemo(() => {
+        const positions = new Float32Array(5000 * 3);
+        random.inSphere(positions, { radius: 1.5 });
+        return positions;
+    }, []);
 
     useFrame((state, delta) => {
         if (ref.current) {
@@ -36,7 +41,6 @@ export default function Hero3D() {
         <div className="w-full h-full absolute inset-0 -z-10">
             <Canvas camera={{ position: [0, 0, 1] }}>
                 <StarField />
-                <Preload all />
             </Canvas>
         </div>
     );
