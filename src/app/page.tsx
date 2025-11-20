@@ -12,7 +12,9 @@ import { ArrowRight, Briefcase, Code, Mail, Linkedin, Github, Info, Cpu, Smartph
 import { ContactForm } from '@/components/contact-form';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 import { Separator } from '@/components/ui/separator';
-import Hero3D from '@/components/Hero3D';
+import dynamic from 'next/dynamic';
+
+const Hero3D = dynamic(() => import('@/components/Hero3D'), { ssr: false });
 
 const topProjectSlugs = ["auralis", "resuai", "dgen-technologies", "wellmed"];
 const topProjects = projects.filter(p => topProjectSlugs.includes(p.slug));
