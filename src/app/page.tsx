@@ -169,7 +169,13 @@ export default function Page() {
         <section ref={heroRef} id="hero" className="relative w-full h-screen overflow-hidden flex items-center justify-center">
           <Hero3D />
 
-          <div className="relative z-10 flex flex-col items-center justify-center h-full text-center text-white p-4 max-w-4xl mx-auto">
+          <motion.div
+            style={{
+              y: useTransform(scrollYProgress, [0, 1], [0, -100]),
+              opacity: useTransform(scrollYProgress, [0, 0.5], [1, 0])
+            }}
+            className="relative z-10 flex flex-col items-center justify-center h-full text-center text-white p-4 max-w-4xl mx-auto"
+          >
             <motion.div
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
@@ -227,7 +233,7 @@ export default function Page() {
               <Link href="https://www.linkedin.com/in/tirthankardasguptaprofile" target="_blank" aria-label="LinkedIn" className="text-muted-foreground hover:text-white transition-colors transform hover:scale-110"><Linkedin size={24} /></Link>
               <Link href="https://x.com/TIRTHAN20755732?t=_B9d0N8RyZLsDb41zOwd_A&s=09" target="_blank" aria-label="X" className="text-muted-foreground hover:text-white transition-colors transform hover:scale-110"><XIcon className="h-6 w-6" /></Link>
             </motion.div>
-          </div>
+          </motion.div>
         </section>
 
         <MotionSection

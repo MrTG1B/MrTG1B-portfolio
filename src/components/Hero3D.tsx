@@ -1,9 +1,10 @@
 "use client";
 
-import { useRef, useMemo } from "react";
-import { Canvas, useFrame } from "@react-three/fiber";
-import { Points, PointMaterial, OrbitControls } from "@react-three/drei";
+import { useRef, useMemo, useState } from "react";
+import { Canvas, useFrame, useThree } from "@react-three/fiber";
+import { Points, PointMaterial } from "@react-three/drei";
 import * as random from "maath/random/dist/maath-random.cjs";
+import * as THREE from "three";
 
 function StarField(props: any) {
     const ref = useRef<any>();
@@ -61,14 +62,38 @@ function FloatingCube() {
     );
 }
 
+function CameraController({ mouseX, mouseY }: { mouseX: number; mouseY: number }) {
+    const { camera } = useThree();
+
+    useFrame(() => {
+        camera.position.x = THREE.MathUtils.lerp(camera.position.x, mouseX * 0.5, 0.05);
+        camera.position.y = THREE.MathUtils.lerp(camera.position.y, -mouseY * 0.5, 0.05);
+        camera.lookAt(0, 0, 0);
+    });
+
+    return null;
+}
+
 export default function Hero3D() {
+    const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+
+    const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+        const x = (e.clientX / window.innerWidth) * 2 - 1;
+        const y = -(e.clientY / window.innerHeight) * 2 + 1;
+        setMousePosition({ x, y });
+    };
+
     return (
-        <div className="w-full h-full absolute inset-0 -z-10">
+        <div
+            className="w-full h-full absolute inset-0 -z-10"
+            onMouseMove={handleMouseMove}
+        >
             <Canvas camera={{ position: [0, 0, 1], fov: 75 }}>
                 <ambientLight intensity={0.5} />
                 <pointLight position={[10, 10, 10]} intensity={1} />
                 <StarField />
                 <FloatingCube />
+                <CameraController mouseX={mousePosition.x} mouseY={mousePosition.y} />
             </Canvas>
         </div>
     );
