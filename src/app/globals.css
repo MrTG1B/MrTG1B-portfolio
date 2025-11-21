@@ -4,49 +4,49 @@
 
 @layer base {
   :root {
-    --background: 240 10% 3.9%;
-    --foreground: 0 0% 98%;
-    --card: 240 10% 3.9%;
-    --card-foreground: 0 0% 98%;
-    --popover: 240 10% 3.9%;
-    --popover-foreground: 0 0% 98%;
-    --primary: 190 100% 50%; /* Neon Cyan */
-    --primary-foreground: 240 5.9% 10%;
-    --secondary: 270 100% 60%; /* Neon Purple */
-    --secondary-foreground: 0 0% 98%;
-    --muted: 240 3.7% 15.9%;
-    --muted-foreground: 240 5% 64.9%;
-    --accent: 320 100% 55%; /* Neon Pink */
-    --accent-foreground: 0 0% 98%;
+    --background: 222 84% 4%; /* Deep Space Blue */
+    --foreground: 210 40% 98%;
+    --card: 222 84% 6%;
+    --card-foreground: 210 40% 98%;
+    --popover: 222 84% 4%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 217 91% 60%; /* Bright Blue */
+    --primary-foreground: 210 40% 98%;
+    --secondary: 262 80% 58%; /* Nebula Purple */
+    --secondary-foreground: 210 40% 98%;
+    --muted: 217 33% 17%;
+    --muted-foreground: 215 20% 65%;
+    --accent: 188 90% 48%; /* Galactic Cyan */
+    --accent-foreground: 222 84% 4%;
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 0 0% 98%;
-    --border: 240 3.7% 15.9%;
-    --input: 240 3.7% 15.9%;
-    --ring: 190 100% 50%;
+    --border: 217 33% 17%;
+    --input: 217 33% 17%;
+    --ring: 217 91% 60%;
     --radius: 0.75rem;
   }
   
   /* Force dark mode by default or just use the same variables */
   .dark {
-    --background: 240 10% 3.9%;
-    --foreground: 0 0% 98%;
-    --card: 240 10% 3.9%;
-    --card-foreground: 0 0% 98%;
-    --popover: 240 10% 3.9%;
-    --popover-foreground: 0 0% 98%;
-    --primary: 190 100% 50%;
-    --primary-foreground: 240 5.9% 10%;
-    --secondary: 270 100% 60%;
-    --secondary-foreground: 0 0% 98%;
-    --muted: 240 3.7% 15.9%;
-    --muted-foreground: 240 5% 64.9%;
-    --accent: 320 100% 55%;
-    --accent-foreground: 0 0% 98%;
+    --background: 222 84% 4%; /* Deep Space Blue */
+    --foreground: 210 40% 98%;
+    --card: 222 84% 6%;
+    --card-foreground: 210 40% 98%;
+    --popover: 222 84% 4%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 217 91% 60%; /* Bright Blue */
+    --primary-foreground: 210 40% 98%;
+    --secondary: 262 80% 58%; /* Nebula Purple */
+    --secondary-foreground: 210 40% 98%;
+    --muted: 217 33% 17%;
+    --muted-foreground: 215 20% 65%;
+    --accent: 188 90% 48%; /* Galactic Cyan */
+    --accent-foreground: 222 84% 4%;
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 0 0% 98%;
-    --border: 240 3.7% 15.9%;
-    --input: 240 3.7% 15.9%;
-    --ring: 190 100% 50%;
+    --border: 217 33% 17%;
+    --input: 217 33% 17%;
+    --ring: 217 91% 60%;
   }
 }
 
