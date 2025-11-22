@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useMemo } from "react";
 
 export default function SpaceBackground() {
   const [scrollY, setScrollY] = useState(0);
@@ -10,45 +10,47 @@ export default function SpaceBackground() {
   const [windowSize, setWindowSize] = useState({ width: 0, height: 0 });
 
   useEffect(() => {
-    // Initialize window size
-    setWindowSize({ width: window.innerWidth, height: window.innerHeight });
-
-    const handleScroll = () => {
-      setScrollY(window.scrollY);
-    };
-
-    const handleMouseMove = (e: MouseEvent) => {
-      setMouseX(e.clientX);
-      setMouseY(e.clientY);
-    };
-
-    const handleResize = () => {
+    // Initialize window size only on client side
+    if (typeof window !== 'undefined') {
       setWindowSize({ width: window.innerWidth, height: window.innerHeight });
-    };
 
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    window.addEventListener("mousemove", handleMouseMove, { passive: true });
-    window.addEventListener("resize", handleResize, { passive: true });
+      const handleScroll = () => {
+        setScrollY(window.scrollY);
+      };
 
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-      window.removeEventListener("mousemove", handleMouseMove);
-      window.removeEventListener("resize", handleResize);
-    };
+      const handleMouseMove = (e: MouseEvent) => {
+        setMouseX(e.clientX);
+        setMouseY(e.clientY);
+      };
+
+      const handleResize = () => {
+        setWindowSize({ width: window.innerWidth, height: window.innerHeight });
+      };
+
+      window.addEventListener("scroll", handleScroll, { passive: true });
+      window.addEventListener("mousemove", handleMouseMove, { passive: true });
+      window.addEventListener("resize", handleResize, { passive: true });
+
+      return () => {
+        window.removeEventListener("scroll", handleScroll);
+        window.removeEventListener("mousemove", handleMouseMove);
+        window.removeEventListener("resize", handleResize);
+      };
+    }
   }, []);
 
-  // Calculate parallax offsets based on scroll and mouse position
-  const planetParallax = {
+  // Memoize parallax calculations to avoid unnecessary recalculations
+  const planetParallax = useMemo(() => ({
     transform: `translate(${scrollY * 0.15}px, ${scrollY * 0.2}px) translate(${(mouseX - windowSize.width / 2) * 0.02}px, ${(mouseY - windowSize.height / 2) * 0.02}px)`,
-  };
+  }), [scrollY, mouseX, mouseY, windowSize]);
 
-  const satelliteParallax = {
+  const satelliteParallax = useMemo(() => ({
     transform: `translate(${-scrollY * 0.1}px, ${scrollY * 0.25}px) translate(${(mouseX - windowSize.width / 2) * 0.03}px, ${(mouseY - windowSize.height / 2) * 0.03}px)`,
-  };
+  }), [scrollY, mouseX, mouseY, windowSize]);
 
-  const rocketParallax = {
+  const rocketParallax = useMemo(() => ({
     transform: `translate(${scrollY * 0.08}px, ${-scrollY * 0.3}px) translate(${(mouseX - windowSize.width / 2) * 0.025}px, ${(mouseY - windowSize.height / 2) * 0.025}px)`,
-  };
+  }), [scrollY, mouseX, mouseY, windowSize]);
 
   return (
     <>

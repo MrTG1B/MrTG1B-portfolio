@@ -114,6 +114,8 @@ export default function Floating3DObjects() {
               />
             );
           }
+          // This should never happen, but TypeScript needs a return
+          console.warn(`Unknown object type encountered: ${obj.type}`);
           return null;
         })}
       </Canvas>
