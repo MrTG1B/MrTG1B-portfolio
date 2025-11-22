@@ -15,7 +15,8 @@ function StarField(props: any) {
     const ref = useRef<any>();
 
     const sphere = useMemo(() => {
-    const positions = new Float32Array(12000 * 3); // Increased star count to 12000 for denser field
+    // Optimized star count for better performance on all devices
+    const positions = new Float32Array(10000 * 3);
     // Increased radius to 5 to give more depth/parallax effect
     random.inSphere(positions, { radius: 5 }); 
         return positions;

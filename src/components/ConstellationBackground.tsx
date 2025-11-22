@@ -44,7 +44,6 @@ export default function ConstellationBackground() {
       }
 
       draw() {
-        if (!ctx) return;
         ctx.beginPath();
         ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
         
