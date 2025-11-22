@@ -86,92 +86,224 @@
     }
   }
 
-  /* Space themed utilities */
-  .space-bg {
+  /* Enhanced Space Theme */
+  .space-bg-container {
     background: 
-      radial-gradient(ellipse at top, rgba(29, 78, 216, 0.15) 0%, transparent 50%),
-      radial-gradient(ellipse at bottom left, rgba(147, 51, 234, 0.15) 0%, transparent 50%),
-      radial-gradient(ellipse at bottom right, rgba(14, 165, 233, 0.1) 0%, transparent 50%),
-      linear-gradient(to bottom, rgba(3,7,18,0.95) 0%, rgba(10,12,20,1) 100%);
+      radial-gradient(ellipse at top, rgba(29, 78, 216, 0.3) 0%, transparent 50%),
+      radial-gradient(ellipse at bottom left, rgba(147, 51, 234, 0.25) 0%, transparent 50%),
+      radial-gradient(ellipse at bottom right, rgba(14, 165, 233, 0.2) 0%, transparent 50%),
+      linear-gradient(to bottom, rgba(3,7,18,0.98) 0%, rgba(10,12,20,1) 100%);
     overflow: hidden;
   }
 
-  .stars {
+  /* Multi-layer starfield */
+  .stars-layer-1 {
     position: absolute;
     inset: 0;
     background-image: 
-      radial-gradient(#ffffff88 1px, transparent 1px), 
-      radial-gradient(#ffffff55 1px, transparent 1px), 
-      radial-gradient(#ffffff33 1px, transparent 1px),
-      radial-gradient(#60a5fa22 1px, transparent 1px);
-    background-size: 50px 50px, 100px 100px, 200px 200px, 300px 300px;
-    background-position: 0 0, 50px 50px, 120px 40px, 200px 100px;
-    animation: twinkle 8s linear infinite;
-    opacity: 1;
+      radial-gradient(#ffffff 1px, transparent 1px), 
+      radial-gradient(#60a5fa 1px, transparent 1px);
+    background-size: 80px 80px, 120px 120px;
+    background-position: 0 0, 40px 40px;
+    animation: twinkle-fast 3s ease-in-out infinite;
+    opacity: 0.9;
     z-index: 1;
   }
 
-  @keyframes twinkle {
-    0%, 100% { transform: translateY(0) scale(1); opacity: 1 }
-    25% { transform: translateY(-10px) scale(1.01); opacity: 0.8 }
-    50% { transform: translateY(-20px) scale(1.02); opacity: 0.6 }
-    75% { transform: translateY(-10px) scale(1.01); opacity: 0.9 }
+  .stars-layer-2 {
+    position: absolute;
+    inset: 0;
+    background-image: 
+      radial-gradient(#ffffff 1px, transparent 1px), 
+      radial-gradient(#a855f7 1px, transparent 1px);
+    background-size: 150px 150px, 200px 200px;
+    background-position: 75px 75px, 100px 100px;
+    animation: twinkle-medium 5s ease-in-out infinite;
+    opacity: 0.7;
+    z-index: 1;
   }
 
+  .stars-layer-3 {
+    position: absolute;
+    inset: 0;
+    background-image: 
+      radial-gradient(#ffffff 1px, transparent 1px), 
+      radial-gradient(#06b6d4 1px, transparent 1px);
+    background-size: 250px 250px, 300px 300px;
+    background-position: 125px 125px, 150px 150px;
+    animation: twinkle-slow 8s ease-in-out infinite;
+    opacity: 0.8;
+    z-index: 1;
+  }
+
+  /* Star Animation Keyframes */
+  @keyframes twinkle-fast {
+    0%, 100% { opacity: 0.9; transform: scale(1) }
+    50% { opacity: 0.4; transform: scale(1.1) }
+  }
+
+  @keyframes twinkle-medium {
+    0%, 100% { opacity: 0.7; transform: scale(1) }
+    50% { opacity: 0.3; transform: scale(1.05) }
+  }
+
+  @keyframes twinkle-slow {
+    0%, 100% { opacity: 0.8; transform: scale(1) }
+    50% { opacity: 0.5; transform: scale(1.02) }
+  }
+
+  /* Space Objects Container */
   .space-objects {
     position: absolute;
     inset: 0;
     pointer-events: none;
+    z-index: 3;
+  }
+
+  /* Floating Stars */
+  .floating-stars {
+    position: absolute;
+    inset: 0;
     z-index: 2;
   }
 
-  .planet {
+  .floating-star {
     position: absolute;
-    right: 5%;
-    top: 15%;
-    transform: translateZ(0) rotate(-10deg);
-    animation: floatPlanet 25s linear infinite;
-    filter: drop-shadow(0 0 20px rgba(110, 231, 183, 0.3));
-    opacity: 0.9;
+    width: 2px;
+    height: 2px;
+    background: radial-gradient(circle, #ffffff 0%, transparent 70%);
+    border-radius: 50%;
+    animation: float-star 6s ease-in-out infinite;
   }
 
-  @keyframes floatPlanet {
-    0% { transform: translateY(0) translateX(0) rotate(-10deg); opacity: 0.9 }
-    50% { transform: translateY(15px) translateX(-10px) rotate(-8deg); opacity: 1 }
-    100% { transform: translateY(0) translateX(0) rotate(-10deg); opacity: 0.9 }
+  @keyframes float-star {
+    0%, 100% { opacity: 1; transform: translateY(0) scale(1) }
+    50% { opacity: 0.3; transform: translateY(-20px) scale(1.5) }
   }
 
-  .satellite {
+  /* Planet Container and Effects */
+  .planet-container {
     position: absolute;
-    left: 8%;
-    top: 25%;
-    transform: translateZ(0) rotate(10deg);
-    animation: orbit 18s linear infinite;
-    filter: drop-shadow(0 0 15px rgba(148, 163, 184, 0.4));
-    opacity: 0.8;
+    right: 8%;
+    top: 12%;
+    animation: float-planet 20s ease-in-out infinite;
+    z-index: 4;
   }
 
-  .rocket {
+  .planet-glow {
     position: absolute;
-    right: 15%;
-    bottom: 15%;
-    transform: translateY(0) rotate(15deg);
-    animation: launch 15s linear infinite;
-    filter: drop-shadow(0 0 25px rgba(255, 107, 107, 0.4));
-    opacity: 0.85;
+    top: -50px;
+    left: -50px;
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, rgba(110, 231, 183, 0.4) 0%, rgba(110, 231, 183, 0.1) 50%, transparent 70%);
+    border-radius: 50%;
+    animation: pulse-glow 4s ease-in-out infinite;
   }
 
-  @keyframes orbit {
-    0% { transform: translate(0,0) rotate(0deg) }
-    50% { transform: translate(40px,-60px) rotate(180deg) }
-    100% { transform: translate(0,0) rotate(360deg) }
+  .planet-image {
+    position: relative;
+    z-index: 5;
+    filter: drop-shadow(0 0 30px rgba(110, 231, 183, 0.6)) brightness(1.2);
   }
 
-  @keyframes launch {
-    0% { transform: translateY(0) rotate(15deg); opacity: 0.85 }
-    25% { transform: translateY(-20vh) translateX(-5vw) rotate(0deg); opacity: 1 }
-    50% { transform: translateY(-40vh) translateX(-15vw) rotate(-10deg); opacity: 0.9 }
-    75% { transform: translateY(-60vh) translateX(-25vw) rotate(-20deg); opacity: 0.7 }
-    100% { transform: translateY(0) translateX(0) rotate(15deg); opacity: 0.85 }
+  @keyframes float-planet {
+    0%, 100% { transform: translateY(0) translateX(0) rotate(-5deg) }
+    33% { transform: translateY(-15px) translateX(-8px) rotate(0deg) }
+    66% { transform: translateY(5px) translateX(8px) rotate(5deg) }
+  }
+
+  @keyframes pulse-glow {
+    0%, 100% { opacity: 0.4; transform: scale(1) }
+    50% { opacity: 0.8; transform: scale(1.1) }
+  }
+
+  /* Satellite Container and Effects */
+  .satellite-container {
+    position: absolute;
+    left: 10%;
+    top: 20%;
+    animation: orbit-satellite 25s linear infinite;
+    z-index: 4;
+  }
+
+  .satellite-glow {
+    position: absolute;
+    top: -30px;
+    left: -30px;
+    width: 210px;
+    height: 210px;
+    background: radial-gradient(circle, rgba(148, 163, 184, 0.5) 0%, rgba(148, 163, 184, 0.2) 50%, transparent 70%);
+    border-radius: 50%;
+    animation: satellite-pulse 3s ease-in-out infinite;
+  }
+
+  .satellite-image {
+    position: relative;
+    z-index: 5;
+    filter: drop-shadow(0 0 20px rgba(148, 163, 184, 0.8)) brightness(1.3);
+  }
+
+  @keyframes orbit-satellite {
+    0% { transform: translate(0, 0) rotate(0deg) }
+    25% { transform: translate(50px, -30px) rotate(90deg) }
+    50% { transform: translate(80px, 20px) rotate(180deg) }
+    75% { transform: translate(30px, 50px) rotate(270deg) }
+    100% { transform: translate(0, 0) rotate(360deg) }
+  }
+
+  @keyframes satellite-pulse {
+    0%, 100% { opacity: 0.5; transform: scale(1) }
+    50% { opacity: 0.9; transform: scale(1.05) }
+  }
+
+  /* Rocket Container and Effects */
+  .rocket-container {
+    position: absolute;
+    right: 12%;
+    bottom: 18%;
+    animation: rocket-launch 18s ease-in-out infinite;
+    z-index: 4;
+  }
+
+  .rocket-glow {
+    position: absolute;
+    top: -40px;
+    left: -40px;
+    width: 260px;
+    height: 260px;
+    background: radial-gradient(circle, rgba(255, 107, 107, 0.6) 0%, rgba(255, 165, 0, 0.3) 40%, transparent 70%);
+    border-radius: 50%;
+    animation: rocket-thrust 2s ease-in-out infinite;
+  }
+
+  .rocket-image {
+    position: relative;
+    z-index: 5;
+    filter: drop-shadow(0 0 35px rgba(255, 107, 107, 0.9)) brightness(1.4);
+  }
+
+  @keyframes rocket-launch {
+    0% { transform: translateY(0) translateX(0) rotate(15deg) }
+    25% { transform: translateY(-30vh) translateX(-10vw) rotate(5deg) }
+    50% { transform: translateY(-50vh) translateX(-20vw) rotate(-5deg) }
+    75% { transform: translateY(-30vh) translateX(-15vw) rotate(0deg) }
+    100% { transform: translateY(0) translateX(0) rotate(15deg) }
+  }
+
+  @keyframes rocket-thrust {
+    0%, 100% { opacity: 0.6; transform: scale(1) }
+    50% { opacity: 1; transform: scale(1.2) }
+  }
+
+  /* Additional space effects */
+  @media (max-width: 768px) {
+    .planet-container { right: 5%; top: 8%; }
+    .satellite-container { left: 5%; top: 15%; }
+    .rocket-container { right: 8%; bottom: 12%; }
+    
+    .planet-glow, .satellite-glow, .rocket-glow {
+      transform: scale(0.7);
+    }
   }
 }
