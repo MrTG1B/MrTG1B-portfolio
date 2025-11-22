@@ -3,6 +3,7 @@ import './globals.css';
 import { Toaster } from "@/components/ui/toaster";
 import { Outfit, Space_Grotesk } from 'next/font/google';
 import { cn } from '@/lib/utils';
+import SpaceBackground from '@/components/SpaceBackground';
 
 const outfit = Outfit({
   subsets: ['latin'],
@@ -29,7 +30,8 @@ export default function RootLayout({
   return (
     <html lang="en" className={cn(outfit.variable, spaceGrotesk.variable, "dark scroll-smooth")} suppressHydrationWarning>
       <body className={cn("font-sans bg-background text-foreground antialiased selection:bg-primary selection:text-primary-foreground")} suppressHydrationWarning>
-        {children}
+        <SpaceBackground />
+        <div className="relative z-10">{children}</div>
         <Toaster />
       </body>
     </html>
