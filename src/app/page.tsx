@@ -381,7 +381,7 @@ export default function Page() {
               <div className="absolute right-0 top-0 bottom-0 w-20 bg-gradient-to-l from-background to-transparent z-10"></div>
               <div className="flex animate-scroll group-hover:pause">
                 {[...skillsLogos, ...skillsLogos].map((skill, index) => (
-                  <div key={index} className="flex-shrink-0 w-[180px] h-[80px] mx-6 flex items-center justify-center p-4 rounded-xl bg-white/5 border border-white/5 hover:border-primary/50 hover:bg-white/10 transition-all cursor-default">
+                  <div key={index} className="flex-shrink-0 w-[180px] h-[80px] mx-6 flex items-center justify-center p-4 rounded-xl glass-premium border border-white/10 hover:border-primary/50 hover:bg-white/15 transition-all cursor-default interactive-card hover-lift">
                     <Image
                       src={skill.logo}
                       alt={skill.name}
