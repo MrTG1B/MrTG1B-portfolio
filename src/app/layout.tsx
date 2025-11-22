@@ -4,6 +4,7 @@ import { Toaster } from "@/components/ui/toaster";
 import { Outfit, Space_Grotesk } from 'next/font/google';
 import { cn } from '@/lib/utils';
 import SpaceBackground from '@/components/SpaceBackground';
+import ShootingStars from '@/components/ShootingStars';
 
 const outfit = Outfit({
   subsets: ['latin'],
@@ -31,6 +32,7 @@ export default function RootLayout({
     <html lang="en" className={cn(outfit.variable, spaceGrotesk.variable, "dark scroll-smooth")} suppressHydrationWarning>
       <body className={cn("font-sans text-foreground antialiased selection:bg-primary selection:text-primary-foreground min-h-screen overflow-x-hidden")} suppressHydrationWarning>
         <SpaceBackground />
+        <ShootingStars />
         <main className="relative z-20">{children}</main>
         <Toaster />
       </body>

@@ -15,6 +15,7 @@ import { Separator } from '@/components/ui/separator';
 import dynamic from 'next/dynamic';
 
 const Hero3D = dynamic(() => import('@/components/Hero3D'), { ssr: false });
+const Floating3DObjects = dynamic(() => import('@/components/Floating3DObjects'), { ssr: false });
 
 const topProjectSlugs = ["auralis", "resuai", "dgen-technologies", "wellmed"];
 const topProjects = projects.filter(p => topProjectSlugs.includes(p.slug));
@@ -280,9 +281,14 @@ export default function Page() {
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="w-full py-24 md:py-32 bg-black/20"
+          className="w-full py-24 md:py-32 bg-black/20 relative overflow-hidden"
         >
-          <div className="container mx-auto max-w-screen-2xl px-4 md:px-6">
+          {/* 3D Objects Background for Projects Section */}
+          <div className="absolute inset-0 h-[600px] opacity-30">
+            <Floating3DObjects />
+          </div>
+          
+          <div className="container mx-auto max-w-screen-2xl px-4 md:px-6 relative z-10">
             <div className="flex flex-col items-center justify-center space-y-4 text-center mb-16">
               <Badge className="bg-primary/20 text-primary hover:bg-primary/30 transition-colors">Portfolio</Badge>
               <h2 className="text-4xl md:text-6xl font-bold tracking-tighter">Featured Projects</h2>
@@ -299,7 +305,7 @@ export default function Page() {
                   viewport={{ once: true }}
                   transition={{ delay: index * 0.1 }}
                 >
-                  <Card className="glass flex flex-col overflow-hidden h-full border-white/5 hover:border-primary/50 transition-all duration-300 hover:shadow-[0_0_30px_rgba(0,240,255,0.1)] group">
+                  <Card className="cosmic-glow glass flex flex-col overflow-hidden h-full border-white/5 hover:border-primary/50 transition-all duration-300 hover:shadow-[0_0_30px_rgba(0,240,255,0.1)] group">
                     <div className="relative w-full h-[240px] bg-secondary/10 overflow-hidden">
                       <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
                         <Button asChild size="sm" className="w-full bg-white text-black hover:bg-white/90">
@@ -384,7 +390,7 @@ export default function Page() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: index * 0.2 }}
-                  className="glass p-8 rounded-2xl hover:bg-white/5 transition-colors"
+                  className="cosmic-glow glass p-8 rounded-2xl hover:bg-white/5 transition-colors"
                 >
                   <div className="mb-6 inline-flex p-3 rounded-lg bg-primary/10 text-primary">
                     {item.icon}

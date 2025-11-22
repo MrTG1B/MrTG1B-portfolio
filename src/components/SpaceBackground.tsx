@@ -1,9 +1,57 @@
 "use client";
 
 import Image from "next/image";
-import React from "react";
+import React, { useEffect, useState, useMemo } from "react";
 
 export default function SpaceBackground() {
+  const [scrollY, setScrollY] = useState(0);
+  const [mouseX, setMouseX] = useState(0);
+  const [mouseY, setMouseY] = useState(0);
+  const [windowSize, setWindowSize] = useState({ width: 0, height: 0 });
+
+  useEffect(() => {
+    // Initialize window size only on client side
+    if (typeof window !== 'undefined') {
+      setWindowSize({ width: window.innerWidth, height: window.innerHeight });
+
+      const handleScroll = () => {
+        setScrollY(window.scrollY);
+      };
+
+      const handleMouseMove = (e: MouseEvent) => {
+        setMouseX(e.clientX);
+        setMouseY(e.clientY);
+      };
+
+      const handleResize = () => {
+        setWindowSize({ width: window.innerWidth, height: window.innerHeight });
+      };
+
+      window.addEventListener("scroll", handleScroll, { passive: true });
+      window.addEventListener("mousemove", handleMouseMove, { passive: true });
+      window.addEventListener("resize", handleResize, { passive: true });
+
+      return () => {
+        window.removeEventListener("scroll", handleScroll);
+        window.removeEventListener("mousemove", handleMouseMove);
+        window.removeEventListener("resize", handleResize);
+      };
+    }
+  }, []);
+
+  // Memoize parallax calculations to avoid unnecessary recalculations
+  const planetParallax = useMemo(() => ({
+    transform: `translate(${scrollY * 0.15}px, ${scrollY * 0.2}px) translate(${(mouseX - windowSize.width / 2) * 0.02}px, ${(mouseY - windowSize.height / 2) * 0.02}px)`,
+  }), [scrollY, mouseX, mouseY, windowSize]);
+
+  const satelliteParallax = useMemo(() => ({
+    transform: `translate(${-scrollY * 0.1}px, ${scrollY * 0.25}px) translate(${(mouseX - windowSize.width / 2) * 0.03}px, ${(mouseY - windowSize.height / 2) * 0.03}px)`,
+  }), [scrollY, mouseX, mouseY, windowSize]);
+
+  const rocketParallax = useMemo(() => ({
+    transform: `translate(${scrollY * 0.08}px, ${-scrollY * 0.3}px) translate(${(mouseX - windowSize.width / 2) * 0.025}px, ${(mouseY - windowSize.height / 2) * 0.025}px)`,
+  }), [scrollY, mouseX, mouseY, windowSize]);
+
   return (
     <>
       {/* Enhanced Space Background */}
@@ -13,10 +61,10 @@ export default function SpaceBackground() {
         <div className="stars-layer-2" />
         <div className="stars-layer-3" />
         
-        {/* Space Objects */}
+        {/* Space Objects with Scroll Parallax */}
         <div className="space-objects">
           {/* Planet */}
-          <div className="planet-container">
+          <div className="planet-container" style={planetParallax}>
             <div className="planet-glow" />
             <Image 
               src="/Images/planet.svg" 
@@ -29,7 +77,7 @@ export default function SpaceBackground() {
           </div>
 
           {/* Satellite */}
-          <div className="satellite-container">
+          <div className="satellite-container" style={satelliteParallax}>
             <div className="satellite-glow" />
             <Image 
               src="/Images/satellite.svg" 
@@ -42,7 +90,7 @@ export default function SpaceBackground() {
           </div>
 
           {/* Rocket */}
-          <div className="rocket-container">
+          <div className="rocket-container" style={rocketParallax}>
             <div className="rocket-glow" />
             <Image 
               src="/Images/rocket.svg" 
