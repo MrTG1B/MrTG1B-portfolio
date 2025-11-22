@@ -1,9 +1,45 @@
 "use client";
 
 import Image from "next/image";
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 export default function SpaceBackground() {
+  const [scrollY, setScrollY] = useState(0);
+  const [mouseX, setMouseX] = useState(0);
+  const [mouseY, setMouseY] = useState(0);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrollY(window.scrollY);
+    };
+
+    const handleMouseMove = (e: MouseEvent) => {
+      setMouseX(e.clientX);
+      setMouseY(e.clientY);
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    window.addEventListener("mousemove", handleMouseMove, { passive: true });
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("mousemove", handleMouseMove);
+    };
+  }, []);
+
+  // Calculate parallax offsets based on scroll and mouse position
+  const planetParallax = {
+    transform: `translate(${scrollY * 0.15}px, ${scrollY * 0.2}px) translate(${(mouseX - window.innerWidth / 2) * 0.02}px, ${(mouseY - window.innerHeight / 2) * 0.02}px)`,
+  };
+
+  const satelliteParallax = {
+    transform: `translate(${-scrollY * 0.1}px, ${scrollY * 0.25}px) translate(${(mouseX - window.innerWidth / 2) * 0.03}px, ${(mouseY - window.innerHeight / 2) * 0.03}px)`,
+  };
+
+  const rocketParallax = {
+    transform: `translate(${scrollY * 0.08}px, ${-scrollY * 0.3}px) translate(${(mouseX - window.innerWidth / 2) * 0.025}px, ${(mouseY - window.innerHeight / 2) * 0.025}px)`,
+  };
+
   return (
     <>
       {/* Enhanced Space Background */}
@@ -13,10 +49,10 @@ export default function SpaceBackground() {
         <div className="stars-layer-2" />
         <div className="stars-layer-3" />
         
-        {/* Space Objects */}
+        {/* Space Objects with Scroll Parallax */}
         <div className="space-objects">
           {/* Planet */}
-          <div className="planet-container">
+          <div className="planet-container" style={planetParallax}>
             <div className="planet-glow" />
             <Image 
               src="/Images/planet.svg" 
@@ -29,7 +65,7 @@ export default function SpaceBackground() {
           </div>
 
           {/* Satellite */}
-          <div className="satellite-container">
+          <div className="satellite-container" style={satelliteParallax}>
             <div className="satellite-glow" />
             <Image 
               src="/Images/satellite.svg" 
@@ -42,7 +78,7 @@ export default function SpaceBackground() {
           </div>
 
           {/* Rocket */}
-          <div className="rocket-container">
+          <div className="rocket-container" style={rocketParallax}>
             <div className="rocket-glow" />
             <Image 
               src="/Images/rocket.svg" 

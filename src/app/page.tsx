@@ -15,6 +15,7 @@ import { Separator } from '@/components/ui/separator';
 import dynamic from 'next/dynamic';
 
 const Hero3D = dynamic(() => import('@/components/Hero3D'), { ssr: false });
+const Floating3DObjects = dynamic(() => import('@/components/Floating3DObjects'), { ssr: false });
 
 const topProjectSlugs = ["auralis", "resuai", "dgen-technologies", "wellmed"];
 const topProjects = projects.filter(p => topProjectSlugs.includes(p.slug));
@@ -280,9 +281,14 @@ export default function Page() {
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="w-full py-24 md:py-32 bg-black/20"
+          className="w-full py-24 md:py-32 bg-black/20 relative overflow-hidden"
         >
-          <div className="container mx-auto max-w-screen-2xl px-4 md:px-6">
+          {/* 3D Objects Background for Projects Section */}
+          <div className="absolute inset-0 h-[600px] opacity-30">
+            <Floating3DObjects />
+          </div>
+          
+          <div className="container mx-auto max-w-screen-2xl px-4 md:px-6 relative z-10">
             <div className="flex flex-col items-center justify-center space-y-4 text-center mb-16">
               <Badge className="bg-primary/20 text-primary hover:bg-primary/30 transition-colors">Portfolio</Badge>
               <h2 className="text-4xl md:text-6xl font-bold tracking-tighter">Featured Projects</h2>
