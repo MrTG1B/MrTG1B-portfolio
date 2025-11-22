@@ -2,8 +2,9 @@
 
 import { useRef, useMemo, useState } from "react";
 import { Canvas, useFrame, useThree } from "@react-three/fiber";
-import { Points, PointMaterial } from "@react-three/drei";
+import { Points, PointMaterial, Sphere } from "@react-three/drei";
 import * as random from "maath/random/dist/maath-random.cjs";
+import * as THREE from "three";
 
 // Custom lerp function for smooth camera movement
 const lerp = (start: number, end: number, factor: number) => {
@@ -14,9 +15,9 @@ function StarField(props: any) {
     const ref = useRef<any>();
 
     const sphere = useMemo(() => {
-    const positions = new Float32Array(6000 * 3); // Increased star count to 6000
-    // Increased radius to 3.5 to give more depth/parallax effect
-    random.inSphere(positions, { radius: 3.5 }); 
+    const positions = new Float32Array(8000 * 3); // Increased star count to 8000
+    // Increased radius to 4 to give more depth/parallax effect
+    random.inSphere(positions, { radius: 4 }); 
         return positions;
     }, []);
 
@@ -33,14 +34,38 @@ function StarField(props: any) {
             <Points ref={ref} positions={sphere} stride={3} frustumCulled={false} {...props}>
                 <PointMaterial
                     transparent
-                    color="#ffffff"   // CHANGED: Set to White
-                    size={0.006}      // CHANGED: Made slightly smaller for realistic "star" look
+                    color="#ffffff"
+                    size={0.005}
                     sizeAttenuation={true}
                     depthWrite={false}
                     opacity={1}
                 />
             </Points>
         </group>
+    );
+}
+
+// Add a glowing orb that pulses
+function GlowingOrb({ position, color }: { position: [number, number, number]; color: string }) {
+    const meshRef = useRef<THREE.Mesh>(null);
+
+    useFrame((state) => {
+        if (meshRef.current) {
+            const scale = 0.5 + Math.sin(state.clock.elapsedTime * 0.5) * 0.1;
+            meshRef.current.scale.setScalar(scale);
+        }
+    });
+
+    return (
+        <Sphere ref={meshRef} position={position} args={[0.3, 32, 32]}>
+            <meshStandardMaterial
+                color={color}
+                emissive={color}
+                emissiveIntensity={0.8}
+                transparent
+                opacity={0.6}
+            />
+        </Sphere>
     );
 }
 
@@ -85,8 +110,13 @@ export default function Hero3D() {
                 camera={{ position: [0, 0, 1], fov: 75 }}
                 style={{ background: 'transparent' }} 
             >
-                <ambientLight intensity={1} />
+                <ambientLight intensity={0.5} />
+                <pointLight position={[10, 10, 10]} intensity={1} color="#60a5fa" />
+                <pointLight position={[-10, -10, -10]} intensity={0.5} color="#a855f7" />
                 <StarField />
+                <GlowingOrb position={[-2, 1, -2]} color="#3b82f6" />
+                <GlowingOrb position={[2, -1, -3]} color="#a855f7" />
+                <GlowingOrb position={[0, 2, -4]} color="#06b6d4" />
                 <CameraController mouseX={mousePosition.x} mouseY={mousePosition.y} />
             </Canvas>
         </div>

@@ -7,8 +7,12 @@ export default function SpaceBackground() {
   const [scrollY, setScrollY] = useState(0);
   const [mouseX, setMouseX] = useState(0);
   const [mouseY, setMouseY] = useState(0);
+  const [windowSize, setWindowSize] = useState({ width: 0, height: 0 });
 
   useEffect(() => {
+    // Initialize window size
+    setWindowSize({ width: window.innerWidth, height: window.innerHeight });
+
     const handleScroll = () => {
       setScrollY(window.scrollY);
     };
@@ -18,26 +22,32 @@ export default function SpaceBackground() {
       setMouseY(e.clientY);
     };
 
+    const handleResize = () => {
+      setWindowSize({ width: window.innerWidth, height: window.innerHeight });
+    };
+
     window.addEventListener("scroll", handleScroll, { passive: true });
     window.addEventListener("mousemove", handleMouseMove, { passive: true });
+    window.addEventListener("resize", handleResize, { passive: true });
 
     return () => {
       window.removeEventListener("scroll", handleScroll);
       window.removeEventListener("mousemove", handleMouseMove);
+      window.removeEventListener("resize", handleResize);
     };
   }, []);
 
   // Calculate parallax offsets based on scroll and mouse position
   const planetParallax = {
-    transform: `translate(${scrollY * 0.15}px, ${scrollY * 0.2}px) translate(${(mouseX - window.innerWidth / 2) * 0.02}px, ${(mouseY - window.innerHeight / 2) * 0.02}px)`,
+    transform: `translate(${scrollY * 0.15}px, ${scrollY * 0.2}px) translate(${(mouseX - windowSize.width / 2) * 0.02}px, ${(mouseY - windowSize.height / 2) * 0.02}px)`,
   };
 
   const satelliteParallax = {
-    transform: `translate(${-scrollY * 0.1}px, ${scrollY * 0.25}px) translate(${(mouseX - window.innerWidth / 2) * 0.03}px, ${(mouseY - window.innerHeight / 2) * 0.03}px)`,
+    transform: `translate(${-scrollY * 0.1}px, ${scrollY * 0.25}px) translate(${(mouseX - windowSize.width / 2) * 0.03}px, ${(mouseY - windowSize.height / 2) * 0.03}px)`,
   };
 
   const rocketParallax = {
-    transform: `translate(${scrollY * 0.08}px, ${-scrollY * 0.3}px) translate(${(mouseX - window.innerWidth / 2) * 0.025}px, ${(mouseY - window.innerHeight / 2) * 0.025}px)`,
+    transform: `translate(${scrollY * 0.08}px, ${-scrollY * 0.3}px) translate(${(mouseX - windowSize.width / 2) * 0.025}px, ${(mouseY - windowSize.height / 2) * 0.025}px)`,
   };
 
   return (

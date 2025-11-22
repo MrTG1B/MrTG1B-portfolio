@@ -305,7 +305,7 @@ export default function Page() {
                   viewport={{ once: true }}
                   transition={{ delay: index * 0.1 }}
                 >
-                  <Card className="glass flex flex-col overflow-hidden h-full border-white/5 hover:border-primary/50 transition-all duration-300 hover:shadow-[0_0_30px_rgba(0,240,255,0.1)] group">
+                  <Card className="cosmic-glow glass flex flex-col overflow-hidden h-full border-white/5 hover:border-primary/50 transition-all duration-300 hover:shadow-[0_0_30px_rgba(0,240,255,0.1)] group">
                     <div className="relative w-full h-[240px] bg-secondary/10 overflow-hidden">
                       <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
                         <Button asChild size="sm" className="w-full bg-white text-black hover:bg-white/90">
@@ -390,7 +390,7 @@ export default function Page() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: index * 0.2 }}
-                  className="glass p-8 rounded-2xl hover:bg-white/5 transition-colors"
+                  className="cosmic-glow glass p-8 rounded-2xl hover:bg-white/5 transition-colors"
                 >
                   <div className="mb-6 inline-flex p-3 rounded-lg bg-primary/10 text-primary">
                     {item.icon}
