@@ -117,11 +117,11 @@ export default function Page() {
 
   return (
     <div className="flex flex-col min-h-screen bg-background text-foreground overflow-x-hidden">
-      <header className="fixed top-0 z-50 w-full border-b border-white/10 bg-black/50 backdrop-blur-md supports-[backdrop-filter]:bg-black/20">
+      <header className="fixed top-0 z-50 w-full border-b border-white/10 glass-premium">
         <div className="container mx-auto flex h-16 max-w-screen-2xl items-center justify-between px-4 md:px-6">
           <Link href="/" className="flex items-center space-x-2 group">
             <div className="relative">
-              <div className="absolute -inset-1 bg-gradient-to-r from-primary to-secondary rounded-full blur opacity-25 group-hover:opacity-75 transition duration-1000 group-hover:duration-200"></div>
+              <div className="absolute -inset-1 bg-gradient-to-r from-primary to-secondary rounded-full blur opacity-30 group-hover:opacity-100 transition duration-500 group-hover:duration-200 pulse-ring"></div>
               <Code className="relative h-8 w-8 text-primary" />
             </div>
             <span className="font-bold text-xl tracking-tight">MrTG1B</span>
@@ -131,11 +131,11 @@ export default function Page() {
               {["About", "Projects", "Skills", "Contact"].map((item) => (
                 <Link key={item} href={`#${item.toLowerCase()}`} className="relative text-muted-foreground hover:text-primary transition-colors group">
                   {item}
-                  <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all group-hover:w-full"></span>
+                  <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-primary to-secondary transition-all group-hover:w-full"></span>
                 </Link>
               ))}
             </nav>
-            <Button asChild variant="default" size="sm" className="hidden md:flex bg-primary text-primary-foreground hover:bg-primary/90 shadow-[0_0_15px_rgba(0,240,255,0.5)]">
+            <Button asChild variant="default" size="sm" className="hidden md:flex bg-primary text-primary-foreground hover:bg-primary/90 shadow-[0_0_20px_rgba(59,130,246,0.6)] btn-glow">
               <Link href="#contact">Get in Touch</Link>
             </Button>
             <Sheet open={isMobileMenuOpen} onOpenChange={setIsMobileMenuOpen}>
@@ -145,7 +145,7 @@ export default function Page() {
                   <span className="sr-only">Open navigation menu</span>
                 </Button>
               </SheetTrigger>
-              <SheetContent side="left" className="bg-black/95 border-r border-white/10">
+              <SheetContent side="left" className="glass-premium border-r border-white/10">
                 <div className="p-6">
                   <Link href="/" className="flex items-center space-x-2 mb-8" onClick={() => setIsMobileMenuOpen(false)}>
                     <Code className="h-8 w-8 text-primary" />
@@ -183,7 +183,7 @@ export default function Page() {
               transition={{ duration: 0.8, ease: "easeOut" }}
               className="mb-6"
             >
-              <Badge variant="outline" className="px-4 py-1 border-primary/50 text-primary bg-primary/10 backdrop-blur-sm text-sm uppercase tracking-widest">
+              <Badge variant="outline" className="px-4 py-1 border-primary/50 text-primary glass-premium text-sm uppercase tracking-widest pulse-ring">
                 Portfolio 2025
               </Badge>
             </motion.div>
@@ -192,7 +192,7 @@ export default function Page() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.2 }}
-              className="text-5xl md:text-8xl font-extrabold tracking-tighter mb-6 bg-clip-text text-transparent bg-gradient-to-b from-white to-white/50"
+              className="text-5xl md:text-8xl font-extrabold tracking-tighter mb-6 text-shimmer"
             >
               Tirthankar Dasgupta
             </motion.h1>
@@ -201,9 +201,9 @@ export default function Page() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.4 }}
-              className="max-w-2xl text-xl md:text-2xl text-muted-foreground mb-10"
+              className="max-w-2xl text-xl md:text-2xl text-white mb-10 drop-shadow-[0_2px_10px_rgba(0,0,0,0.8)]"
             >
-              Full-Stack Developer | <span className="text-primary">AI & Robotics Enthusiast</span> | Innovator
+              Full-Stack Developer | <span className="text-primary font-semibold">AI & Robotics Enthusiast</span> | Innovator
             </motion.p>
 
             <motion.div
@@ -212,12 +212,12 @@ export default function Page() {
               transition={{ duration: 0.5, delay: 0.6 }}
               className="flex flex-wrap justify-center gap-6"
             >
-              <Button asChild size="lg" className="bg-primary text-primary-foreground hover:bg-primary/90 shadow-[0_0_20px_rgba(0,240,255,0.3)] text-lg h-12 px-8">
+              <Button asChild size="lg" className="bg-primary text-primary-foreground hover:bg-primary/90 shadow-[0_0_30px_rgba(59,130,246,0.5)] hover:shadow-[0_0_40px_rgba(59,130,246,0.8)] text-lg h-12 px-8 btn-glow hover-lift">
                 <Link href="#projects">
                   <Briefcase className="mr-2 h-5 w-5" /> View My Work
                 </Link>
               </Button>
-              <Button asChild variant="outline" size="lg" className="border-white/20 bg-white/5 hover:bg-white/10 text-white backdrop-blur-sm text-lg h-12 px-8">
+              <Button asChild variant="outline" size="lg" className="border-white/30 glass-premium hover:bg-white/15 text-white text-lg h-12 px-8 hover-lift">
                 <Link href="#contact">
                   <Mail className="mr-2 h-5 w-5" /> Get in Touch
                 </Link>
@@ -245,10 +245,16 @@ export default function Page() {
           transition={{ duration: 0.8 }}
           className="w-full py-24 md:py-32 relative overflow-hidden"
         >
-          <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-background to-secondary/5 -z-10"></div>
+          <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-background via-secondary/10 to-background -z-10"></div>
           <div className="container mx-auto max-w-screen-2xl px-4 md:px-6 relative z-10">
             <div className="grid md:grid-cols-2 gap-16 items-center">
-              <div className="space-y-6">
+              <motion.div 
+                className="space-y-6"
+                initial={{ opacity: 0, x: -50 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8, delay: 0.2 }}
+              >
                 <Badge className="bg-secondary/20 text-secondary hover:bg-secondary/30 transition-colors">About Me</Badge>
                 <h2 className="text-4xl md:text-5xl font-bold tracking-tighter text-gradient">Crafting Digital Experiences</h2>
                 <p className="text-muted-foreground text-lg leading-relaxed">
@@ -257,10 +263,16 @@ export default function Page() {
                 <p className="text-muted-foreground text-lg leading-relaxed">
                   With a strong foundation in both hardware and software, I enjoy bringing ideas to life, whether it's a dynamic web application, a smart IoT device, or an autonomous robot powered by cloud AI. I thrive on challenges and am always eager to learn and apply new technologies.
                 </p>
-              </div>
-              <div className="relative group">
-                <div className="absolute -inset-4 bg-gradient-to-r from-primary to-secondary rounded-2xl blur-xl opacity-30 group-hover:opacity-50 transition duration-500"></div>
-                <div className="relative rounded-2xl overflow-hidden border border-white/10 shadow-2xl">
+              </motion.div>
+              <motion.div 
+                className="relative group"
+                initial={{ opacity: 0, x: 50 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8, delay: 0.4 }}
+              >
+                <div className="absolute -inset-4 bg-gradient-to-r from-primary via-secondary to-accent rounded-2xl blur-2xl opacity-40 group-hover:opacity-70 transition duration-700 pulse-ring"></div>
+                <div className="relative rounded-2xl overflow-hidden border border-white/20 shadow-2xl hover-lift">
                   <Image
                     src="https://picsum.photos/seed/2/800/800"
                     alt="Tirthankar Dasgupta"
@@ -270,7 +282,7 @@ export default function Page() {
                     data-ai-hint="profile photo"
                   />
                 </div>
-              </div>
+              </motion.div>
             </div>
           </div>
         </MotionSection>
@@ -305,10 +317,10 @@ export default function Page() {
                   viewport={{ once: true }}
                   transition={{ delay: index * 0.1 }}
                 >
-                  <Card className="cosmic-glow glass flex flex-col overflow-hidden h-full border-white/5 hover:border-primary/50 transition-all duration-300 hover:shadow-[0_0_30px_rgba(0,240,255,0.1)] group">
+                  <Card className="cosmic-glow glass-premium interactive-card nebula-glow flex flex-col overflow-hidden h-full border-white/10 hover:border-primary/50 transition-all duration-300 hover:shadow-[0_0_40px_rgba(59,130,246,0.3)] group">
                     <div className="relative w-full h-[240px] bg-secondary/10 overflow-hidden">
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
-                        <Button asChild size="sm" className="w-full bg-white text-black hover:bg-white/90">
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/90 to-transparent z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
+                        <Button asChild size="sm" className="w-full bg-white text-black hover:bg-white/90 font-semibold">
                           <Link href={`/projects/${project.slug}`}>View Project</Link>
                         </Button>
                       </div>
@@ -327,7 +339,7 @@ export default function Page() {
                     <div className="flex flex-col flex-grow p-6">
                       <h3 className="text-xl font-bold mb-2 group-hover:text-primary transition-colors">{project.title}</h3>
                       <p className="text-sm text-muted-foreground line-clamp-3 mb-4">{project.description}</p>
-                      <div className="mt-auto pt-4 border-t border-white/5 flex justify-between items-center">
+                      <div className="mt-auto pt-4 border-t border-white/10 flex justify-between items-center">
                         <span className="text-xs text-muted-foreground font-mono">0{index + 1}</span>
                         <ArrowRight className="h-4 w-4 text-muted-foreground group-hover:text-primary group-hover:translate-x-1 transition-all" />
                       </div>
@@ -337,7 +349,7 @@ export default function Page() {
               ))}
             </div>
             <div className="text-center mt-16">
-              <Button asChild size="lg" variant="outline" className="border-primary/50 text-primary hover:bg-primary/10">
+              <Button asChild size="lg" variant="outline" className="border-primary/50 text-primary hover:bg-primary/20 glass-premium hover-lift">
                 <Link href="/projects">
                   View All Projects <ArrowRight className="ml-2" />
                 </Link>
@@ -390,9 +402,9 @@ export default function Page() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: index * 0.2 }}
-                  className="cosmic-glow glass p-8 rounded-2xl hover:bg-white/5 transition-colors"
+                  className="cosmic-glow glass-premium interactive-card p-8 rounded-2xl hover:bg-white/10 transition-all hover-lift nebula-glow"
                 >
-                  <div className="mb-6 inline-flex p-3 rounded-lg bg-primary/10 text-primary">
+                  <div className="mb-6 inline-flex p-3 rounded-lg bg-primary/20 text-primary pulse-ring">
                     {item.icon}
                   </div>
                   <h3 className="text-2xl font-bold mb-4">{item.category}</h3>
@@ -423,7 +435,7 @@ export default function Page() {
                   initial={{ opacity: 0, x: index % 2 === 0 ? -20 : 20 }}
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
-                  className="flex items-start space-x-6 p-8 rounded-2xl bg-white/5 border border-white/5 hover:border-yellow-500/50 transition-all"
+                  className="flex items-start space-x-6 p-8 rounded-2xl glass-premium border border-white/10 hover:border-yellow-500/50 transition-all interactive-card hover-lift"
                 >
                   <div className="flex-shrink-0 p-3 rounded-full bg-yellow-500/10 text-yellow-500">
                     {item.icon}
@@ -456,7 +468,7 @@ export default function Page() {
                 Have a question, a project idea, or just want to connect? Send me a message!
               </p>
             </div>
-            <div className="mx-auto max-w-2xl glass p-8 md:p-12 rounded-3xl border-white/10">
+            <div className="mx-auto max-w-2xl glass-premium p-8 md:p-12 rounded-3xl border-white/20 shadow-[0_0_50px_rgba(59,130,246,0.2)] interactive-card">
               <ContactForm />
             </div>
           </div>

@@ -15,9 +15,9 @@ function StarField(props: any) {
     const ref = useRef<any>();
 
     const sphere = useMemo(() => {
-    const positions = new Float32Array(8000 * 3); // Increased star count to 8000
-    // Increased radius to 4 to give more depth/parallax effect
-    random.inSphere(positions, { radius: 4 }); 
+    const positions = new Float32Array(12000 * 3); // Increased star count to 12000 for denser field
+    // Increased radius to 5 to give more depth/parallax effect
+    random.inSphere(positions, { radius: 5 }); 
         return positions;
     }, []);
 
@@ -35,10 +35,10 @@ function StarField(props: any) {
                 <PointMaterial
                     transparent
                     color="#ffffff"
-                    size={0.005}
+                    size={0.006}
                     sizeAttenuation={true}
                     depthWrite={false}
-                    opacity={1}
+                    opacity={0.9}
                 />
             </Points>
         </group>
@@ -51,19 +51,24 @@ function GlowingOrb({ position, color }: { position: [number, number, number]; c
 
     useFrame((state) => {
         if (meshRef.current) {
-            const scale = 0.5 + Math.sin(state.clock.elapsedTime * 0.5) * 0.1;
+            const scale = 0.5 + Math.sin(state.clock.elapsedTime * 0.5) * 0.15;
             meshRef.current.scale.setScalar(scale);
+            // Add subtle rotation
+            meshRef.current.rotation.x += 0.01;
+            meshRef.current.rotation.y += 0.015;
         }
     });
 
     return (
-        <Sphere ref={meshRef} position={position} args={[0.3, 32, 32]}>
+        <Sphere ref={meshRef} position={position} args={[0.35, 32, 32]}>
             <meshStandardMaterial
                 color={color}
                 emissive={color}
-                emissiveIntensity={0.8}
+                emissiveIntensity={1.2}
                 transparent
-                opacity={0.6}
+                opacity={0.7}
+                metalness={0.8}
+                roughness={0.2}
             />
         </Sphere>
     );
@@ -74,16 +79,16 @@ function CameraController({ mouseX, mouseY }: { mouseX: number; mouseY: number }
 
     useFrame(() => {
         // Enhanced camera movement - more dramatic response to mouse
-        const targetX = mouseX * 1.5; // Increased multiplier for more movement
-        const targetY = -mouseY * 1.2; // Different multiplier for Y axis
-        const targetZ = 1 + mouseY * 0.3; // Also move camera forward/backward slightly
+        const targetX = mouseX * 2.0; // Increased multiplier for more movement
+        const targetY = -mouseY * 1.5; // Different multiplier for Y axis
+        const targetZ = 1 + mouseY * 0.4; // Also move camera forward/backward slightly
         
-        camera.position.x = lerp(camera.position.x, targetX, 0.1); // Faster lerp
-        camera.position.y = lerp(camera.position.y, targetY, 0.1);
-        camera.position.z = lerp(camera.position.z, targetZ, 0.05);
+        camera.position.x = lerp(camera.position.x, targetX, 0.08); // Smoother lerp
+        camera.position.y = lerp(camera.position.y, targetY, 0.08);
+        camera.position.z = lerp(camera.position.z, targetZ, 0.04);
         
         // Add slight rotation based on mouse position
-        camera.rotation.z = lerp(camera.rotation.z, mouseX * 0.05, 0.1);
+        camera.rotation.z = lerp(camera.rotation.z, mouseX * 0.08, 0.08);
         
         camera.lookAt(0, 0, 0);
     });
@@ -110,13 +115,16 @@ export default function Hero3D() {
                 camera={{ position: [0, 0, 1], fov: 75 }}
                 style={{ background: 'transparent' }} 
             >
-                <ambientLight intensity={0.5} />
-                <pointLight position={[10, 10, 10]} intensity={1} color="#60a5fa" />
-                <pointLight position={[-10, -10, -10]} intensity={0.5} color="#a855f7" />
+                <ambientLight intensity={0.6} />
+                <pointLight position={[10, 10, 10]} intensity={1.5} color="#60a5fa" />
+                <pointLight position={[-10, -10, -10]} intensity={0.8} color="#a855f7" />
+                <pointLight position={[0, 5, 5]} intensity={0.5} color="#06b6d4" />
                 <StarField />
                 <GlowingOrb position={[-2, 1, -2]} color="#3b82f6" />
                 <GlowingOrb position={[2, -1, -3]} color="#a855f7" />
                 <GlowingOrb position={[0, 2, -4]} color="#06b6d4" />
+                <GlowingOrb position={[-1.5, -2, -2.5]} color="#f59e0b" />
+                <GlowingOrb position={[2.5, 1.5, -3.5]} color="#ec4899" />
                 <CameraController mouseX={mousePosition.x} mouseY={mousePosition.y} />
             </Canvas>
         </div>
