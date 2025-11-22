@@ -39,21 +39,38 @@ export default function SpaceBackground() {
     }
   }, []);
 
-  // Memoize parallax calculations to avoid unnecessary recalculations
+  // Enhanced parallax calculations with mouse interaction
   const planetParallax = useMemo(() => ({
-    transform: `translate(${scrollY * 0.15}px, ${scrollY * 0.2}px) translate(${(mouseX - windowSize.width / 2) * 0.02}px, ${(mouseY - windowSize.height / 2) * 0.02}px)`,
+    transform: `translate(${scrollY * 0.15}px, ${scrollY * 0.2}px) translate(${(mouseX - windowSize.width / 2) * 0.03}px, ${(mouseY - windowSize.height / 2) * 0.03}px) rotate(${scrollY * 0.05}deg)`,
   }), [scrollY, mouseX, mouseY, windowSize]);
 
   const satelliteParallax = useMemo(() => ({
-    transform: `translate(${-scrollY * 0.1}px, ${scrollY * 0.25}px) translate(${(mouseX - windowSize.width / 2) * 0.03}px, ${(mouseY - windowSize.height / 2) * 0.03}px)`,
+    transform: `translate(${-scrollY * 0.1}px, ${scrollY * 0.25}px) translate(${(mouseX - windowSize.width / 2) * 0.04}px, ${(mouseY - windowSize.height / 2) * 0.04}px) rotate(${-scrollY * 0.03}deg)`,
   }), [scrollY, mouseX, mouseY, windowSize]);
 
   const rocketParallax = useMemo(() => ({
-    transform: `translate(${scrollY * 0.08}px, ${-scrollY * 0.3}px) translate(${(mouseX - windowSize.width / 2) * 0.025}px, ${(mouseY - windowSize.height / 2) * 0.025}px)`,
+    transform: `translate(${scrollY * 0.08}px, ${-scrollY * 0.3}px) translate(${(mouseX - windowSize.width / 2) * 0.035}px, ${(mouseY - windowSize.height / 2) * 0.035}px) rotate(${scrollY * 0.02}deg)`,
   }), [scrollY, mouseX, mouseY, windowSize]);
+
+  // Scroll progress
+  const scrollProgress = useMemo(() => {
+    if (typeof window === 'undefined') return 0;
+    const windowHeight = window.innerHeight;
+    const documentHeight = document.documentElement.scrollHeight;
+    const scrollTop = window.scrollY;
+    return (scrollTop / (documentHeight - windowHeight)) * 100;
+  }, [scrollY]);
 
   return (
     <>
+      {/* Scroll Progress Indicator */}
+      <div className="fixed top-0 left-0 w-full h-1 z-[100] bg-black/30">
+        <div 
+          className="h-full bg-gradient-to-r from-primary via-secondary to-accent transition-all duration-300"
+          style={{ width: `${scrollProgress}%` }}
+        />
+      </div>
+
       {/* Enhanced Space Background */}
       <div className="space-bg-container pointer-events-none fixed inset-0 z-0">
         {/* Animated Starfield */}
@@ -61,7 +78,7 @@ export default function SpaceBackground() {
         <div className="stars-layer-2" />
         <div className="stars-layer-3" />
         
-        {/* Space Objects with Scroll Parallax */}
+        {/* Space Objects with Enhanced Parallax */}
         <div className="space-objects">
           {/* Planet */}
           <div className="planet-container" style={planetParallax}>
