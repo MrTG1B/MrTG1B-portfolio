@@ -48,10 +48,18 @@ function CameraController({ mouseX, mouseY }: { mouseX: number; mouseY: number }
     const { camera } = useThree();
 
     useFrame(() => {
-        // Make the camera follow the mouse. 
-        // Multiplied by 0.8 to make the movement wider/more noticeable
-        camera.position.x = lerp(camera.position.x, mouseX * 0.8, 0.05);
-        camera.position.y = lerp(camera.position.y, -mouseY * 0.8, 0.05);
+        // Enhanced camera movement - more dramatic response to mouse
+        const targetX = mouseX * 1.5; // Increased multiplier for more movement
+        const targetY = -mouseY * 1.2; // Different multiplier for Y axis
+        const targetZ = 1 + mouseY * 0.3; // Also move camera forward/backward slightly
+        
+        camera.position.x = lerp(camera.position.x, targetX, 0.1); // Faster lerp
+        camera.position.y = lerp(camera.position.y, targetY, 0.1);
+        camera.position.z = lerp(camera.position.z, targetZ, 0.05);
+        
+        // Add slight rotation based on mouse position
+        camera.rotation.z = lerp(camera.rotation.z, mouseX * 0.05, 0.1);
+        
         camera.lookAt(0, 0, 0);
     });
 
@@ -70,16 +78,13 @@ export default function Hero3D() {
 
     return (
         <div
-            className="w-full h-full absolute inset-0"
-            style={{ zIndex: 0 }} // Ensure it sits behind your content
+            className="w-full h-full absolute inset-0 z-5"
             onMouseMove={handleMouseMove}
         >
             <Canvas
                 camera={{ position: [0, 0, 1], fov: 75 }}
-                // Transparent background so your CSS gradient shows through
                 style={{ background: 'transparent' }} 
             >
-                {/* Ambient light isn't strictly needed for BasicMaterial points, but good practice */}
                 <ambientLight intensity={1} />
                 <StarField />
                 <CameraController mouseX={mousePosition.x} mouseY={mousePosition.y} />

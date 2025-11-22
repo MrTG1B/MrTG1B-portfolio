@@ -29,9 +29,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={cn(outfit.variable, spaceGrotesk.variable, "dark scroll-smooth")} suppressHydrationWarning>
-      <body className={cn("font-sans bg-background text-foreground antialiased selection:bg-primary selection:text-primary-foreground")} suppressHydrationWarning>
+      <body className={cn("font-sans text-foreground antialiased selection:bg-primary selection:text-primary-foreground min-h-screen overflow-x-hidden")} suppressHydrationWarning>
         <SpaceBackground />
-        <div className="relative z-10">{children}</div>
+        <main className="relative z-20">{children}</main>
         <Toaster />
       </body>
     </html>
